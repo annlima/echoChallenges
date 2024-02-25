@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AB51AB42B8ADC5100A80A88 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */; };
 		A19F94102B87A13D001A31B6 /* echoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F940F2B87A13D001A31B6 /* echoApp.swift */; };
 		A19F94122B87A13D001A31B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F94112B87A13D001A31B6 /* ContentView.swift */; };
 		A19F94142B87A13F001A31B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A19F94132B87A13F001A31B6 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		A19F940C2B87A13D001A31B6 /* echo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = echo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19F940F2B87A13D001A31B6 /* echoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = echoApp.swift; sourceTree = "<group>"; };
 		A19F94112B87A13D001A31B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				A19F94132B87A13F001A31B6 /* Assets.xcassets */,
 				A19F94152B87A13F001A31B6 /* Preview Content */,
 				A19F94392B87A14E001A31B6 /* LaunchScreen.swift */,
+				1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */,
 			);
 			path = echo;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				A19F94122B87A13D001A31B6 /* ContentView.swift in Sources */,
 				A19F94102B87A13D001A31B6 /* echoApp.swift in Sources */,
+				1AB51AB42B8ADC5100A80A88 /* Onboarding.swift in Sources */,
 				A19F943C2B87A18F001A31B6 /* LoginView.swift in Sources */,
 				A19F943A2B87A14E001A31B6 /* LaunchScreen.swift in Sources */,
 			);
