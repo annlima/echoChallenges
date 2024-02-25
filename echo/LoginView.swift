@@ -7,98 +7,76 @@
 
 import SwiftUI
 
-struct PasswordTextField: View {
-    @Binding var text: String
-    @Binding var isSecure: Bool
-
+struct LoginView: View {
+    @State private var email = ""
+    @State private var password = ""
     
     var body: some View {
-        ZStack(alignment: .trailing) {
-            if isSecure {
-                SecureField("Contraseña", text: $text)
-                    .foregroundColor(.black)
-                    .padding()
-                    .background(Color("ColorPrincipal").opacity(0.20))
-                    .cornerRadius(20)
-            } else {
-                TextField("Password", text: $text)
-                    .foregroundColor(.black)
-                    .padding()
-                    .background(Color("ColorPrincipal").opacity(0.2))
-                    .cornerRadius(20)
+        VStack {
+            // Header
+            AuthHeaderView(title1: "Hola,", title2: "bienvenido de nuevo.")
+            
+            VStack(spacing: 40) {
+                CustomInputField(imageName: "envelope",
+                                 placeholderText: "Correo electrónico",
+                                 isSecureField: false, // Se especifica explícitamente para claridad, aunque el valor predeterminado ya es false
+                                 text: $email)
+                CustomInputField(imageName: "lock",
+                                 placeholderText: "Contraseña",
+                                 isSecureField: true, // Aquí se necesita para el campo de contraseña
+                                 text: $password)
+            }
+            .padding(.horizontal, 32)
+            .padding(.top, 44)
+            
+            HStack {
+                Spacer()
+                
+                NavigationLink {
+                    Text("Reset View")
+                } label: {
+                    Text("¿Olvidaste tu contraseña?")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color("ColorPrincipal"))
+                        .padding(.top)
+                        .padding(.trailing, 24)
+                }
             }
             
-            Button(action: {
-                isSecure.toggle()
-            }) {
-                Image(systemName: isSecure ? "eye.slash" : "eye")
-                    .foregroundColor(Color("ColorPrincipal"))
+            Button {
+                print("Inicia sesión")
+                // Acción de inicio de sesión comentada
+            } label: {
+                Text("Inicia sesión")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 340, height: 50)
+                    .background(Color("ColorPrincipal"))
+                    .clipShape(Capsule())
+                    .padding()
             }
-            .padding(.trailing, 8)
-        }
-        .padding(.horizontal, 20)
-    }
-}
-
-struct LoginView: View {
-    @State private var username: String = ""
-    @State private var password: String = ""
-    @State private var isLoggedIn: Bool = false
-    @State private var showPassword: Bool = true
-    
-    let customGreen = Color(red: 162/255, green: 214/255, blue: 5/255)
-    
-    var body: some View {
-        NavigationView {
-            VStack(alignment: .leading) {
-                Text("Bienvenido")
-                    .font(.largeTitle)
-                    .font(.system(size: 12, weight: .light, design: .serif))
-                    .bold() // Texto en negrita
-                    .foregroundColor(customGreen)
-                    .padding(.bottom, 0.5)
-                Text("Regístrate ahora")
-                    .font(.largeTitle)
-                    .bold() // Texto en negrita
-                    .foregroundColor(customGreen)
-                    .padding(.top, 20)
-                TextField("Nombre completo", text: $username)
-                    .foregroundColor(.black)
-                    .padding()
-                    .background(customGreen.opacity(0.2))
-                    .cornerRadius(20)
-                    .padding(.horizontal, 20)
-                    .autocapitalization(.none)
-                TextField("Nombre de usuario", text: $username)
-                    .foregroundColor(.black)
-                    .padding()
-                    .background(customGreen.opacity(0.2))
-                    .cornerRadius(20)
-                    .padding(.horizontal, 20)
-                    .autocapitalization(.none)
-                
-                PasswordTextField(text: $password, isSecure: $showPassword)
-        
-                Button(action: {
-                    isLoggedIn = true
-                }) {
-                    Text("Login")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .background(customGreen)
-                        .cornerRadius(20)
-                        .padding(.horizontal, 20)
+            .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 0)
+            
+            Spacer()
+            
+            NavigationLink {
+                RegistrationView()
+                    .navigationBarHidden(true)
+            } label: {
+                HStack {
+                    Text("¿Aún no tienes un cuenta?")
+                        .font(.footnote)
+                    
+                    Text("Regístrate")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
                 }
-                
-                .padding(.top, 30)
-                
-                Spacer()
             }
-            .padding()
+            .padding(.bottom, 32)
+            .foregroundColor(Color("ColorPrincipal"))
         }
-        .opacity(isLoggedIn ? 0 : 1)
+        .ignoresSafeArea()
     }
 }
 

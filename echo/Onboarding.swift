@@ -4,156 +4,107 @@
 //
 //  Created by Fernando Ahuatzin Gallardo on 24/02/24.
 //
-
 import SwiftUI
 
 struct Onboarding: View {
     var body: some View {
-        ZStack
-        {
+        ZStack {
             Color("ColorPrincipal")
                 .edgesIgnoringSafeArea(.all)
-            TabView
-            {
+            TabView {
                 WelcomeTab()
                 ChallengesTab()
                 ShareTab()
                 BadgeTab()
                 GoTab()
             }
+            .tabViewStyle(PageTabViewStyle())
         }
-        .tabViewStyle(PageTabViewStyle())
     }
 }
 
 struct Onboarding_Previews: PreviewProvider {
     static var previews: some View {
         Onboarding()
+            .preferredColorScheme(.light)
     }
 }
 
-
-
+// MARK: - WelcomeTab
 struct WelcomeTab: View {
     var body: some View {
-        VStack
-        {
-            Spacer()
-            //Intercambiar por logo o algo mas coherente
-            Image(systemName: "leaf.fill")
-                .font(.system(size: 180, weight: .bold))
-                .rotationEffect(.degrees(45))
-            Text("Bienvenido a EcoChallenges")
-                .font(.system(size: 40, weight: .bold))
-                .padding([.horizontal], 10)
-                .padding([.top], 40)
-                .padding([.bottom],1)
-            Text("El lugar donde tú y tus amigos hacen un cambio por el ambiente, demos un vistazo.")
-                .font(.system(size: 20, weight: .none))
-                .padding([.trailing,.leading,.bottom], 50)
-            Spacer()
-        }
-        .tabItem{
-            Image(systemName: "circle.fill")
-        }
+        tabViewTemplate(imageName: "leaf.fill", title: "Bienvenido a EcoChallenges", description: "El lugar donde tú y tus amigos hacen un cambio por el ambiente, demos un vistazo.")
     }
 }
+
+// MARK: - ChallengesTab
 struct ChallengesTab: View {
     var body: some View {
-        VStack
-        {
-            Spacer()
-            //Intercambiar por la vista de los retos o algo asi
-            Image(systemName: "checkmark.circle.fill")
-                .font(.system(size: 180, weight: .bold))
-            Text("Retos")
-                .font(.system(size: 40, weight: .bold))
-                .padding([.horizontal], 10)
-                .padding([.top], 40)
-                .padding([.bottom],1)
-            Text("Completa los retos diarios, semanales y mensuales, al hacer actividades relacionadas con el reciclaje.")
-                .font(.system(size: 20, weight: .none))
-                .padding([.trailing,.leading,.bottom], 50)
-            Spacer()
-        }
-        .tabItem{
-            Image(systemName: "circle.fill")
-        }
+        tabViewTemplate(imageName: "checkmark.circle.fill", title: "Retos", description: "Completa los retos diarios, semanales y mensuales, al hacer actividades relacionadas con el reciclaje.")
     }
 }
+
+// MARK: - ShareTab
 struct ShareTab: View {
     var body: some View {
-        VStack
-        {
-            Spacer()
-            //Intercambiar por algo relacionado con tomarte una foto y desbloquear las fotos de los demas
-            Image(systemName: "person.3.fill")
-                .font(.system(size: 180, weight: .bold))
-            Text("Comparte")
-                .font(.system(size: 40, weight: .bold))
-                .padding([.horizontal], 10)
-                .padding([.top], 40)
-                .padding([.bottom],1)
-            Text("Tras completar algun reto comparte tu logro con tus amigos y revisa quiénes igual lo completaron.")
-                .font(.system(size: 20, weight: .none))
-                .padding([.trailing,.leading,.bottom], 50)
-            Spacer()
-        }
-        .tabItem{
-            Image(systemName: "circle.fill")
-        }
+        tabViewTemplate(imageName: "person.3.fill", title: "Comparte", description: "Tras completar algun reto comparte tu logro con tus amigos y revisa quiénes igual lo completaron.")
     }
 }
+
+// MARK: - BadgeTab
 struct BadgeTab: View {
     var body: some View {
-        VStack
-        {
-            Spacer()
-            //Intercambiar por algo las badges diseñadas
-            Image(systemName: "medal.fill")
-                .font(.system(size: 180, weight: .bold))
-            Text("Gana")
-                .font(.system(size: 40, weight: .bold))
-                .padding([.horizontal], 10)
-                .padding([.top], 5)
-                .padding([.bottom],1)
-            Text("Sube de nivel al ir completando retos, y en el camino podrás ganar insignias.")
-                .font(.system(size: 20, weight: .none))
-                .padding([.trailing,.leading,.bottom], 50)
-            Spacer()
-        }
-        .tabItem{
-            Image(systemName: "circle.fill")
-        }
+        tabViewTemplate(imageName: "medal.fill", title: "Gana", description: "Sube de nivel al ir completando retos, y en el camino podrás ganar insignias.")
     }
 }
+
+// MARK: - GoTab
 struct GoTab: View {
     var body: some View {
-        VStack
-        {
+        VStack {
             Spacer()
             Image(systemName: "leaf.fill")
                 .font(.system(size: 180, weight: .bold))
                 .rotationEffect(.degrees(45))
             Text("¡Estás listo!")
                 .font(.system(size: 40, weight: .bold))
-                .padding([.horizontal], 10)
-                .padding([.top], 40)
-                .padding([.bottom],1)
-            Button("Comenzar a cumplir retos")
-            {
-                
-            }
-            .frame(width: 200, height: 70)
-            .font(.system(size: 20, weight: .bold))
-            .background(Color.black)
-            .foregroundColor(Color.white)
-            .cornerRadius(10)
-            .padding([.trailing,.leading,.top], 50)
+                .foregroundColor(.white) // Text color
+                .padding(.horizontal, 10)
+                .padding(.top, 40)
+                .padding(.bottom, 1)
+            Button("Comenzar a cumplir retos") {}
+                .frame(width: 320, height: 75)
+                .font(.system(size: 25, weight: .bold))
+                .background(Color.white)
+                .foregroundColor(Color("ColorPrincipal"))
+                .cornerRadius(10)
+                .padding(.top, 50)
             Spacer()
         }
-        .tabItem{
-            Image(systemName: "circle.fill")
-        }
+        .foregroundColor(.white) // Ensure all text within is white
+    }
+}
+
+// MARK: - Reusable View Template
+func tabViewTemplate(imageName: String, title: String, description: String) -> some View {
+    VStack {
+        Spacer()
+        Image(systemName: imageName)
+            .font(.system(size: 180, weight: .bold))
+            .foregroundColor(.white) // Image color
+        Text(title)
+            .font(.system(size: 40, weight: .bold))
+            .foregroundColor(.white) // Text color
+            .padding([.horizontal], 10)
+            .padding(.top, 40)
+            .padding(.bottom, 1)
+        Text(description)
+            .font(.system(size: 20))
+            .foregroundColor(.white) // Text color
+            .padding([.trailing, .leading, .bottom], 50)
+        Spacer()
+    }
+    .tabItem {
+        Image(systemName: "circle.fill")
     }
 }

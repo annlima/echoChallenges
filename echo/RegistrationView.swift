@@ -4,77 +4,85 @@
 //
 //  Created by Andrea Lima Blanca on 25/02/24.
 //
-
-
 import SwiftUI
 
-struct RegisterView: View {
-    @State private var name: String = ""
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var isRegisterButtonDisabled: Bool = true
-
+struct RegistrationView: View {
+    @State private var email = ""
+    @State private var username = ""
+    @State private var fullname = ""
+    @State private var age = ""
+    @State private var password = ""
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
-            Text("Registro")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.bottom, 20)
-
-            TextField("Nombre", text: $name)
-                .padding()
-                .background(Color(.systemGray6))
-                .cornerRadius(5.0)
-                .padding(.bottom, 20)
-                .onChange(of: name) { newValue in
-                    checkFormValidity()
-                }
-
-            TextField("Correo Electrónico", text: $email)
-                .padding()
-                .keyboardType(.emailAddress)
-                .background(Color(.systemGray6))
-                .cornerRadius(5.0)
-                .padding(.bottom, 20)
-                .onChange(of: email) { newValue in
-                    checkFormValidity()
-                }
-
-            SecureField("Contraseña", text: $password)
-                .padding()
-                .background(Color(.systemGray6))
-                .cornerRadius(5.0)
-                .padding(.bottom, 20)
-                .onChange(of: password) { newValue in
-                    checkFormValidity()
-                }
-
-            Button(action: registerUser) {
-                Text("Registrarse")
+            AuthHeaderView(title1: "Empecemos,", title2: "crea tu cuenta.")
+            
+            VStack(spacing: 20) {
+                CustomInputField(imageName: "envelope",
+                                 placeholderText: "Correo electrónico",
+                                 isSecureField: false, // Se especifica explícitamente para claridad, aunque el valor predeterminado ya es false
+                                 text: $email)
+                
+                CustomInputField(imageName: "person",
+                                 placeholderText: "Nombre de usuario",
+                                 isSecureField: false, // Opcional, ya que es el valor predeterminado
+                                 text: $username)
+                
+                CustomInputField(imageName: "person",
+                                 placeholderText: "Nombre completo",
+                                 isSecureField: false, // Opcional, ya que es el valor predeterminado
+                                 text: $fullname)
+                CustomInputField(imageName: "number",
+                                 placeholderText: "Edad",
+                                 isSecureField: false, // Opcional, ya que es el valor predeterminado
+                                 text: $age)
+                
+                CustomInputField(imageName: "lock",
+                                 placeholderText: "Contraseña",
+                                 isSecureField: true, // Aquí se necesita para el campo de contraseña
+                                 text: $password)
+            }
+            .padding(.horizontal, 30)
+            .padding(.top, -20)
+            
+            Button {
+                print("Registrado")
+                // La lógica de registro sería manejada aquí
+            } label: {
+                Text("Regístrate")
                     .font(.headline)
                     .foregroundColor(.white)
+                    .frame(width: 340, height: 50)
+                    .background(Color("ColorPrincipal"))
+                    .clipShape(Capsule())
                     .padding()
-                    .frame(width: 220, height: 60)
-                    .background(isRegisterButtonDisabled ? Color.gray : Color.blue)
-                    .cornerRadius(15.0)
             }
-            .disabled(isRegisterButtonDisabled)
+            .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 0)
+            
+            Spacer()
+            
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                HStack {
+                    Text("¿Ya tienes una cuenta?")
+                        .font(.footnote)
+                        .foregroundColor(Color("ColorPrincipal"))
+                    Text("Inicia sesión")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color("ColorPrincipal"))
+                }
+            }
+            .padding(.bottom, 32)
         }
-        .padding()
-    }
-
-    private func checkFormValidity() {
-        isRegisterButtonDisabled = name.isEmpty || email.isEmpty || password.isEmpty
-    }
-
-    private func registerUser() {
-        print("Registro completado para el usuario: \(name)")
-        // Aquí iría la lógica de registro, como una llamada a una API.
+        .ignoresSafeArea()
     }
 }
 
-struct RegisterView_Previews: PreviewProvider {
+struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        RegistrationView()
     }
 }
