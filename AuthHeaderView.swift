@@ -28,7 +28,7 @@ struct AuthHeaderView: View {
                     .foregroundColor(.white)
             }
         }
-        .padding(.top, 40) // Ajusta según sea necesario para el posicionamiento del texto.
+        .padding(.top, 40)
     }
 }
 
