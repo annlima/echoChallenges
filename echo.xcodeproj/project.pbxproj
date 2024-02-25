@@ -10,7 +10,6 @@
 		1AB51AB42B8ADC5100A80A88 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */; };
 		9B78C0AA2B8BD383003B8323 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0A92B8BD383003B8323 /* ProfileView.swift */; };
 		9B78C0AD2B8BD3C4003B8323 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0AC2B8BD3C4003B8323 /* TabBarItem.swift */; };
-		9B78C0AF2B8BD3E9003B8323 /* MainViewTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0AE2B8BD3E9003B8323 /* MainViewTabBar.swift */; };
 		9B78C0B12B8BD403003B8323 /* ProfileTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0B02B8BD403003B8323 /* ProfileTabBarView.swift */; };
 		9B78C0B32B8BD42D003B8323 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0B22B8BD42D003B8323 /* StatisticsView.swift */; };
 		9B78C0B72B8BD479003B8323 /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0B62B8BD479003B8323 /* HexagonParameters.swift */; };
@@ -20,6 +19,23 @@
 		9B78C0BF2B8BD4F6003B8323 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0BE2B8BD4F6003B8323 /* Badge.swift */; };
 		9B78C0C12B8BD512003B8323 /* BadgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0C02B8BD512003B8323 /* BadgeProtocol.swift */; };
 		9B78C0C32B8BD53C003B8323 /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0C22B8BD53C003B8323 /* BadgesView.swift */; };
+		9BD6943A2B8BD7C20014AD5C /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694392B8BD7C20014AD5C /* FeedView.swift */; };
+		9BD6943D2B8BD7E10014AD5C /* ChallengeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6943C2B8BD7E10014AD5C /* ChallengeProtocol.swift */; };
+		9BD6943F2B8BD8340014AD5C /* BaseChallengeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6943E2B8BD8340014AD5C /* BaseChallengeClass.swift */; };
+		9BD694412B8BD8850014AD5C /* DailyChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694402B8BD8850014AD5C /* DailyChallenge.swift */; };
+		9BD694432B8BD8940014AD5C /* WeeklyChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694422B8BD8940014AD5C /* WeeklyChallenge.swift */; };
+		9BD694452B8BD8B00014AD5C /* MonthlyChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694442B8BD8B00014AD5C /* MonthlyChallenge.swift */; };
+		9BD694472B8BD8C30014AD5C /* ChallengesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694462B8BD8C30014AD5C /* ChallengesView.swift */; };
+		9BD694492B8BD8D10014AD5C /* ChallengeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694482B8BD8D10014AD5C /* ChallengeInfoView.swift */; };
+		9BD6944C2B8BD8FB0014AD5C /* CameraHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6944B2B8BD8FB0014AD5C /* CameraHome.swift */; };
+		9BD6944E2B8BD9130014AD5C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6944D2B8BD9130014AD5C /* CameraView.swift */; };
+		9BD694502B8BD92B0014AD5C /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6944F2B8BD92B0014AD5C /* CameraViewModel.swift */; };
+		9BD694522B8BD94B0014AD5C /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694512B8BD94B0014AD5C /* MainScreenView.swift */; };
+		9BD694542B8BDB750014AD5C /* MainTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694532B8BDB750014AD5C /* MainTabBarItem.swift */; };
+		9BD694582B8BDC210014AD5C /* MainTabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694572B8BDC210014AD5C /* MainTabBarContainerView.swift */; };
+		9BD6945A2B8BDC580014AD5C /* MainTabBarItemPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694592B8BDC580014AD5C /* MainTabBarItemPreferenceKey.swift */; };
+		9BD6945E2B8BDCAC0014AD5C /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6945D2B8BDCAC0014AD5C /* MainTabBarView.swift */; };
+		9BD694622B8BE12D0014AD5C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694612B8BE12D0014AD5C /* SettingsView.swift */; };
 		A1817FD12B8BB6E1002B428D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1817FD02B8BB6E1002B428D /* RegistrationView.swift */; };
 		A1817FD32B8BB928002B428D /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1817FD22B8BB928002B428D /* AuthHeaderView.swift */; };
 		A1817FD52B8BB947002B428D /* CustomInputFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1817FD42B8BB947002B428D /* CustomInputFile.swift */; };
@@ -55,7 +71,6 @@
 		1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		9B78C0A92B8BD383003B8323 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		9B78C0AC2B8BD3C4003B8323 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
-		9B78C0AE2B8BD3E9003B8323 /* MainViewTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTabBar.swift; sourceTree = "<group>"; };
 		9B78C0B02B8BD403003B8323 /* ProfileTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarView.swift; sourceTree = "<group>"; };
 		9B78C0B22B8BD42D003B8323 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		9B78C0B62B8BD479003B8323 /* HexagonParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonParameters.swift; sourceTree = "<group>"; };
@@ -65,6 +80,23 @@
 		9B78C0BE2B8BD4F6003B8323 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		9B78C0C02B8BD512003B8323 /* BadgeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeProtocol.swift; sourceTree = "<group>"; };
 		9B78C0C22B8BD53C003B8323 /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
+		9BD694392B8BD7C20014AD5C /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		9BD6943C2B8BD7E10014AD5C /* ChallengeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeProtocol.swift; sourceTree = "<group>"; };
+		9BD6943E2B8BD8340014AD5C /* BaseChallengeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChallengeClass.swift; sourceTree = "<group>"; };
+		9BD694402B8BD8850014AD5C /* DailyChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChallenge.swift; sourceTree = "<group>"; };
+		9BD694422B8BD8940014AD5C /* WeeklyChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChallenge.swift; sourceTree = "<group>"; };
+		9BD694442B8BD8B00014AD5C /* MonthlyChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyChallenge.swift; sourceTree = "<group>"; };
+		9BD694462B8BD8C30014AD5C /* ChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesView.swift; sourceTree = "<group>"; };
+		9BD694482B8BD8D10014AD5C /* ChallengeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeInfoView.swift; sourceTree = "<group>"; };
+		9BD6944B2B8BD8FB0014AD5C /* CameraHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHome.swift; sourceTree = "<group>"; };
+		9BD6944D2B8BD9130014AD5C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		9BD6944F2B8BD92B0014AD5C /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		9BD694512B8BD94B0014AD5C /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		9BD694532B8BDB750014AD5C /* MainTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarItem.swift; sourceTree = "<group>"; };
+		9BD694572B8BDC210014AD5C /* MainTabBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarContainerView.swift; sourceTree = "<group>"; };
+		9BD694592B8BDC580014AD5C /* MainTabBarItemPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarItemPreferenceKey.swift; sourceTree = "<group>"; };
+		9BD6945D2B8BDCAC0014AD5C /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
+		9BD694612B8BE12D0014AD5C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A1817FD02B8BB6E1002B428D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		A1817FD22B8BB928002B428D /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		A1817FD42B8BB947002B428D /* CustomInputFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputFile.swift; sourceTree = "<group>"; };
@@ -120,9 +152,8 @@
 		9B78C0AB2B8BD3B2003B8323 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				9B78C0AC2B8BD3C4003B8323 /* TabBarItem.swift */,
-				9B78C0AE2B8BD3E9003B8323 /* MainViewTabBar.swift */,
-				9B78C0B02B8BD403003B8323 /* ProfileTabBarView.swift */,
+				9BD694562B8BDC010014AD5C /* MainTabBar */,
+				9BD694552B8BDBF30014AD5C /* ProfileTabBar */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -131,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				9B78C0B52B8BD45A003B8323 /* Badges */,
+				9B78C0C22B8BD53C003B8323 /* BadgesView.swift */,
 			);
 			path = BadgesView;
 			sourceTree = "<group>";
@@ -144,9 +176,63 @@
 				9B78C0BC2B8BD4DB003B8323 /* RotatedBadgeSymbol.swift */,
 				9B78C0BE2B8BD4F6003B8323 /* Badge.swift */,
 				9B78C0C02B8BD512003B8323 /* BadgeProtocol.swift */,
-				9B78C0C22B8BD53C003B8323 /* BadgesView.swift */,
 			);
 			path = Badges;
+			sourceTree = "<group>";
+		};
+		9BD694382B8BD7A70014AD5C /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				9BD6943B2B8BD7D10014AD5C /* Challenge */,
+				9BD694392B8BD7C20014AD5C /* FeedView.swift */,
+				9BD694512B8BD94B0014AD5C /* MainScreenView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		9BD6943B2B8BD7D10014AD5C /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				9BD6944A2B8BD8EA0014AD5C /* Camera */,
+				9BD6943C2B8BD7E10014AD5C /* ChallengeProtocol.swift */,
+				9BD6943E2B8BD8340014AD5C /* BaseChallengeClass.swift */,
+				9BD694402B8BD8850014AD5C /* DailyChallenge.swift */,
+				9BD694422B8BD8940014AD5C /* WeeklyChallenge.swift */,
+				9BD694442B8BD8B00014AD5C /* MonthlyChallenge.swift */,
+				9BD694462B8BD8C30014AD5C /* ChallengesView.swift */,
+				9BD694482B8BD8D10014AD5C /* ChallengeInfoView.swift */,
+			);
+			path = Challenge;
+			sourceTree = "<group>";
+		};
+		9BD6944A2B8BD8EA0014AD5C /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				9BD6944B2B8BD8FB0014AD5C /* CameraHome.swift */,
+				9BD6944D2B8BD9130014AD5C /* CameraView.swift */,
+				9BD6944F2B8BD92B0014AD5C /* CameraViewModel.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		9BD694552B8BDBF30014AD5C /* ProfileTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				9B78C0B02B8BD403003B8323 /* ProfileTabBarView.swift */,
+				9B78C0AC2B8BD3C4003B8323 /* TabBarItem.swift */,
+			);
+			path = ProfileTabBar;
+			sourceTree = "<group>";
+		};
+		9BD694562B8BDC010014AD5C /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				9BD694532B8BDB750014AD5C /* MainTabBarItem.swift */,
+				9BD694572B8BDC210014AD5C /* MainTabBarContainerView.swift */,
+				9BD694592B8BDC580014AD5C /* MainTabBarItemPreferenceKey.swift */,
+				9BD6945D2B8BDCAC0014AD5C /* MainTabBarView.swift */,
+			);
+			path = MainTabBar;
 			sourceTree = "<group>";
 		};
 		A19F94032B87A13D001A31B6 = {
@@ -174,16 +260,18 @@
 		A19F940E2B87A13D001A31B6 /* echo */ = {
 			isa = PBXGroup;
 			children = (
-				9B78C0AB2B8BD3B2003B8323 /* TabBar */,
-				9B78C0A82B8BD31B003B8323 /* Profile */,
 				A19F940F2B87A13D001A31B6 /* echoApp.swift */,
 				A19F94112B87A13D001A31B6 /* ContentView.swift */,
+				9BD694382B8BD7A70014AD5C /* MainView */,
+				9B78C0A82B8BD31B003B8323 /* Profile */,
+				9B78C0AB2B8BD3B2003B8323 /* TabBar */,
 				A19F94132B87A13F001A31B6 /* Assets.xcassets */,
 				A19F94152B87A13F001A31B6 /* Preview Content */,
 				A19F94392B87A14E001A31B6 /* LaunchScreen.swift */,
 				1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */,
 				A19F943B2B87A18F001A31B6 /* LoginView.swift */,
 				A1817FD02B8BB6E1002B428D /* RegistrationView.swift */,
+				9BD694612B8BE12D0014AD5C /* SettingsView.swift */,
 			);
 			path = echo;
 			sourceTree = "<group>";
@@ -343,26 +431,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD694472B8BD8C30014AD5C /* ChallengesView.swift in Sources */,
 				9B78C0B72B8BD479003B8323 /* HexagonParameters.swift in Sources */,
 				9B78C0C12B8BD512003B8323 /* BadgeProtocol.swift in Sources */,
+				9BD6944E2B8BD9130014AD5C /* CameraView.swift in Sources */,
+				9BD694502B8BD92B0014AD5C /* CameraViewModel.swift in Sources */,
 				A19F94122B87A13D001A31B6 /* ContentView.swift in Sources */,
+				9BD694622B8BE12D0014AD5C /* SettingsView.swift in Sources */,
 				9B78C0AA2B8BD383003B8323 /* ProfileView.swift in Sources */,
 				9B78C0AD2B8BD3C4003B8323 /* TabBarItem.swift in Sources */,
+				9BD694412B8BD8850014AD5C /* DailyChallenge.swift in Sources */,
 				A19F94102B87A13D001A31B6 /* echoApp.swift in Sources */,
+				9BD694492B8BD8D10014AD5C /* ChallengeInfoView.swift in Sources */,
 				9B78C0BD2B8BD4DB003B8323 /* RotatedBadgeSymbol.swift in Sources */,
+				9BD6943A2B8BD7C20014AD5C /* FeedView.swift in Sources */,
 				9B78C0BB2B8BD4BA003B8323 /* BadgeSymbol.swift in Sources */,
+				9BD6945A2B8BDC580014AD5C /* MainTabBarItemPreferenceKey.swift in Sources */,
 				9B78C0C32B8BD53C003B8323 /* BadgesView.swift in Sources */,
+				9BD694522B8BD94B0014AD5C /* MainScreenView.swift in Sources */,
 				9B78C0BF2B8BD4F6003B8323 /* Badge.swift in Sources */,
 				1AB51AB42B8ADC5100A80A88 /* Onboarding.swift in Sources */,
+				9BD694452B8BD8B00014AD5C /* MonthlyChallenge.swift in Sources */,
 				9B78C0B32B8BD42D003B8323 /* StatisticsView.swift in Sources */,
-				9B78C0AF2B8BD3E9003B8323 /* MainViewTabBar.swift in Sources */,
 				9B78C0B12B8BD403003B8323 /* ProfileTabBarView.swift in Sources */,
+				9BD6943D2B8BD7E10014AD5C /* ChallengeProtocol.swift in Sources */,
+				9BD6945E2B8BDCAC0014AD5C /* MainTabBarView.swift in Sources */,
+				9BD694542B8BDB750014AD5C /* MainTabBarItem.swift in Sources */,
+				9BD6944C2B8BD8FB0014AD5C /* CameraHome.swift in Sources */,
+				9BD6943F2B8BD8340014AD5C /* BaseChallengeClass.swift in Sources */,
 				A1817FD52B8BB947002B428D /* CustomInputFile.swift in Sources */,
 				A1817FD12B8BB6E1002B428D /* RegistrationView.swift in Sources */,
 				A19F943C2B87A18F001A31B6 /* LoginView.swift in Sources */,
 				A19F943A2B87A14E001A31B6 /* LaunchScreen.swift in Sources */,
 				9B78C0B92B8BD4A4003B8323 /* BadgeBackground.swift in Sources */,
+				9BD694432B8BD8940014AD5C /* WeeklyChallenge.swift in Sources */,
 				A1817FD32B8BB928002B428D /* AuthHeaderView.swift in Sources */,
+				9BD694582B8BDC210014AD5C /* MainTabBarContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

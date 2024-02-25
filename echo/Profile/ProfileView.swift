@@ -40,6 +40,7 @@ struct ProfileView: View {
                         .offset(y: 0)
                         .offset(x: 15)
                 }
+                .navigationBarHidden(true)
             }
         }
         

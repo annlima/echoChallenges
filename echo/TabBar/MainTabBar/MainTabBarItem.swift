@@ -9,41 +9,41 @@ import Foundation
 import SwiftUI
 
 enum MainTabBarItem: Hashable {
-    case profile, people, feed, chat
+    case  challenge, feed, profile, settings
     
     var imageName: String {
         switch self {
         case .profile: return "person"
-        case .people: return "person.badge.plus"
         case .feed: return "square.text.square"
-        case .chat: return "bubble.left"
+        case .settings: return "gearshape"
+        case .challenge: return "checkmark.square"
         }
     }
     
     var selectedImage: String {
         switch self {
         case .profile: return "person.fill"
-        case .people: return "person.badge.plus.fill"
+        case .settings: return "gearshape.fill"
         case .feed: return "square.text.square.fill"
-        case .chat: return "bubble.left.fill"
+        case .challenge: return "checkmark.square.fill"
         }
     }
     
     var buttonText: String {
         switch self {
         case .profile: return "Profile"
-        case .people: return "People"
+        case .settings: return "Settings"
         case .feed: return "Feed"
-        case .chat: return "Chat"
+        case .challenge: return "Challenge"
         }
     }
     
     var color1: Color {
         switch self {
-        case .profile: return Color.customPurple
-        case .people: return Color.customPurple
-        case .feed: return Color.customPurple
-        case .chat: return Color.customPurple
+        case .profile: return Color.colorPrincipal
+        case .settings: return Color.colorPrincipal
+        case .feed: return Color.colorPrincipal
+        case .challenge: return Color.colorPrincipal
         }
     }
 }

@@ -9,6 +9,12 @@ import SwiftUI
 
 @main
 struct echoApp: App {
+    
+    init() {
+        UINavigationBar.appearance().tintColor =  UIColor.colorPrincipal
+    }
+
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

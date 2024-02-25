@@ -7,12 +7,28 @@
 
 import SwiftUI
 
-struct MainTabBarItemPreferenceKey: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct MainTabBarItemsPreferenceKey: PreferenceKey {
+    static var defaultValue: [MainTabBarItem] = []
+    
+    static func reduce(value: inout [MainTabBarItem], nextValue: () -> [MainTabBarItem]) {
+        value += nextValue()
     }
 }
 
-#Preview {
-    MainTabBarItemPreferenceKey()
+struct MainTabBarItemViewModifier: ViewModifier {
+    let tab: MainTabBarItem
+    @Binding var selection: MainTabBarItem
+    
+    func body(content: Content) -> some View {
+        content
+            .opacity(selection == tab ? 1.0: 0.0)
+            .preference(key: MainTabBarItemsPreferenceKey.self, value: [tab])
+    }
+}
+
+extension View {
+    func mainTabBarItem (tab: MainTabBarItem, selection: Binding<MainTabBarItem>) -> some View {
+        self
+            .modifier(MainTabBarItemViewModifier(tab: tab, selection: selection))
+    }
 }

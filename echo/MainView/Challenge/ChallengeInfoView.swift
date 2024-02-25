@@ -2,17 +2,38 @@
 //  ChallengeInfoView.swift
 //  echo
 //
-//  Created by Dicka J. Lezama on 25/02/24.
+//  Created by Dicka J. Lezama on 24/02/24.
 //
 
 import SwiftUI
 
 struct ChallengeInfoView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    var challenge: PChallenge
+        
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(challenge.name)
+                .font(.title)
+                .padding()
+                        
+            Text(challenge.description)
+                .padding()
+            Spacer() // Keep the text centered
+                
+            NavigationLink(destination: CameraHome()) {
+                Text("Completar reto")
+            }
+            .padding()
+            .background(Color.colorPrincipal)
+            .cornerRadius(9)
+            .padding(.top)
+            .foregroundColor(Color.white)
+
+        }
+        .navigationBarTitle("Challenge Details", displayMode: .inline)
+        .navigationBarBackButtonHidden(false)
     }
 }
 
-#Preview {
-    ChallengeInfoView()
-}
+

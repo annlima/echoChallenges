@@ -7,12 +7,37 @@
 
 import SwiftUI
 
-struct MainTabBarContainerView: View {
+
+struct MainTabBarContainerView<Content: View>: View {
+    
+    @Binding var selection: MainTabBarItem
+    let content: Content
+    @State private var tabs: [MainTabBarItem] = []
+    
+    
+    init(selection: Binding<MainTabBarItem>, @ViewBuilder content: () -> Content) {
+        self._selection = selection
+        self.content = content()
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 0) {
+            ZStack {
+                content
+            }
+            MainTabBarView(tabs: tabs, tabSelection: $selection, localSelection: selection)
+            
+        }
+        .onPreferenceChange( MainTabBarItemsPreferenceKey.self, perform: {value in self.tabs = value})
     }
 }
 
-#Preview {
-    MainTabBarContainerView()
+struct MainTabBarContainerView_Previews: PreviewProvider {
+    
+    static let tabs: [MainTabBarItem] = []
+    
+    static var previews: some View {
+        MainTabBarContainerView(selection: .constant(tabs.first!)) {
+        }
+    }
 }
