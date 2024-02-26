@@ -9,43 +9,59 @@ import SwiftUI
 
 struct ProfileView: View {
     @State var currentTab: Int = 0
-    @State var profileTabSelectauthion: ProfileTabs = .statistics
+    @State var profileTabSelection: ProfileTabs = .statistics
     
     var body: some View {
         ZStack {
-            VStack{
+            Color("BackgroundColor") // Assuming you have a background color defined
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
                 Circle()
+                    .strokeBorder(Color.gray, lineWidth: 4) // Adds a border to the profile picture
+                    .background(Circle().foregroundColor(.white))
                     .frame(width: 100, height: 100)
-                    .padding(.top)
-                                
-                HStack {
-                    Text("Username")
-                    Text("Experience")
-                }
-                                    
-                ZStack(alignment: .top) {
-                    TabView(selection: self.$currentTab) {
-                        ProfileTabBarView(currentTab: $currentTab)
+                    .shadow(radius: 10) // Adds a shadow for depth
+                    .padding(.top, 50)
                 
+                HStack(spacing: 20) {
+                    Text("Username")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    
+                    Text("|")
+                    
+                    Text("Experience")
+                        .font(.title3)
+                }
+                .padding(.top, 20)
+                
+                ZStack(alignment: .topLeading) {
+                    TabView(selection: $currentTab) {
                         StatisticsView()
                             .tag(0)
                         
                         BadgesView()
                             .tag(1)
-                       
                     }
-                    .edgesIgnoringSafeArea(.all)
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // Hides the default TabView indicator
+                    .frame(height: 300) // Adjust based on your content
                     
-                    ProfileTabBarView(currentTab: self.$currentTab)
-                        .offset(y: 0)
-                        .offset(x: 15)
+                    // Custom tab bar view for switching tabs
+                    ProfileTabBarView(currentTab: $currentTab)
+                        .offset(y: -40) // Adjust based on your needs
+                        .padding(.horizontal, 15)
                 }
-                .navigationBarHidden(true)
+                .padding(.top, 20)
+                
+                Spacer()
             }
+            .padding(.bottom, 20)
         }
-        
+        .navigationBarHidden(true)
     }
 }
+
 
 
 #Preview {
