@@ -72,15 +72,18 @@ extension MainTabBarView {
         .foregroundColor(localSelection == tab ? tab.color1: Color.gray)
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity)
-        .background(
-            ZStack {
-                if localSelection == tab {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(tab.color1.opacity(0.2))
-                        .matchedGeometryEffect(id: "background_rectangle", in: namespace)
-                }
-            }
-        )
+        /*
+         .background(
+             ZStack {
+                 if localSelection == tab {
+                     RoundedRectangle(cornerRadius: 10)
+                         .fill(tab.color1.opacity(0.2))
+                         .matchedGeometryEffect(id: "background_rectangle", in: namespace)
+                 }
+             }
+         )
+         */
+        
     }
     
     private var MainTabBarVersion2: some View {

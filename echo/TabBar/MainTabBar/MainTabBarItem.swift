@@ -31,10 +31,10 @@ enum MainTabBarItem: Hashable { //items
     
     var buttonText: String {
         switch self {
-        case .profile: return "Profile"
-        case .settings: return "Settings"
-        case .feed: return "Feed"
-        case .challenge: return "Challenge"
+        case .profile: return "Perfil"
+        case .settings: return "Ajustes"
+        case .feed: return "Muro"
+        case .challenge: return "Retos"
         }
     }
     

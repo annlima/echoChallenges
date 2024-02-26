@@ -25,13 +25,13 @@ struct ProfileView: View {
                     .padding(.top, 50)
                 
                 HStack(spacing: 20) {
-                    Text("Username")
+                    Text("Usuario")
                         .font(.title)
                         .fontWeight(.bold)
                     
                     Text("|")
                     
-                    Text("Experience")
+                    Text("Experiencia")
                         .font(.title3)
                 }
                 .padding(.top, 20)
