@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum MainTabBarItem: Hashable {
+enum MainTabBarItem: Hashable { //items
     case  challenge, feed, profile, settings
     
     var imageName: String {

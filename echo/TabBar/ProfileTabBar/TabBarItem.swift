@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct TabBarItem: View {
+struct TabBarItem: View { //items
     @Binding var currentTab: Int
     let namespace: Namespace.ID
     

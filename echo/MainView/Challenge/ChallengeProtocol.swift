@@ -36,6 +36,7 @@ protocol PChallenge: AnyObject {
     
     func startChallenge()
     func endChallenge()
+    // func generateBadge() -> Badge
 }
 
 

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//tab bar view
 struct MainTabBarView: View {
     let tabs: [MainTabBarItem]
     @Binding var tabSelection: MainTabBarItem

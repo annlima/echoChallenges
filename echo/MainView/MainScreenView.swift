@@ -11,6 +11,7 @@ struct MainScreenView: View {
     @EnvironmentObject var cameraModel: CameraViewModel
     @State private var tabSelection: MainTabBarItem = .challenge
 
+    //Declaración de retos de ejemplo
     var challengesViewModel = ChallengesViewModel(
         challenges: [
         DailyChallenge(id: "001", name: "Daily Challenge One", description: "This is the first daily challenge", startDate: Date(), points: 10),
@@ -30,8 +31,6 @@ struct MainScreenView: View {
                     .mainTabBarItem(tab: .settings, selection: $tabSelection)
                 ProfileView()
                     .mainTabBarItem(tab: .profile, selection: $tabSelection)
-                
-                
             }
         }
     }

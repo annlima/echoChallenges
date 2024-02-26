@@ -16,7 +16,7 @@ enum ProfileTabs: Int {
 struct ProfileTabBarView: View {
     @Binding var currentTab: Int
     @Namespace var namespace
-    var tabList: [String] = ["Estadísticas", "Mis logros"]
+    var tabList: [String] = ["Estadísticas", "Mis logros"] //vistas
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 50) {

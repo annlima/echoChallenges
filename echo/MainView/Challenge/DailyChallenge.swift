@@ -21,6 +21,7 @@ class DailyChallenge: BaseChallenge, ObservableObject {
     override func endChallenge() {
         
     }
+    
    
     
 }

@@ -13,7 +13,7 @@ struct ProfileView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor") // Assuming you have a background color defined
+            Color("BackgroundColor")
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
@@ -49,7 +49,7 @@ struct ProfileView: View {
                     
                     // Custom tab bar view for switching tabs
                     ProfileTabBarView(currentTab: $currentTab)
-                        .offset(y: -40) // Adjust based on your needs
+                        .offset(y: -40)
                         .padding(.horizontal, 15)
                 }
                 .padding(.top, 20)

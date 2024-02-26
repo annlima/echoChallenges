@@ -22,7 +22,7 @@ struct ChallengeInfoView: View {
             Spacer() // Keep the text centered
                 
             NavigationLink(destination: CameraHome()) {
-                Text("Completar reto")
+                Text("Completar reto") //acceso a camara
             }
             .padding()
             .background(Color.colorPrincipal)

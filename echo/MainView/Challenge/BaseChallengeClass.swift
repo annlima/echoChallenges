@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class BaseChallenge : PChallenge {
     var points: Int
@@ -45,4 +46,15 @@ class BaseChallenge : PChallenge {
     func endChallenge() {
         print("Ending challenge: \(description)") //placeholder
     }
+    
+    /*
+     func generateBadge() -> Badge {
+         let colors: [Color] = [.red, .green, .blue, .yellow, .orange, .purple]
+         let backgroundColor = colors.randomElement() ?? .black
+         let symbolColor = colors.randomElement() ?? .white
+         
+         return Badge(symbol: BadgeSymbol(), backgroundColor: backgroundColor, symbolColor: symbolColor)
+     }
+     */
+    
 }

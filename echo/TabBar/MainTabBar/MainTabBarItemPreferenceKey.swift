@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//reference key
 struct MainTabBarItemsPreferenceKey: PreferenceKey {
     static var defaultValue: [MainTabBarItem] = []
     
