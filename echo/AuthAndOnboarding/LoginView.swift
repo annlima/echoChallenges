@@ -13,7 +13,6 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            // Header
             AuthHeaderView(title1: "Hola,", title2: "bienvenido de nuevo.")
             
             VStack(spacing: 40) {
