@@ -7,18 +7,34 @@
 import SwiftUI
 
 struct Onboarding: View {
+    @State private var selectedIndex = 0
+
     var body: some View {
         ZStack {
-            Color("ColorPrincipal")
+            LinearGradient(gradient: Gradient(colors: [Color("ColorPrincipal").opacity(0.7), Color("ColorPrincipal").opacity(0.9), Color("ColorPrincipal")]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
-            TabView {
-                WelcomeTab()
-                ChallengesTab()
-                ShareTab()
-                BadgeTab()
-                GoTab()
+            
+            TabView(selection: $selectedIndex) {
+                WelcomeTab().tag(0)
+                ChallengesTab().tag(1)
+                ShareTab().tag(2)
+                BadgeTab().tag(3)
+                GoTab().tag(4)
             }
-            .tabViewStyle(PageTabViewStyle())
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+
+            VStack {
+                Spacer()
+                HStack(spacing: 8) {
+                    ForEach(0..<5) { index in
+                        Rectangle()
+                            .frame(width: selectedIndex == index ? 20 : 8, height: 8)
+                            .foregroundColor(selectedIndex == index ? Color.white : Color.gray)
+                            .cornerRadius(4)
+                    }
+                }
+                .padding(.bottom, 20)
+            }
         }
     }
 }
@@ -91,16 +107,19 @@ func tabViewTemplate(imageName: String, title: String, description: String) -> s
         Spacer()
         Image(systemName: imageName)
             .font(.system(size: 180, weight: .bold))
-            .foregroundColor(.white) // Image color
+            .foregroundColor(.white)
         Text(title)
             .font(.system(size: 40, weight: .bold))
             .foregroundColor(.white) // Text color
             .padding([.horizontal], 10)
             .padding(.top, 40)
             .padding(.bottom, 1)
+            .multilineTextAlignment(.center)
         Text(description)
             .font(.system(size: 20))
             .foregroundColor(.white) // Text color
+            .bold()
+            .multilineTextAlignment(.center)
             .padding([.trailing, .leading, .bottom], 50)
         Spacer()
     }
