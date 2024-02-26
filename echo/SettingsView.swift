@@ -42,7 +42,6 @@ struct SettingsView: View {
             }
             .navigationBarTitle("Configuraciones")
         }
-        Text("configuraciones van aquí :)")
     }
 }
 
