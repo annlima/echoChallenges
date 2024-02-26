@@ -16,6 +16,8 @@ enum ProfileTabs: Int {
 struct ProfileTabBarView: View {
     @Binding var currentTab: Int
     @Namespace var namespace
+    @Environment(\.colorScheme) var colorScheme // detect color scheme
+
     var tabList: [String] = ["Estadísticas", "Mis logros"] //vistas
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -28,7 +30,7 @@ struct ProfileTabBarView: View {
             }
             .padding(.horizontal)
         }
-        .background(Color.white)
+        .background(colorScheme == .light ? Color.white : Color.black)
         .frame(height: 100)
         .edgesIgnoringSafeArea(.all)
     }

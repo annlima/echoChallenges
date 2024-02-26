@@ -13,7 +13,8 @@ struct MainTabBarView: View {
     @Binding var tabSelection: MainTabBarItem
     @Namespace private var namespace
     @State var localSelection: MainTabBarItem
-    
+    @Environment(\.colorScheme) var colorScheme // detect color scheme
+
     
     var body: some View {
        MainTabBarVersion2
@@ -92,9 +93,9 @@ extension MainTabBarView {
             }
         }
         .padding(6)
-        .background(Color.white.ignoresSafeArea(edges: .bottom))
+        .background(colorScheme == .dark ? Color.black.ignoresSafeArea(edges: .bottom) : Color.white.ignoresSafeArea(edges: .bottom))
         .cornerRadius(15)
-        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+        .shadow(color: colorScheme == .light ? Color.black.opacity(0.3) : Color.white.opacity(0.3), radius: 10, x: 0, y: 0)
         .padding(.horizontal)
     }
 }
