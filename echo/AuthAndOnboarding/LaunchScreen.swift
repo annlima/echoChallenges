@@ -30,7 +30,7 @@ struct LaunchScreen: View {
 
     var body: some View {
         ZStack {
-            Color("ColorPrincipal")
+            LinearGradient(gradient: Gradient(colors: [Color("ColorPrincipal").opacity(0.7), Color("ColorPrincipal").opacity(0.9), Color("ColorPrincipal")]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
             ForEach(0..<3) { index in
                 GradientLeaf()

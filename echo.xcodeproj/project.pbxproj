@@ -36,6 +36,7 @@
 		9BD6945A2B8BDC580014AD5C /* MainTabBarItemPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694592B8BDC580014AD5C /* MainTabBarItemPreferenceKey.swift */; };
 		9BD6945E2B8BDCAC0014AD5C /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6945D2B8BDCAC0014AD5C /* MainTabBarView.swift */; };
 		9BD694622B8BE12D0014AD5C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694612B8BE12D0014AD5C /* SettingsView.swift */; };
+		A13256902B8D13530067EAD0 /* PasswordReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A132568F2B8D13530067EAD0 /* PasswordReset.swift */; };
 		A1817FD12B8BB6E1002B428D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1817FD02B8BB6E1002B428D /* RegistrationView.swift */; };
 		A1817FD32B8BB928002B428D /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1817FD22B8BB928002B428D /* AuthHeaderView.swift */; };
 		A1817FD52B8BB947002B428D /* CustomInputFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1817FD42B8BB947002B428D /* CustomInputFile.swift */; };
@@ -97,6 +98,7 @@
 		9BD694592B8BDC580014AD5C /* MainTabBarItemPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarItemPreferenceKey.swift; sourceTree = "<group>"; };
 		9BD6945D2B8BDCAC0014AD5C /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		9BD694612B8BE12D0014AD5C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A132568F2B8D13530067EAD0 /* PasswordReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReset.swift; sourceTree = "<group>"; };
 		A1817FD02B8BB6E1002B428D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		A1817FD22B8BB928002B428D /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		A1817FD42B8BB947002B428D /* CustomInputFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputFile.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				A19F943B2B87A18F001A31B6 /* LoginView.swift */,
 				1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */,
 				A19F94392B87A14E001A31B6 /* LaunchScreen.swift */,
+				A132568F2B8D13530067EAD0 /* PasswordReset.swift */,
 			);
 			path = AuthAndOnboarding;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				A19F94122B87A13D001A31B6 /* ContentView.swift in Sources */,
 				9BD694622B8BE12D0014AD5C /* SettingsView.swift in Sources */,
 				9B78C0AA2B8BD383003B8323 /* ProfileView.swift in Sources */,
+				A13256902B8D13530067EAD0 /* PasswordReset.swift in Sources */,
 				9B78C0AD2B8BD3C4003B8323 /* TabBarItem.swift in Sources */,
 				9BD694412B8BD8850014AD5C /* DailyChallenge.swift in Sources */,
 				A19F94102B87A13D001A31B6 /* echoApp.swift in Sources */,
