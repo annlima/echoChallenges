@@ -57,6 +57,7 @@ struct PasswordResetView: View {
             }
             .padding(.bottom, 32)
         }
+        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
     }
 }

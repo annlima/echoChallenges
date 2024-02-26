@@ -18,7 +18,7 @@ struct LoginView: View {
             VStack(spacing: 40) {
                 CustomInputField(imageName: "envelope",
                                  placeholderText: "Correo electrónico",
-                                 isSecureField: false, // Se especifica explícitamente para claridad, aunque el valor predeterminado ya es false
+                                 isSecureField: false,
                                  text: $email)
                 CustomInputField(imageName: "lock",
                                  placeholderText: "Contraseña",
@@ -32,7 +32,7 @@ struct LoginView: View {
                 Spacer()
                 
                 NavigationLink {
-                    Text("Reset View")
+                    PasswordResetView()
                 } label: {
                     Text("¿Olvidaste tu contraseña?")
                         .font(.caption)
@@ -75,12 +75,15 @@ struct LoginView: View {
             .padding(.bottom, 32)
             .foregroundColor(Color("ColorPrincipal"))
         }
+        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        NavigationView{
+            LoginView()
+        }
     }
 }
