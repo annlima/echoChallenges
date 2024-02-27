@@ -27,8 +27,6 @@ struct MainScreenView: View {
                     .mainTabBarItem(tab: .challenge, selection: $tabSelection)
                 FeedView()
                     .mainTabBarItem(tab: .feed, selection: $tabSelection)
-                SettingsView()
-                    .mainTabBarItem(tab: .settings, selection: $tabSelection)
                 ProfileView()
                     .mainTabBarItem(tab: .profile, selection: $tabSelection)
             }

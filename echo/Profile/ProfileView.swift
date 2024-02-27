@@ -10,6 +10,9 @@ import SwiftUI
 struct ProfileView: View {
     @State var currentTab: Int = 0
     @State var profileTabSelection: ProfileTabs = .statistics
+    @State private var showMenu = false // For showing the action sheet
+    @State private var navigateToSettings = false // To control navigation
+    @State private var navigateToLogIn = false
     
     var body: some View {
         ZStack {
@@ -17,6 +20,30 @@ struct ProfileView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                    self.showMenu = true }) {
+                        Image(systemName: "ellipsis")
+                            .imageScale(.large)
+                            .rotationEffect(Angle(degrees: 90))
+                            .foregroundColor(.colorPrincipal)
+                    }
+                    .actionSheet(isPresented: $showMenu) {
+                        ActionSheet(title: Text("Opciones"), buttons: [
+                                .default(Text("Configuraciones")) {
+                                    self.navigateToSettings = true
+                                },
+                                .default(Text("Cerrar")){
+                                    self.navigateToLogIn = true
+                                },
+                                .cancel()
+                        ])
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.top, 30)
+                
                 Circle()
                     .strokeBorder(Color.gray, lineWidth: 4) // Adds a border to the profile picture
                     .background(Circle().foregroundColor(.white))
@@ -59,6 +86,16 @@ struct ProfileView: View {
             .padding(.bottom, 20)
         }
         .navigationBarHidden(true)
+        .background(
+            NavigationLink(destination: SettingsView(), isActive: $navigateToSettings) {
+                        EmptyView()
+            }
+        )
+        .background(
+            NavigationLink(destination: LoginView(), isActive: $navigateToLogIn) {
+                        EmptyView()
+            }
+        )
     }
 }
 

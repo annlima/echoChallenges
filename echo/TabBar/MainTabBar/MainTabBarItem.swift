@@ -9,13 +9,12 @@ import Foundation
 import SwiftUI
 
 enum MainTabBarItem: Hashable { //items
-    case  challenge, feed, profile, settings
+    case  challenge, feed, profile
     
     var imageName: String {
         switch self {
         case .profile: return "person"
         case .feed: return "square.text.square"
-        case .settings: return "gearshape"
         case .challenge: return "checkmark.square"
         }
     }
@@ -23,7 +22,6 @@ enum MainTabBarItem: Hashable { //items
     var selectedImage: String {
         switch self {
         case .profile: return "person.fill"
-        case .settings: return "gearshape.fill"
         case .feed: return "square.text.square.fill"
         case .challenge: return "checkmark.square.fill"
         }
@@ -32,7 +30,6 @@ enum MainTabBarItem: Hashable { //items
     var buttonText: String {
         switch self {
         case .profile: return "Perfil"
-        case .settings: return "Ajustes"
         case .feed: return "Muro"
         case .challenge: return "Retos"
         }
@@ -41,7 +38,6 @@ enum MainTabBarItem: Hashable { //items
     var color1: Color {
         switch self {
         case .profile: return Color.colorPrincipal
-        case .settings: return Color.colorPrincipal
         case .feed: return Color.colorPrincipal
         case .challenge: return Color.colorPrincipal
         }
