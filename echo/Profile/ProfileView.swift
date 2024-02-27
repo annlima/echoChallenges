@@ -34,7 +34,7 @@ struct ProfileView: View {
                                 .default(Text("Configuraciones")) {
                                     self.navigateToSettings = true
                                 },
-                                .default(Text("Cerrar")){
+                                .default(Text("Cerrar sesión")){
                                     self.navigateToLogIn = true
                                 },
                                 .cancel()
