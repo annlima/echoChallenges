@@ -17,7 +17,7 @@ struct echoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainScreenView()
         }
     }
 }

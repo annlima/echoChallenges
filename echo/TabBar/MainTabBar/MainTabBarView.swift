@@ -27,7 +27,7 @@ struct MainTabBarView: View {
 }
 
 struct MainTabBarView_Previews: PreviewProvider {
-    static let tabs: [MainTabBarItem] = [.profile, .feed, .challenge]
+    static let tabs: [MainTabBarItem] = [.profile, .complaints, .map, .leader]
     
     static var previews: some View {
         VStack {
