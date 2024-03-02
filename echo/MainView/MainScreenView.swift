@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainScreenView: View {
     @EnvironmentObject var cameraModel: CameraViewModel
-    @State private var tabSelection: MainTabBarItem = .challenge
+    @State private var tabSelection: MainTabBarItem = .map
 
     //Declaración de retos de ejemplo
     var challengesViewModel = ChallengesViewModel(
@@ -24,11 +24,13 @@ struct MainScreenView: View {
             MainTabBarContainerView(selection: $tabSelection) {
                 
                 ChallengesView(viewModel: challengesViewModel)
-                    .mainTabBarItem(tab: .challenge, selection: $tabSelection)
+                    .mainTabBarItem(tab: .map, selection: $tabSelection)
                 FeedView()
-                    .mainTabBarItem(tab: .feed, selection: $tabSelection)
+                    .mainTabBarItem(tab: .complaints, selection: $tabSelection)
                 ProfileView()
                     .mainTabBarItem(tab: .profile, selection: $tabSelection)
+                LeaderView()
+                    .mainTabBarItem(tab: .leader, selection: $tabSelection)
             }
         }
     }
