@@ -8,13 +8,111 @@
 import SwiftUI
 
 
+struct Experience: Identifiable {
+    let id = UUID()
+    let role: String
+    let organization: String
+    let date: String
+}
+
+struct Project: Identifiable {
+    let id = UUID()
+    let name: String
+    let about: String
+}
+
 
 struct LeaderMoreInfoView: View {
+    
+    var profile: LeaderProfile = .test
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            ZStack(alignment: .topLeading) {
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    
+                    Text(profile.name)
+                        .font(.title)
+                        .bold()
+                    
+                    Text(profile.about)
+                    
+                    HStack(spacing: 10) {
+                        Text("Instagram")
+                            .bold()
+                        Text(profile.ig)
+                    }
+                    
+                    HStack(spacing: 10) {
+                        Text("Twitter")
+                            .bold()
+                        Text(profile.tw)
+                    }
+                    
+                    HStack(spacing: 10) {
+                        Text("Facebook")
+                            .bold()
+                        Text(profile.fb)
+                    }
+                    
+                    Divider()
+                    
+                    Text("Experiencia")
+                        .font(.title)
+                        .bold()
+                    
+                    VStack(alignment: .leading, spacing: 5) {
+                        ForEach(profile.experiences ?? [Experience.none]) { experience in
+                            Text(experience.role)
+                                .bold()
+                            
+                            Text(experience.organization)
+                            
+                            Text(experience.date)
+                            
+                            Spacer()
+                        }
+                    }
+                    
+                    Divider()
+                    
+                    Text("Proyectos")
+                        .font(.title)
+                        .bold()
+                    
+                }
+            }
+            .padding()
+        }
     }
 }
 
 #Preview {
     LeaderMoreInfoView()
+}
+
+extension Experience {
+    
+    static var test : Experience {
+        Experience(role: "Lider de comunidad", organization: "Echomunnity", date: "Febrero 2024 - presente")
+    }
+    
+    static var none : Experience {
+        Experience(role: "No hay experiencia", organization: "...", date: "..")
+    }
+    
+}
+
+extension Project {
+    
+    static var test : Project {
+        Project(name: "Jardín en tu casa",
+                about: "Estre proyecto se enfoca en dejar a los usuarios crear ")
+    }
+    
+    static var none : Project {
+        Project(name: "No hay proyectos", about: "...")
+    }
+    
 }

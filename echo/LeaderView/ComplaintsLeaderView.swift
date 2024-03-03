@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct Complaint: Identifiable {
     let id = UUID()
@@ -20,8 +21,7 @@ struct Complaint: Identifiable {
 struct ComplaintsLeaderView: View {
     
     var complaint: Complaint = .test
-    
-    
+
     var body: some View {
         
         VStack(alignment: .leading) {

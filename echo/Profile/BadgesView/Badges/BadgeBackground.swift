@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct BadgeBackground: View {
+    
+    var gradientStart = Color(red: 162.0 / 255.0, green: 214.0 / 255.0, blue: 5.0 / 255.0)
+    var gradientEnd = Color.green
+    
+    
     var body: some View {
         GeometryReader { geometry in
             Path { path in
@@ -45,15 +50,15 @@ struct BadgeBackground: View {
                 }
             }
             .fill(.linearGradient(
-                Gradient(colors: [Self.gradientStart, Self.gradientEnd]),
+                Gradient(colors: [gradientStart, gradientEnd]),
                 startPoint: UnitPoint(x: 0.5, y: 0),
                 endPoint: UnitPoint(x: 0.5, y: 0.6)
             ))
         }
         .aspectRatio(1, contentMode: .fit)
     }
-    static let gradientStart = Color(red: 162.0 / 255.0, green: 214.0 / 255.0, blue: 5.0 / 255.0)
-    static let gradientEnd = Color.green
+    
+    
 }
 #Preview {
     BadgeBackground()

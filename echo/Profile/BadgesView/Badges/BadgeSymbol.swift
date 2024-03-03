@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct BadgeSymbol: View {
-    static let symbolColor = Color(red: 0 / 255, green: 114 / 255, blue: 118 / 255)
-
+    
+    var symbolColor: Color = Color(red: 0 / 255, green: 114 / 255, blue: 118 / 255)
+    var width: CGFloat = 100
 
     var body: some View {
         GeometryReader { geometry in
             Path { path in
                 // Constants to adjust the drawing
-                let width = min(geometry.size.width, geometry.size.height)
+                //let width = min(geometry.size.width, geometry.size.height)
                 let coneHeight = width * 0.6
                 let coneWidth = width * 0.3
                 let diamondHeight = width * 0.45
@@ -40,7 +41,7 @@ struct BadgeSymbol: View {
                 path.addLine(to: CGPoint(x: center.x + coneWidth / 2, y: center.y - coneHeight / 2))
                 path.addLine(to: CGPoint(x: center.x - coneWidth / 2, y: center.y - coneHeight / 2))
             }
-            .fill(BadgeSymbol.symbolColor)
+            .fill(symbolColor)
         }
     }
     
@@ -48,6 +49,9 @@ struct BadgeSymbol: View {
 }
 
 struct BadgeSymbolB: View {
+    
+    var symbolColor: Color = Color(red: 0 / 255, green: 114 / 255, blue: 118 / 255)
+    
     var body: some View {
         GeometryReader { geometry in
             Path { path in
@@ -90,7 +94,7 @@ struct BadgeSymbolB: View {
                 // Close the path
                 path.closeSubpath()
             }
-            .fill(BadgeSymbol.symbolColor)
+            .fill(symbolColor)
 
         }
     }
