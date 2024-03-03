@@ -14,6 +14,7 @@ import MessageUI
 struct LeaderProfile {
     let name: String
     let headline: String
+    let about: String
     let backgroundPhoto: Image
     let profilePhoto: Image
     let isVerified: Bool
@@ -26,6 +27,8 @@ struct LeaderProfile {
     let posts: [Post]?
     let complaints: [Complaint]?
     let reunions: [Reunion]?
+    let experiences: [Experience]?
+    let badges: [Int]
     
     
 }
@@ -34,17 +37,21 @@ struct LeaderProfile {
 struct LeaderView: View {
     
     let profile: LeaderProfile = .test
-    
-    private let mailComposeDelegate = MailDelegate()
+    @State var text: String = ""
     
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
+    @State var isShowingInfoView = false
     
     @State private var isSelectedPosts = true
     @State private var isSelectedComplaint = false
     @State private var isSelectedReunions = false
     @State private var showAlert = false
     @State private var alertText = ""
+    @State private var showingBadge = false
+    @State private var showingBadge2 = false
+    @State private var showingBadge3 = false
+    @State private var showingBadge4 = false
        
     
     var body: some View {
@@ -112,7 +119,7 @@ struct LeaderView: View {
                         }
                         
                         Button {
-                            // ...
+                            self.isShowingInfoView.toggle()
                         } label: {
                             Label("Más información", systemImage: "plus")
                                 .padding(.horizontal, 10)
@@ -125,6 +132,9 @@ struct LeaderView: View {
                                 }
                             
                         }
+                        .sheet(isPresented: $isShowingInfoView, content: {
+                            LeaderMoreInfoView(profile: profile)
+                        })
                         
                     }
                     .padding(.top, 20)
@@ -136,15 +146,69 @@ struct LeaderView: View {
                             .font(.system(.title3, weight: .bold))
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        HStack {
-                            
-                            Image(.leaderBackground)
-                                .resizable()
-                                .frame(width: 60, height: 60, alignment: .topLeading)
-                            
-                            Image(.leaderBackground)
-                                .resizable()
-                                .frame(width: 60, height: 60, alignment: .topLeading)
+                        ScrollView(.horizontal) {
+                            HStack(spacing: 8) {
+                                
+                                ForEach(0 ..< profile.badges.count, id: \.self) { value in
+                                    
+                                    getBadge(type: value, width: 60)
+                                        .frame(width: 60, height: 60)
+                                        .alert(self.text, isPresented: $showingBadge) {
+                                            Button("OK", role: .cancel) { }
+                                            
+                                    }
+                                        .onTapGesture(perform: {
+                                            self.text = getTypeBadge(type: value)
+                                            self.showingBadge.toggle()
+                                        })
+                                    
+                                }
+                                
+                                /*getBadge(type: 0, width: 60)
+                                    .frame(width: 60, height: 60)
+                                    .alert(getTypeBadge(type: 0), isPresented: $showingBadge1) {
+                                                Button("OK", role: .cancel) { }
+                                            }
+                                    .onTapGesture(perform: {
+                                        self.showingBadge1.toggle()
+                                    })
+                                
+                                getBadge(type: 1, width: 60)
+                                    .frame(width: 60, height: 60)
+                                    .alert(getTypeBadge(type: 1), isPresented: $showingBadge1) {
+                                                Button("OK", role: .cancel) { }
+                                            }
+                                    .onTapGesture(perform: {
+                                        self.showingBadge1.toggle()
+                                    })
+                                
+                                getBadge(type: 2, width: 60)
+                                    .frame(width: 60, height: 60)
+                                    .alert("Insignia por haber hecho 10 denuncias", isPresented: $showingBadge2) {
+                                                Button("OK", role: .cancel) { }
+                                            }
+                                    .onTapGesture(perform: {
+                                        self.showingBadge2.toggle()
+                                    })
+                                
+                                getBadge(type: 3, width: 60)
+                                    .frame(width: 60, height: 60)
+                                    .alert("Insignia por haber hecho 10 denuncias", isPresented: $showingBadge2) {
+                                                Button("OK", role: .cancel) { }
+                                            }
+                                    .onTapGesture(perform: {
+                                        self.showingBadge2.toggle()
+                                    })
+                                
+                                getBadge(type: 4, width: 60)
+                                    .frame(width: 60, height: 60)
+                                    .alert("Insignia por haber hecho 5 denuncias", isPresented: $showingBadge3) {
+                                                Button("OK", role: .cancel) { }
+                                            }
+                                    .onTapGesture(perform: {
+                                        self.showingBadge3.toggle()
+                                    })*/
+                            }
                         }
                         
                         Divider()
@@ -235,35 +299,6 @@ struct LeaderView: View {
     }
 }
 
-
-extension LeaderView {
-    
-    private class MailDelegate: NSObject, MFMailComposeViewControllerDelegate {
-
-            func mailComposeController(_ controller: MFMailComposeViewController,
-                                       didFinishWith result: MFMailComposeResult,
-                                       error: Error?) {
-
-                controller.dismiss(animated: true)
-            }
-
-        }
-
-    // Present an mail compose view controller modally in UIKit environment
-    private func presentMailCompose() {
-        guard MFMailComposeViewController.canSendMail() else {
-            return
-        }
-        let composer = MFMailComposeViewController()
-       
-        composer.setToRecipients(["john.apleesed@icloud.com"])
-        composer.setSubject("Hey there!")
-        composer.setMessageBody("Hi, I'd like to know ", isHTML: false)
-        composer.present(composer, animated: true)
-    }
-    
-}
-
 #Preview {
     LeaderView()
 }
@@ -273,14 +308,15 @@ extension LeaderProfile {
         LeaderProfile(
             name: "Juan Pérez",
             headline: "Estudiante de Ing. Sistemas Computacionales @ UDLAP",
+            about: "Me gusta comer Sushi y ayudar a mi comunidad a solucionar problemas medio ambientales",
             backgroundPhoto: Image(.leaderBackground),
             profilePhoto: Image(.leaderPhoto),
             isVerified: true,
             location: "San Andrés Cholula, Puebla, México",
             age: 21,
             ig: "juan.perez01",
-            tw: "juan",
-            fb: "juan",
+            tw: "juan.pp",
+            fb: "juan.p1",
         
             posts: [
                 Post.test,
@@ -293,8 +329,12 @@ extension LeaderProfile {
             reunions: [
                 Reunion.test,
                 Reunion.test
-            ]
-            
+            ],
+            experiences: [
+                Experience.test,
+                Experience.test
+            ],
+            badges: [0, 1, 2, 3, 4]
             
         )
     }
