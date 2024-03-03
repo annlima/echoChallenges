@@ -26,6 +26,10 @@
 		9B78C0BF2B8BD4F6003B8323 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0BE2B8BD4F6003B8323 /* Badge.swift */; };
 		9B78C0C12B8BD512003B8323 /* BadgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0C02B8BD512003B8323 /* BadgeProtocol.swift */; };
 		9B78C0C32B8BD53C003B8323 /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0C22B8BD53C003B8323 /* BadgesView.swift */; };
+		9BB126E32B94A708007E5E86 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB126E22B94A708007E5E86 /* LocationManager.swift */; };
+		9BB126E52B94A73E007E5E86 /* AnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB126E42B94A73E007E5E86 /* AnnotationModel.swift */; };
+		9BB126E72B94A75B007E5E86 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB126E62B94A75B007E5E86 /* MapView.swift */; };
+		9BB126E92B94A93F007E5E86 /* AnnotationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB126E82B94A93F007E5E86 /* AnnotationDetailView.swift */; };
 		9BD6943A2B8BD7C20014AD5C /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD694392B8BD7C20014AD5C /* FeedView.swift */; };
 		9BD6943D2B8BD7E10014AD5C /* ChallengeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6943C2B8BD7E10014AD5C /* ChallengeProtocol.swift */; };
 		9BD6943F2B8BD8340014AD5C /* BaseChallengeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6943E2B8BD8340014AD5C /* BaseChallengeClass.swift */; };
@@ -95,6 +99,10 @@
 		9B78C0BE2B8BD4F6003B8323 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		9B78C0C02B8BD512003B8323 /* BadgeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeProtocol.swift; sourceTree = "<group>"; };
 		9B78C0C22B8BD53C003B8323 /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
+		9BB126E22B94A708007E5E86 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		9BB126E42B94A73E007E5E86 /* AnnotationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationModel.swift; sourceTree = "<group>"; };
+		9BB126E62B94A75B007E5E86 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		9BB126E82B94A93F007E5E86 /* AnnotationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDetailView.swift; sourceTree = "<group>"; };
 		9BD694392B8BD7C20014AD5C /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		9BD6943C2B8BD7E10014AD5C /* ChallengeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeProtocol.swift; sourceTree = "<group>"; };
 		9BD6943E2B8BD8340014AD5C /* BaseChallengeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChallengeClass.swift; sourceTree = "<group>"; };
@@ -209,6 +217,17 @@
 			path = Badges;
 			sourceTree = "<group>";
 		};
+		9BB126E12B94A6E8007E5E86 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				9BB126E22B94A708007E5E86 /* LocationManager.swift */,
+				9BB126E42B94A73E007E5E86 /* AnnotationModel.swift */,
+				9BB126E62B94A75B007E5E86 /* MapView.swift */,
+				9BB126E82B94A93F007E5E86 /* AnnotationDetailView.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
 		9BD694382B8BD7A70014AD5C /* MainView */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +321,7 @@
 		A19F940E2B87A13D001A31B6 /* echo */ = {
 			isa = PBXGroup;
 			children = (
+				9BB126E12B94A6E8007E5E86 /* MapView */,
 				73CFAA2D2B92653F005E48A7 /* Utils.swift */,
 				A17FCD732B8BEF3500B3D7CA /* AuthAndOnboarding */,
 				A19F940F2B87A13D001A31B6 /* echoApp.swift */,
@@ -485,9 +505,12 @@
 				A19F94102B87A13D001A31B6 /* echoApp.swift in Sources */,
 				9BD694492B8BD8D10014AD5C /* ChallengeInfoView.swift in Sources */,
 				73CFAA302B927DB3005E48A7 /* test.swift in Sources */,
+				9BB126E92B94A93F007E5E86 /* AnnotationDetailView.swift in Sources */,
+				9BB126E52B94A73E007E5E86 /* AnnotationModel.swift in Sources */,
 				73CFAA382B936F61005E48A7 /* LeaderMoreInfoView.swift in Sources */,
 				9B78C0BD2B8BD4DB003B8323 /* RotatedBadgeSymbol.swift in Sources */,
 				9BD6943A2B8BD7C20014AD5C /* FeedView.swift in Sources */,
+				9BB126E32B94A708007E5E86 /* LocationManager.swift in Sources */,
 				9B78C0BB2B8BD4BA003B8323 /* BadgeSymbol.swift in Sources */,
 				9BD6945A2B8BDC580014AD5C /* MainTabBarItemPreferenceKey.swift in Sources */,
 				9B78C0C32B8BD53C003B8323 /* BadgesView.swift in Sources */,
@@ -508,6 +531,7 @@
 				A1817FD52B8BB947002B428D /* CustomInputFile.swift in Sources */,
 				A1817FD12B8BB6E1002B428D /* RegistrationView.swift in Sources */,
 				73CFAA322B92A9DD005E48A7 /* PostsLeaderView.swift in Sources */,
+				9BB126E72B94A75B007E5E86 /* MapView.swift in Sources */,
 				A19F943C2B87A18F001A31B6 /* LoginView.swift in Sources */,
 				A19F943A2B87A14E001A31B6 /* LaunchScreen.swift in Sources */,
 				9B78C0B92B8BD4A4003B8323 /* BadgeBackground.swift in Sources */,
@@ -678,7 +702,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"echo/Preview Content\"";
-				DEVELOPMENT_TEAM = SAM2A296M4;
+				DEVELOPMENT_TEAM = KS6DBFHYN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -707,7 +731,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"echo/Preview Content\"";
-				DEVELOPMENT_TEAM = SAM2A296M4;
+				DEVELOPMENT_TEAM = KS6DBFHYN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

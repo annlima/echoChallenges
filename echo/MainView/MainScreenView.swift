@@ -23,7 +23,7 @@ struct MainScreenView: View {
         NavigationView {
             MainTabBarContainerView(selection: $tabSelection) {
                 
-                ChallengesView(viewModel: challengesViewModel)
+                MapView()
                     .mainTabBarItem(tab: .map, selection: $tabSelection)
                 FeedView()
                     .mainTabBarItem(tab: .complaints, selection: $tabSelection)

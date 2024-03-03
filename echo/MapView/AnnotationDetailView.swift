@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct AnnotationDetailView: View {
+    @Binding var annotation: ProblemAnnotation?
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if let annotation = annotation {
+            Text("Title: \(annotation.title)\nDescription: \(annotation.description)\nCriticality: \(annotation.criticality.rawValue)")
+        }
     }
 }
 
-#Preview {
-    AnnotationDetailView()
-}
