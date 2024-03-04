@@ -27,7 +27,39 @@ extension CLLocationCoordinate2D {
 
 extension MKCoordinateRegion {
     static var userRegion: MKCoordinateRegion {
-        return .init(center: .myPlaceLocation, latitudinalMeters: 8000, longitudinalMeters: 8000)
+        return .init(center: .myPlaceLocation, latitudinalMeters: 3000, longitudinalMeters: 3000)
+    }
+}
+
+struct ResizableAnnotationView: View {
+    var criticality: ProblemAnnotation.Criticality
+    var zoomLevel: Double
+
+    private func sizeForZoomLevel() -> CGFloat {
+        // Adjust these thresholds and sizes as needed
+        switch zoomLevel {
+        case 0..<0.01: return 40 // More zoomed in
+        case 0.01..<0.05: return 30
+        default: return 20 // More zoomed out
+        }
+    }
+
+    var body: some View {
+        VStack {
+            Image(systemName: "mappin")
+                .resizable()
+                .frame(width: sizeForZoomLevel(), height: sizeForZoomLevel())
+                .foregroundColor(color(for: criticality))
+            Text("Title") // Replace with your dynamic title if needed
+        }
+    }
+
+    private func color(for criticality: ProblemAnnotation.Criticality) -> Color {
+        switch criticality {
+        case .alta: return .red
+        case .media: return .yellow
+        case .baja: return .green
+        }
     }
 }
 
@@ -44,18 +76,20 @@ struct MapView: View {
     @State private var newAnnotationCoordinate: CLLocationCoordinate2D?
     @State private var title: String = ""
     @State private var description: String = ""
-    @State private var criticality: ProblemAnnotation.Criticality = .low
-    let criticalityLevels: [ProblemAnnotation.Criticality] = [.low, .medium, .high]
+    @State private var criticality: ProblemAnnotation.Criticality = .baja
+    let criticalityLevels: [ProblemAnnotation.Criticality] = [.baja, .media, .alta]
     
     var body: some View {
         ZStack {
             Map(coordinateRegion: $cameraPosition, annotationItems: annotations) { annotation in
                 MapAnnotation(coordinate: annotation.coordinate) {
-                    VStack {
-                        Image(systemName: "mappin")
-                            .foregroundColor(color(for: annotation.criticality))
-                        Text(annotation.title)
-                    }
+                    ResizableAnnotationView(criticality: annotation.criticality, zoomLevel: cameraPosition.span.latitudeDelta)
+                        .onTapGesture {
+                            if !annotationMode {
+                                selectedAnnotation = annotation
+                                showingDetails = true
+                            }
+                        }
                 }
             }
             .edgesIgnoringSafeArea(.all)
@@ -70,7 +104,7 @@ struct MapView: View {
                         newAnnotationCoordinate = cameraPosition.center
                         showingInputForm = true
                     } else {
-                        
+                    
                     }
                 }
             
@@ -107,43 +141,13 @@ struct MapView: View {
                 }
             }
         }
-        .sheet(isPresented: $showingInputForm) {
-           
-            NavigationView{
-                VStack(alignment: .leading, spacing: 20){
-                    TextField("Title", text: $title)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                    TextField("Description", text: $description)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                    Picker("Critically", selection: $criticality){
-                        ForEach(criticalityLevels, id: \.self) {criticality in
-                            Text(criticality.rawValue.capitalized)
-                        }
-                    }
-                    HStack {
-                        Button("Cancel"){
-                            showingInputForm = false
-                        }
-                        .foregroundColor(Color("AccentColor"))
-                        .padding()
-                        Button("Save"){
-                            let newAnnotation = ProblemAnnotation(title: title, description: description, criticality: criticality, coordinate: newAnnotationCoordinate ?? CLLocationCoordinate2D())
-                            annotations.append(newAnnotation)
-                            showingInputForm = false
-                            
-                            // Clear the text fields
-                            title = ""
-                            description = ""
-                        }
-                        .foregroundColor(Color("ColorPrincipal"))
-                    }
-                    
-                }
-                .navigationBarTitle("New Annotation", displayMode: .inline)
+        .sheet(isPresented: $showingInputForm, content: {
+                            AnnotationInputView()
+                                })
+        .sheet(isPresented: $showingDetails) {
+            if let selectedAnnotation = selectedAnnotation {
+                AnnotationDetailView(annotation: $selectedAnnotation)
             }
-            
         }
 
     }
@@ -158,11 +162,11 @@ struct MapView: View {
     
     private func color(for criticality: ProblemAnnotation.Criticality) -> Color {
         switch criticality {
-        case .high:
+        case .alta:
             return .red
-        case .medium:
+        case .media:
             return .yellow
-        case .low:
+        case .baja:
             return .green
         }
     }

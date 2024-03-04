@@ -15,6 +15,7 @@
 		73CFAA342B92A9F5005E48A7 /* ComplaintsLeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA332B92A9F5005E48A7 /* ComplaintsLeaderView.swift */; };
 		73CFAA362B9301F9005E48A7 /* ReunionsLeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA352B9301F9005E48A7 /* ReunionsLeaderView.swift */; };
 		73CFAA382B936F61005E48A7 /* LeaderMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA372B936F61005E48A7 /* LeaderMoreInfoView.swift */; };
+		9B4471192B96784B009CD897 /* AnnotationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4471182B96784B009CD897 /* AnnotationInputView.swift */; };
 		9B78C0AA2B8BD383003B8323 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0A92B8BD383003B8323 /* ProfileView.swift */; };
 		9B78C0AD2B8BD3C4003B8323 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0AC2B8BD3C4003B8323 /* TabBarItem.swift */; };
 		9B78C0B12B8BD403003B8323 /* ProfileTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0B02B8BD403003B8323 /* ProfileTabBarView.swift */; };
@@ -88,6 +89,7 @@
 		73CFAA332B92A9F5005E48A7 /* ComplaintsLeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintsLeaderView.swift; sourceTree = "<group>"; };
 		73CFAA352B9301F9005E48A7 /* ReunionsLeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReunionsLeaderView.swift; sourceTree = "<group>"; };
 		73CFAA372B936F61005E48A7 /* LeaderMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderMoreInfoView.swift; sourceTree = "<group>"; };
+		9B4471182B96784B009CD897 /* AnnotationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationInputView.swift; sourceTree = "<group>"; };
 		9B78C0A92B8BD383003B8323 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		9B78C0AC2B8BD3C4003B8323 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		9B78C0B02B8BD403003B8323 /* ProfileTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarView.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				9BB126E42B94A73E007E5E86 /* AnnotationModel.swift */,
 				9BB126E62B94A75B007E5E86 /* MapView.swift */,
 				9BB126E82B94A93F007E5E86 /* AnnotationDetailView.swift */,
+				9B4471182B96784B009CD897 /* AnnotationInputView.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				9BD694492B8BD8D10014AD5C /* ChallengeInfoView.swift in Sources */,
 				73CFAA302B927DB3005E48A7 /* test.swift in Sources */,
 				9BB126E92B94A93F007E5E86 /* AnnotationDetailView.swift in Sources */,
+				9B4471192B96784B009CD897 /* AnnotationInputView.swift in Sources */,
 				9BB126E52B94A73E007E5E86 /* AnnotationModel.swift in Sources */,
 				73CFAA382B936F61005E48A7 /* LeaderMoreInfoView.swift in Sources */,
 				9B78C0BD2B8BD4DB003B8323 /* RotatedBadgeSymbol.swift in Sources */,

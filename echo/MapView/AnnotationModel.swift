@@ -18,7 +18,7 @@ struct ProblemAnnotation: Identifiable {
     var coordinate: CLLocationCoordinate2D
     
     enum Criticality: String {
-        case high, medium, low
+        case alta, media, baja
     }
     
     init(title: String, description: String, criticality: Criticality, coordinate: CLLocationCoordinate2D) {
