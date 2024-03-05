@@ -31,6 +31,7 @@ struct AnnotationInputView: View {
     @State private var criticality: ProblemAnnotation.Criticality = .baja
     let criticalityLevels: [ProblemAnnotation.Criticality] = [.baja, .media, .alta]
     
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20){
@@ -62,12 +63,14 @@ struct AnnotationInputView: View {
                     }
                 }
                 
-                NavigationLink(destination: CameraHome()) {
-                    Text("Agregar imágen") //acceso a camara
-                }
-                .buttonStyle(.bordered)
-                .foregroundColor(Color("ColorPrincipal"))
-                .padding()
+                
+                 NavigationLink(destination: CameraHome()) {
+                     Text("Agregar imágen") //acceso a camara
+                 }
+                 .buttonStyle(.bordered)
+                 .foregroundColor(Color("ColorPrincipal"))
+                 .padding()
+                
                
                 HStack {
                     Button("Cancelar"){

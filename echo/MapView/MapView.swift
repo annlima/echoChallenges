@@ -141,8 +141,6 @@ struct MapView: View {
         .sheet(isPresented: $showingDetails, content: {
             AnnotationDetailView(annotation: $selectedAnnotation)
         })
-         
-
     }
     
     private func addAnnotationAtCurrentLocation() {

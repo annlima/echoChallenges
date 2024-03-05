@@ -8,7 +8,7 @@ struct ProfileView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor") // Replace "BackgroundColor" with your actual color asset name
+            Color("BackgroundColor") 
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
@@ -62,25 +62,6 @@ struct ProfileView: View {
                             .padding()
                     }
                     
-                    HStack {
-                        Button(action: {}) {
-                            Text("Follow")
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                        }
-                        Button(action: {}) {
-                            Text("Message")
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color.gray)
-                                .cornerRadius(10)
-                        }
-                    }
-                    .padding()
                     
                     // Custom Tab Bar View
                     ProfileTabBarView(currentTab: $currentTab)
@@ -105,8 +86,8 @@ struct ProfileView: View {
             .navigationBarHidden(true)
         }
         .background(
-            NavigationLink(destination: Text("Settings View Placeholder"), isActive: $navigateToSettings) {
-                EmptyView()
+            NavigationLink(destination: SettingsView(), isActive: $navigateToSettings) {
+                        EmptyView()
             }
         )
         .background(
