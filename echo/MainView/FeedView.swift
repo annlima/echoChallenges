@@ -9,12 +9,24 @@ import SwiftUI
 
 struct FeedView: View {
     var body: some View {
+        
         NavigationView{
-            Text("Feed de fotos sobre retos")
+            VStack{
+                Carousel(imageNames: ["circle.fill","circle.fill","circle.fill","circle.fill"])
+                Spacer()
+                Text("Dos opciones de eso")
+                
+            }
+            
+            
         }
     }
 }
 
+
 #Preview {
     FeedView()
 }
+
+
+

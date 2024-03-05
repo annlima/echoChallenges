@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06025E602B96770100CFE490 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06025E5F2B96770100CFE490 /* Carousel.swift */; };
+		06025E622B96791F00CFE490 /* Tendencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06025E612B96791F00CFE490 /* Tendencies.swift */; };
 		1AB51AB42B8ADC5100A80A88 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */; };
 		73CFAA2C2B92485F005E48A7 /* LeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA2B2B92485F005E48A7 /* LeaderView.swift */; };
 		73CFAA2E2B92653F005E48A7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA2D2B92653F005E48A7 /* Utils.swift */; };
@@ -81,6 +83,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06025E5F2B96770100CFE490 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		06025E612B96791F00CFE490 /* Tendencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tendencies.swift; sourceTree = "<group>"; };
 		1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		73CFAA2B2B92485F005E48A7 /* LeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderView.swift; sourceTree = "<group>"; };
 		73CFAA2D2B92653F005E48A7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				9BD6943B2B8BD7D10014AD5C /* Challenge */,
 				9BD694392B8BD7C20014AD5C /* FeedView.swift */,
 				9BD694512B8BD94B0014AD5C /* MainScreenView.swift */,
+				06025E5F2B96770100CFE490 /* Carousel.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				9BD694442B8BD8B00014AD5C /* MonthlyChallenge.swift */,
 				9BD694462B8BD8C30014AD5C /* ChallengesView.swift */,
 				9BD694482B8BD8D10014AD5C /* ChallengeInfoView.swift */,
+				06025E612B96791F00CFE490 /* Tendencies.swift */,
 			);
 			path = Challenge;
 			sourceTree = "<group>";
@@ -501,6 +507,7 @@
 				9BD694502B8BD92B0014AD5C /* CameraViewModel.swift in Sources */,
 				73CFAA2E2B92653F005E48A7 /* Utils.swift in Sources */,
 				9BD694622B8BE12D0014AD5C /* SettingsView.swift in Sources */,
+				06025E622B96791F00CFE490 /* Tendencies.swift in Sources */,
 				9B78C0AA2B8BD383003B8323 /* ProfileView.swift in Sources */,
 				A13256902B8D13530067EAD0 /* PasswordReset.swift in Sources */,
 				9B78C0AD2B8BD3C4003B8323 /* TabBarItem.swift in Sources */,
@@ -520,6 +527,7 @@
 				9B78C0C32B8BD53C003B8323 /* BadgesView.swift in Sources */,
 				9BD694522B8BD94B0014AD5C /* MainScreenView.swift in Sources */,
 				9B78C0BF2B8BD4F6003B8323 /* Badge.swift in Sources */,
+				06025E602B96770100CFE490 /* Carousel.swift in Sources */,
 				1AB51AB42B8ADC5100A80A88 /* Onboarding.swift in Sources */,
 				73CFAA362B9301F9005E48A7 /* ReunionsLeaderView.swift in Sources */,
 				9BD694452B8BD8B00014AD5C /* MonthlyChallenge.swift in Sources */,
