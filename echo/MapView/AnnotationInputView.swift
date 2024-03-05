@@ -22,9 +22,10 @@ struct CustomTextFieldStyle: TextFieldStyle {
 }
 
 struct AnnotationInputView: View {
-    @State private var showingInputForm = false
-    @State private var annotations = [ProblemAnnotation]()
-    @State private var newAnnotationCoordinate: CLLocationCoordinate2D?
+    @StateObject private var locationManager = LocationManager()
+    @Binding var showingInputForm: Bool
+    @Binding var annotations: [ProblemAnnotation]
+    @Binding var newAnnotationCoordinate: CLLocationCoordinate2D?
     @State private var title: String = ""
     @State private var description: String = ""
     @State private var criticality: ProblemAnnotation.Criticality = .baja
@@ -63,10 +64,12 @@ struct AnnotationInputView: View {
                 HStack {
                     Button("Cancelar"){
                         showingInputForm = false
+                        
                     }
                     .foregroundColor(Color("AccentColor"))
                     .padding()
                     Button("Denunciar"){
+                        print("New pin at \(newAnnotationCoordinate)")
                         let newAnnotation = ProblemAnnotation(title: title, description: description, criticality: criticality, coordinate: newAnnotationCoordinate ?? CLLocationCoordinate2D())
                         annotations.append(newAnnotation)
                         showingInputForm = false
@@ -84,6 +87,3 @@ struct AnnotationInputView: View {
     }
 }
 
-#Preview {
-    AnnotationInputView()
-}

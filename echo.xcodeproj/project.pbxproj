@@ -222,6 +222,7 @@
 		9BB126E12B94A6E8007E5E86 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				9BD6944A2B8BD8EA0014AD5C /* Camera */,
 				9BB126E22B94A708007E5E86 /* LocationManager.swift */,
 				9BB126E42B94A73E007E5E86 /* AnnotationModel.swift */,
 				9BB126E62B94A75B007E5E86 /* MapView.swift */,
@@ -244,7 +245,6 @@
 		9BD6943B2B8BD7D10014AD5C /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
-				9BD6944A2B8BD8EA0014AD5C /* Camera */,
 				9BD6943C2B8BD7E10014AD5C /* ChallengeProtocol.swift */,
 				9BD6943E2B8BD8340014AD5C /* BaseChallengeClass.swift */,
 				9BD694402B8BD8850014AD5C /* DailyChallenge.swift */,

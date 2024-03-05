@@ -12,7 +12,20 @@ struct AnnotationDetailView: View {
 
     var body: some View {
         if let annotation = annotation {
-            Text("Title: \(annotation.title)\nDescription: \(annotation.description)\nCriticality: \(annotation.criticality.rawValue)")
+            VStack {
+                Text("\(annotation.title)")
+                    .font(.title)
+                    .padding()
+                Text("Descripción del problema")
+                    .font(.title3)
+                Text("\(annotation.description)")
+                    .padding()
+                
+            }
+           
+            
+        } else {
+            Text("No annotation selected")
         }
     }
 }

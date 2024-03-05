@@ -50,7 +50,7 @@ struct ResizableAnnotationView: View {
                 .resizable()
                 .frame(width: sizeForZoomLevel(), height: sizeForZoomLevel())
                 .foregroundColor(color(for: criticality))
-            Text("Title") // Replace with your dynamic title if needed
+            //Text("Title")
         }
     }
 
@@ -86,6 +86,7 @@ struct MapView: View {
                     ResizableAnnotationView(criticality: annotation.criticality, zoomLevel: cameraPosition.span.latitudeDelta)
                         .onTapGesture {
                             if !annotationMode {
+                                print("Annotation tapped: \(annotation)")
                                 selectedAnnotation = annotation
                                 showingDetails = true
                             }
@@ -93,20 +94,6 @@ struct MapView: View {
                 }
             }
             .edgesIgnoringSafeArea(.all)
-            
-            // Invisible overlay for detecting taps
-            Color.clear
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    if annotationMode {
-                        // Approximate coordinate based on the center of the map
-                        // This is a simplification and may not be precise
-                        newAnnotationCoordinate = cameraPosition.center
-                        showingInputForm = true
-                    } else {
-                    
-                    }
-                }
             
             VStack {
                 Spacer()
@@ -123,11 +110,16 @@ struct MapView: View {
                 }
                 
                 if annotationMode {
-                    
                     //Button to create new annotation on user's current location
                     Button(action: {
-                        newAnnotationCoordinate = locationManager.currentLocation
-                        newAnnotationCoordinate = cameraPosition.center
+                        
+                        if locationManager.currentLocation != nil {
+                            newAnnotationCoordinate =
+                            locationManager.currentLocation
+                        } else {
+                            newAnnotationCoordinate = CLLocationCoordinate2D(latitude: 19.04802, longitude: -98.29617)
+                        }
+                        
                         showingInputForm = true
                         print("Button activated")
                         
@@ -142,13 +134,14 @@ struct MapView: View {
             }
         }
         .sheet(isPresented: $showingInputForm, content: {
-                            AnnotationInputView()
-                                })
-        .sheet(isPresented: $showingDetails) {
-            if let selectedAnnotation = selectedAnnotation {
-                AnnotationDetailView(annotation: $selectedAnnotation)
-            }
-        }
+            AnnotationInputView(showingInputForm: $showingInputForm, annotations: $annotations, newAnnotationCoordinate: $newAnnotationCoordinate)
+        })
+        
+        
+        .sheet(isPresented: $showingDetails, content: {
+            AnnotationDetailView(annotation: $selectedAnnotation)
+        })
+         
 
     }
     
@@ -170,9 +163,6 @@ struct MapView: View {
             return .green
         }
     }
-    
-    
-    
 }
 
 #Preview {
