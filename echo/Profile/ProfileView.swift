@@ -1,5 +1,22 @@
 import SwiftUI
 
+struct CustomeButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.horizontal, 30)
+            .padding(.vertical, 10)
+            .background(Color("ColorPrincipal"))
+            .foregroundColor(.white)
+            .font(.system(size: 14, weight: .bold))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color("ColorPrincipal"))
+            )
+            .cornerRadius(10)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+    }
+}
+
 struct ProfileView: View {
     @State private var currentTab: Int = ProfileTabs.statistics.rawValue
     @State private var showMenu = false // For showing the action sheet
@@ -55,13 +72,25 @@ struct ProfileView: View {
                         
                         Text("@Catherine12") // Replace with actual username
                             .font(.title)
-                        
                         Text("My name is Catherine. I like dancing in the rain and travelling all around the world.")
                             .font(.body)
                             .multilineTextAlignment(.center)
                             .padding()
+                        
+                    
+                        NavigationLink(destination: MyPlaceView()) {
+                            HStack {
+                                Image(systemName: "house")
+                                Text("Mi casa")
+                            }
+                            EmptyView()
+                            
+                        }
+                        .buttonStyle(CustomeButtonStyle())
+                        .foregroundColor(Color("ColorPrincipal"))
                     }
                     
+                    Divider()
                     
                     // Custom Tab Bar View
                     ProfileTabBarView(currentTab: $currentTab)
