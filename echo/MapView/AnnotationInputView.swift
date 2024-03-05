@@ -32,7 +32,7 @@ struct AnnotationInputView: View {
     let criticalityLevels: [ProblemAnnotation.Criticality] = [.baja, .media, .alta]
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             VStack(alignment: .leading, spacing: 20){
                 Text("Información del problema")
                     .padding()
@@ -50,6 +50,7 @@ struct AnnotationInputView: View {
                     .border(Color("ColorPrincipal"), width: 2.5)
                     .cornerRadius(14)
                     .padding()
+                
                 HStack {
                     Text("Severidad del problema")
                         .font(.headline)
@@ -60,6 +61,13 @@ struct AnnotationInputView: View {
                         }
                     }
                 }
+                
+                NavigationLink(destination: CameraHome()) {
+                    Text("Agregar imágen") //acceso a camara
+                }
+                .buttonStyle(.bordered)
+                .foregroundColor(Color("ColorPrincipal"))
+                .padding()
                
                 HStack {
                     Button("Cancelar"){
@@ -68,10 +76,7 @@ struct AnnotationInputView: View {
                     }
                     .foregroundColor(Color("AccentColor"))
                     .padding()
-                    NavigationLink(destination: CameraHome()) {
-                        Text("Agregar imágen") //acceso a camara
-                    }
-                    .buttonStyle(.bordered)
+                
                     Button("Denunciar"){
                         print("New pin at \(newAnnotationCoordinate)")
                         let newAnnotation = ProblemAnnotation(title: title, description: description, criticality: criticality, coordinate: newAnnotationCoordinate ?? CLLocationCoordinate2D())
@@ -87,6 +92,7 @@ struct AnnotationInputView: View {
                 
             }
             .navigationBarTitle("Denunciar problema", displayMode: .inline)
+            
         }
     }
 }
