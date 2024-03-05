@@ -68,6 +68,10 @@ struct AnnotationInputView: View {
                     }
                     .foregroundColor(Color("AccentColor"))
                     .padding()
+                    NavigationLink(destination: CameraHome()) {
+                        Text("Agregar imágen") //acceso a camara
+                    }
+                    .buttonStyle(.bordered)
                     Button("Denunciar"){
                         print("New pin at \(newAnnotationCoordinate)")
                         let newAnnotation = ProblemAnnotation(title: title, description: description, criticality: criticality, coordinate: newAnnotationCoordinate ?? CLLocationCoordinate2D())
