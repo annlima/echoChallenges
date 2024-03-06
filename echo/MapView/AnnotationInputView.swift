@@ -63,16 +63,22 @@ struct AnnotationInputView: View {
                     }
                 }
                 
-                
-                 NavigationLink(destination: CameraHome()) {
-                     Text("Agregar imágen") //acceso a camara
-                 }
-                 .buttonStyle(.bordered)
-                 .foregroundColor(Color("ColorPrincipal"))
-                 .padding()
-                
+                HStack {
+                    Spacer()
+                    
+                    NavigationLink(destination: CameraHome()) {
+                        Text("Agregar imágen") //acceso a camara
+                    }
+                     .buttonStyle(.bordered)
+                     .foregroundColor(Color("ColorPrincipal"))
+                     .padding()
+                    
+                    Spacer()
+                }
                
                 HStack {
+                    Spacer()
+                    
                     Button("Cancelar"){
                         showingInputForm = false
                         
@@ -91,6 +97,9 @@ struct AnnotationInputView: View {
                         description = ""
                     }
                     .foregroundColor(Color("ColorPrincipal"))
+                    .padding()
+                    
+                    Spacer()
                 }
                 
             }
@@ -99,4 +108,5 @@ struct AnnotationInputView: View {
         }
     }
 }
+
 

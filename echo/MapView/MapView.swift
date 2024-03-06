@@ -108,6 +108,7 @@ struct MapView: View {
                         .padding()
                         .tint(Color("AccentColor"))
                 }
+                .shadow(color: .gray, radius: 5, x: 0, y: 2)
                 
                 if annotationMode {
                     //Button to create new annotation on user's current location
@@ -130,6 +131,7 @@ struct MapView: View {
                             .padding()
                             .tint(Color("AccentColor"))
                     }
+                    .shadow(color: .gray, radius: 5, x: 0, y: 2)
                 }
             }
         }
