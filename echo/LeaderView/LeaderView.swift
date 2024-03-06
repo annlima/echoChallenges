@@ -46,13 +46,8 @@ struct LeaderView: View {
     @State private var isSelectedPosts = true
     @State private var isSelectedComplaint = false
     @State private var isSelectedReunions = false
-    @State private var showAlert = false
     @State private var alertText = ""
     @State private var showingBadge = false
-    @State private var showingBadge2 = false
-    @State private var showingBadge3 = false
-    @State private var showingBadge4 = false
-       
     
     var body: some View {
         ScrollView {
@@ -124,14 +119,15 @@ struct LeaderView: View {
                             Label("Más información", systemImage: "plus")
                                 .padding(.horizontal, 10)
                                 .frame(height: 35)
-                                .foregroundStyle(Color.black)
-                                .opacity(0.7)
+                                .opacity(0.8)
+                                
                                 .overlay {
                                     Capsule()
                                         .stroke(Color.colorPrincipal)
                                 }
                             
                         }
+                        .buttonStyle(.plain)
                         .sheet(isPresented: $isShowingInfoView, content: {
                             LeaderMoreInfoView(profile: profile)
                         })
@@ -142,6 +138,7 @@ struct LeaderView: View {
                     Divider()
                     
                     VStack(alignment: .leading) {
+                        
                         Text("Insignias")
                             .font(.system(.title3, weight: .bold))
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -156,58 +153,13 @@ struct LeaderView: View {
                                         .alert(self.text, isPresented: $showingBadge) {
                                             Button("OK", role: .cancel) { }
                                             
-                                    }
+                                        }
                                         .onTapGesture(perform: {
                                             self.text = getTypeBadge(type: value)
                                             self.showingBadge.toggle()
                                         })
                                     
                                 }
-                                
-                                /*getBadge(type: 0, width: 60)
-                                    .frame(width: 60, height: 60)
-                                    .alert(getTypeBadge(type: 0), isPresented: $showingBadge1) {
-                                                Button("OK", role: .cancel) { }
-                                            }
-                                    .onTapGesture(perform: {
-                                        self.showingBadge1.toggle()
-                                    })
-                                
-                                getBadge(type: 1, width: 60)
-                                    .frame(width: 60, height: 60)
-                                    .alert(getTypeBadge(type: 1), isPresented: $showingBadge1) {
-                                                Button("OK", role: .cancel) { }
-                                            }
-                                    .onTapGesture(perform: {
-                                        self.showingBadge1.toggle()
-                                    })
-                                
-                                getBadge(type: 2, width: 60)
-                                    .frame(width: 60, height: 60)
-                                    .alert("Insignia por haber hecho 10 denuncias", isPresented: $showingBadge2) {
-                                                Button("OK", role: .cancel) { }
-                                            }
-                                    .onTapGesture(perform: {
-                                        self.showingBadge2.toggle()
-                                    })
-                                
-                                getBadge(type: 3, width: 60)
-                                    .frame(width: 60, height: 60)
-                                    .alert("Insignia por haber hecho 10 denuncias", isPresented: $showingBadge2) {
-                                                Button("OK", role: .cancel) { }
-                                            }
-                                    .onTapGesture(perform: {
-                                        self.showingBadge2.toggle()
-                                    })
-                                
-                                getBadge(type: 4, width: 60)
-                                    .frame(width: 60, height: 60)
-                                    .alert("Insignia por haber hecho 5 denuncias", isPresented: $showingBadge3) {
-                                                Button("OK", role: .cancel) { }
-                                            }
-                                    .onTapGesture(perform: {
-                                        self.showingBadge3.toggle()
-                                    })*/
                             }
                         }
                         
@@ -299,6 +251,7 @@ struct LeaderView: View {
     }
 }
 
+
 #Preview {
     LeaderView()
 }
@@ -338,4 +291,5 @@ extension LeaderProfile {
             
         )
     }
+    
 }
