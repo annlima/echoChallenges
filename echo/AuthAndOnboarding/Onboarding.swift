@@ -9,43 +9,52 @@ import UserNotifications
 
 struct Onboarding: View {
     @State private var selectedIndex = 0
-    
+    @State private var onboardingCompleted = false
 
     var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color("ColorPrincipal").opacity(0.7), Color("ColorPrincipal").opacity(0.9), Color("ColorPrincipal")]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.all)
-            
-            TabView(selection: $selectedIndex) {
-                WelcomeTab().tag(0)
-                ChallengesTab().tag(1)
-                ShareTab().tag(2)
-                ProfilePhotoTab(selectedIndex: $selectedIndex).tag(3)
-                NotificationsTab(selectedIndex: $selectedIndex).tag(4)
-                GoTab().tag(5)
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-
-            VStack {
-                Spacer()
-                HStack(spacing: 8) {
-                    ForEach(0..<6) { index in
-                        Rectangle()
-                            .frame(width: selectedIndex == index ? 20 : 8, height: 8)
-                            .foregroundColor(selectedIndex == index ? Color.white : Color.gray)
-                            .cornerRadius(4)
-                    }
+        if onboardingCompleted{
+            MainScreenView()
+        }
+        else
+        {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color("ColorPrincipal").opacity(0.7), Color("ColorPrincipal").opacity(0.9), Color("ColorPrincipal")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .edgesIgnoringSafeArea(.all)
+                
+                TabView(selection: $selectedIndex) {
+                    WelcomeTab().tag(0)
+                    ChallengesTab().tag(1)
+                    ShareTab().tag(2)
+                    ProfilePhotoTab(selectedIndex: $selectedIndex).tag(3)
+                    NotificationsTab(selectedIndex: $selectedIndex).tag(4)
+                    GoTab(onboardingCompleted: $onboardingCompleted).tag(5)
                 }
-                .padding(.bottom, 20)
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                
+                VStack {
+                    Spacer()
+                    HStack(spacing: 8) {
+                        ForEach(0..<6) { index in
+                            Rectangle()
+                                .frame(width: selectedIndex == index ? 20 : 8, height: 8)
+                                .foregroundColor(selectedIndex == index ? Color.white : Color.gray)
+                                .cornerRadius(4)
+                        }
+                    }
+                    .padding(.bottom, 20)
+                }
             }
+        
         }
     }
 }
 
 struct Onboarding_Previews: PreviewProvider {
     static var previews: some View {
-        Onboarding()
-            .preferredColorScheme(.light)
+        NavigationView{
+            Onboarding()
+                .preferredColorScheme(.light)
+        }
     }
 }
 
@@ -70,8 +79,10 @@ struct ShareTab: View {
     }
 }
 
+
 // MARK: - GoTab
 struct GoTab: View {
+    @Binding var onboardingCompleted: Bool
     var body: some View {
         VStack {
             Spacer()
@@ -84,15 +95,19 @@ struct GoTab: View {
                 .padding(.horizontal, 10)
                 .padding(.top, 40)
                 .padding(.bottom, 1)
-            Button("Comenzar a participar") {}
-                .frame(width: 320, height: 75)
-                .font(.system(size: 25, weight: .bold))
-                .background(Color.white)
-                .foregroundColor(Color("ColorPrincipal"))
-                .cornerRadius(10)
-                .padding(.top, 50)
-            Spacer()
+            Button("Comenzar a participar") {
+                onboardingCompleted = true
+                        }
+                            .frame(width: 320, height: 75)
+                            .font(.system(size: 25, weight: .bold))
+                            .background(Color.white)
+                            .foregroundColor(Color("ColorPrincipal"))
+                            .cornerRadius(10)
+                            .padding(.top, 50)
+                        Spacer()
+            
         }
+        
         .foregroundColor(.white)
     }
 }
