@@ -29,6 +29,7 @@ struct TendencyView: View {
                 .frame(width: 350,height: 180)
                 .opacity(0.3)
                 .cornerRadius(10)
+                .shadow(color: .gray, radius: 20, x: 0, y:2)
             
             HStack{
                 tendency.image
@@ -38,8 +39,8 @@ struct TendencyView: View {
                 VStack
                 {
                     Text(tendency.description)
-                        .frame(width:200,height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                    HStack{
+                        .frame(width:200,height: 80)
+                    HStack (){
                         Image(systemName: "person.circle")
                             .resizable()
                             .frame(width:20,height:20)
@@ -48,8 +49,8 @@ struct TendencyView: View {
                             .font(.custom("SanFrancisco", size: 12))
                             .opacity(0.6)
                            
-                        
-                        Button("Contribuir")
+                        Spacer()
+                        /*Button("Contribuir")
                         {
                             
                         }
@@ -57,12 +58,12 @@ struct TendencyView: View {
                         .foregroundStyle(.white)
                         .background(Color("ColorPrincipal"))
                         .cornerRadius(10)
-                        .shadow(color: .gray, radius: 5, x: 0, y: 2)
+                        .shadow(color: .gray, radius: 5, x: 0, y: 2)*/
                         
                         
                         
                     }
-                    .frame(width:200,height: 50)
+                    .frame(width:200,height: 40)
                                 
                 }
                 .padding(.trailing)
