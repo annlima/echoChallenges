@@ -42,7 +42,8 @@ struct LeaderView: View {
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
     @State var isShowingInfoView = false
-    
+    @State private var showNewPost = false
+    @State private var showNewReunion = false
     @State private var isSelectedPosts = true
     @State private var isSelectedComplaint = false
     @State private var isSelectedReunions = false
@@ -248,7 +249,40 @@ struct LeaderView: View {
                 
             }
         }
+        .overlay(
+            Menu {
+                Button{
+                    self.showNewPost.toggle()
+                } label: {
+                    Text("Nuevo post")
+                }
+                Button{
+                    self.showNewReunion.toggle()
+                } label: {
+                    Text("Nueva junta")
+                }
+                
+            } label: {
+                Image(systemName: "plus")
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .clipShape(Circle())
+            }
+            .frame(width: 60, height: 60)
+            .background(Color.colorPrincipal)
+            .cornerRadius(30)
+            .shadow(radius: 10)
+            .offset(x: -25, y: 10),
+            alignment: .bottomTrailing
+        )
+        .sheet(isPresented: $showNewPost, content: {
+            NewPostView()
+        })
+        .sheet(isPresented: $showNewReunion, content: {
+            NewReunionView()
+        })
     }
+    
 }
 
 

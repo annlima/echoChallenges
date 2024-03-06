@@ -17,6 +17,10 @@
 		73CFAA342B92A9F5005E48A7 /* ComplaintsLeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA332B92A9F5005E48A7 /* ComplaintsLeaderView.swift */; };
 		73CFAA362B9301F9005E48A7 /* ReunionsLeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA352B9301F9005E48A7 /* ReunionsLeaderView.swift */; };
 		73CFAA382B936F61005E48A7 /* LeaderMoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA372B936F61005E48A7 /* LeaderMoreInfoView.swift */; };
+		73DC90F72B990D3700578AF9 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC90F62B990D3700578AF9 /* PhotoPicker.swift */; };
+		73DC90F92B990DB900578AF9 /* LeaderProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC90F82B990DB900578AF9 /* LeaderProblems.swift */; };
+		73DC90FB2B990DE800578AF9 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC90FA2B990DE800578AF9 /* NewPostView.swift */; };
+		73DC90FD2B990E0000578AF9 /* NewReunionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC90FC2B990E0000578AF9 /* NewReunionView.swift */; };
 		9B4471192B96784B009CD897 /* AnnotationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4471182B96784B009CD897 /* AnnotationInputView.swift */; };
 		9B44711B2B97BA60009CD897 /* MyPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B44711A2B97BA60009CD897 /* MyPlaceView.swift */; };
 		9B78C0AA2B8BD383003B8323 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78C0A92B8BD383003B8323 /* ProfileView.swift */; };
@@ -86,6 +90,10 @@
 		73CFAA332B92A9F5005E48A7 /* ComplaintsLeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintsLeaderView.swift; sourceTree = "<group>"; };
 		73CFAA352B9301F9005E48A7 /* ReunionsLeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReunionsLeaderView.swift; sourceTree = "<group>"; };
 		73CFAA372B936F61005E48A7 /* LeaderMoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderMoreInfoView.swift; sourceTree = "<group>"; };
+		73DC90F62B990D3700578AF9 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		73DC90F82B990DB900578AF9 /* LeaderProblems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderProblems.swift; sourceTree = "<group>"; };
+		73DC90FA2B990DE800578AF9 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
+		73DC90FC2B990E0000578AF9 /* NewReunionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReunionView.swift; sourceTree = "<group>"; };
 		9B4471182B96784B009CD897 /* AnnotationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationInputView.swift; sourceTree = "<group>"; };
 		9B44711A2B97BA60009CD897 /* MyPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceView.swift; sourceTree = "<group>"; };
 		9B78C0A92B8BD383003B8323 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -159,6 +167,10 @@
 			isa = PBXGroup;
 			children = (
 				73CFAA2B2B92485F005E48A7 /* LeaderView.swift */,
+				73DC90F62B990D3700578AF9 /* PhotoPicker.swift */,
+				73DC90F82B990DB900578AF9 /* LeaderProblems.swift */,
+				73DC90FA2B990DE800578AF9 /* NewPostView.swift */,
+				73DC90FC2B990E0000578AF9 /* NewReunionView.swift */,
 				73CFAA372B936F61005E48A7 /* LeaderMoreInfoView.swift */,
 				73CFAA312B92A9DD005E48A7 /* PostsLeaderView.swift */,
 				73CFAA332B92A9F5005E48A7 /* ComplaintsLeaderView.swift */,
@@ -475,6 +487,7 @@
 				9B78C0C12B8BD512003B8323 /* BadgeProtocol.swift in Sources */,
 				9BD6944E2B8BD9130014AD5C /* CameraView.swift in Sources */,
 				9BD694502B8BD92B0014AD5C /* CameraViewModel.swift in Sources */,
+				73DC90FD2B990E0000578AF9 /* NewReunionView.swift in Sources */,
 				73CFAA2E2B92653F005E48A7 /* Utils.swift in Sources */,
 				9BD694622B8BE12D0014AD5C /* SettingsView.swift in Sources */,
 				9B78C0AA2B8BD383003B8323 /* ProfileView.swift in Sources */,
@@ -507,8 +520,11 @@
 				9BD6944C2B8BD8FB0014AD5C /* CameraHome.swift in Sources */,
 				A1817FD52B8BB947002B428D /* CustomInputFile.swift in Sources */,
 				A1817FD12B8BB6E1002B428D /* RegistrationView.swift in Sources */,
+				73DC90F92B990DB900578AF9 /* LeaderProblems.swift in Sources */,
+				73DC90FB2B990DE800578AF9 /* NewPostView.swift in Sources */,
 				73CFAA322B92A9DD005E48A7 /* PostsLeaderView.swift in Sources */,
 				9BB126E72B94A75B007E5E86 /* MapView.swift in Sources */,
+				73DC90F72B990D3700578AF9 /* PhotoPicker.swift in Sources */,
 				A19F943C2B87A18F001A31B6 /* LoginView.swift in Sources */,
 				A19F943A2B87A14E001A31B6 /* LaunchScreen.swift in Sources */,
 				9B78C0B92B8BD4A4003B8323 /* BadgeBackground.swift in Sources */,
@@ -678,7 +694,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"echo/Preview Content\"";
-				DEVELOPMENT_TEAM = KS6DBFHYN6;
+				DEVELOPMENT_TEAM = SAM2A296M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -707,7 +723,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"echo/Preview Content\"";
-				DEVELOPMENT_TEAM = KS6DBFHYN6;
+				DEVELOPMENT_TEAM = SAM2A296M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
