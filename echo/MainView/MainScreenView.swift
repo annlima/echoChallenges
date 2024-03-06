@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainScreenView: View {
     @EnvironmentObject var cameraModel: CameraViewModel
-    @State private var tabSelection: MainTabBarItem = .map
+    @State private var tabSelection: MainTabBarItem = .complaints
 
     var body: some View {
         NavigationView {
@@ -19,10 +19,10 @@ struct MainScreenView: View {
                     .mainTabBarItem(tab: .map, selection: $tabSelection)
                 FeedView()
                     .mainTabBarItem(tab: .complaints, selection: $tabSelection)
-                ProfileView()
-                    .mainTabBarItem(tab: .profile, selection: $tabSelection)
                 LeaderView()
                     .mainTabBarItem(tab: .leader, selection: $tabSelection)
+                ProfileView()
+                    .mainTabBarItem(tab: .profile, selection: $tabSelection)
             }
         }
     }
