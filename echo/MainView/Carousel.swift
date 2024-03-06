@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+struct news{
+var image: Image
+var description: String
+var url: String
+}
+
 struct Carousel: View {
-    var imageNames: [String]
+    var news:[news]
     //time for each new
     let timer = Timer.publish(every: 3.0, on: .main, in: .common).autoconnect()
     
@@ -23,13 +29,26 @@ struct Carousel: View {
             // Step 5: Create TabView for Carousel
             TabView(selection: $selectedImageIndex) {
                 // Step 6: Iterate Through Images
-                ForEach(0..<imageNames.count, id: \.self) { index in
-                    ZStack(alignment: .topLeading) {
+                ForEach(0..<news.count, id: \.self) { index in
+                    ZStack() {
                         // Step 7: Display Image
-                        Image("\(imageNames[index])")
+                        news[index].image
                             .resizable()
                             .tag(index)
-                            .frame(width: 350, height: 200)
+                            .frame(width: .infinity, height: 300)
+                            .opacity(0.4)
+                        VStack{
+                            Spacer()
+                            HStack{
+                                Text(news[index].description)
+                                    .padding(.bottom,40)
+                                    .padding(.horizontal)
+                                    .fontWeight(.bold)
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                            }
+                            
+                        }
                     }
                 }
             }
@@ -39,7 +58,7 @@ struct Carousel: View {
 
             // Step 12: Navigation Dots
             HStack {
-                ForEach(0..<imageNames.count, id: \.self) { index in
+                ForEach(0..<news.count, id: \.self) { index in
                     // Step 13: Create Navigation Dots
                     Capsule()
                         .fill(Color.white.opacity(selectedImageIndex == index ? 1 : 0.33))
@@ -56,7 +75,7 @@ struct Carousel: View {
         .onReceive(timer) { _ in
             // Step 16: Auto-Scrolling Logic
             withAnimation(.default) {
-                selectedImageIndex = (selectedImageIndex + 1) % imageNames.count
+                selectedImageIndex = (selectedImageIndex + 1) % news.count
             }
         }
     
@@ -64,6 +83,3 @@ struct Carousel: View {
     
 }
 
-#Preview {
-    Carousel(imageNames: ["circle.fill","circle.fill","circle.fill","circle.fill"])
-}
