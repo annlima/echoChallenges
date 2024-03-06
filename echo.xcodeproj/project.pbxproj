@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		06025E602B96770100CFE490 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06025E5F2B96770100CFE490 /* Carousel.swift */; };
+		067DC5292B98C91F00D319C1 /* TendencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC5282B98C91F00D319C1 /* TendencyView.swift */; };
+		067DC52D2B98D40300D319C1 /* FeedTabVarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DC52C2B98D40300D319C1 /* FeedTabVarView.swift */; };
 		1AB51AB42B8ADC5100A80A88 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */; };
 		73CFAA2C2B92485F005E48A7 /* LeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA2B2B92485F005E48A7 /* LeaderView.swift */; };
 		73CFAA2E2B92653F005E48A7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA2D2B92653F005E48A7 /* Utils.swift */; };
@@ -75,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		06025E5F2B96770100CFE490 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		067DC5282B98C91F00D319C1 /* TendencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendencyView.swift; sourceTree = "<group>"; };
+		067DC52C2B98D40300D319C1 /* FeedTabVarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTabVarView.swift; sourceTree = "<group>"; };
 		1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		73CFAA2B2B92485F005E48A7 /* LeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderView.swift; sourceTree = "<group>"; };
 		73CFAA2D2B92653F005E48A7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				9BD694392B8BD7C20014AD5C /* FeedView.swift */,
 				9BD694512B8BD94B0014AD5C /* MainScreenView.swift */,
 				06025E5F2B96770100CFE490 /* Carousel.swift */,
+				067DC5282B98C91F00D319C1 /* TendencyView.swift */,
+				067DC52C2B98D40300D319C1 /* FeedTabVarView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -479,6 +485,7 @@
 				9B4471192B96784B009CD897 /* AnnotationInputView.swift in Sources */,
 				9BB126E52B94A73E007E5E86 /* AnnotationModel.swift in Sources */,
 				73CFAA382B936F61005E48A7 /* LeaderMoreInfoView.swift in Sources */,
+				067DC52D2B98D40300D319C1 /* FeedTabVarView.swift in Sources */,
 				9B78C0BD2B8BD4DB003B8323 /* RotatedBadgeSymbol.swift in Sources */,
 				9BD6943A2B8BD7C20014AD5C /* FeedView.swift in Sources */,
 				9B44711B2B97BA60009CD897 /* MyPlaceView.swift in Sources */,
@@ -490,6 +497,7 @@
 				9B78C0BF2B8BD4F6003B8323 /* Badge.swift in Sources */,
 				06025E602B96770100CFE490 /* Carousel.swift in Sources */,
 				1AB51AB42B8ADC5100A80A88 /* Onboarding.swift in Sources */,
+				067DC5292B98C91F00D319C1 /* TendencyView.swift in Sources */,
 				73CFAA362B9301F9005E48A7 /* ReunionsLeaderView.swift in Sources */,
 				9B78C0B12B8BD403003B8323 /* ProfileTabBarView.swift in Sources */,
 				73CFAA342B92A9F5005E48A7 /* ComplaintsLeaderView.swift in Sources */,

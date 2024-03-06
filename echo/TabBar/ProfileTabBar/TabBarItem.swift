@@ -22,7 +22,7 @@ struct TabBarItem: View { //items
             VStack {
                 Spacer()
                 Text(tabBarItemName)
-                    .font(.title2)
+                    .font(.title3)
                 if currentTab == tab {
                     Color.colorPrincipal
                         .frame(height: 2)
