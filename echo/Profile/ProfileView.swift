@@ -1,4 +1,5 @@
 import SwiftUI
+import MapKit
 
 struct CustomeButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -18,6 +19,7 @@ struct CustomeButtonStyle: ButtonStyle {
 }
 
 struct ProfileView: View {
+    @State private var myPlace: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 19.04802, longitude: -98.29617) // Default value
     @State private var currentTab: Int = ProfileTabs.statistics.rawValue
     @State private var showMenu = false // For showing the action sheet
     @State private var navigateToSettings = false // To control navigation to the settings view
@@ -78,15 +80,17 @@ struct ProfileView: View {
                             .padding()
                         
                     
-                        NavigationLink(destination: MyPlaceView()) {
+                        NavigationLink(destination: MyPlaceView(myPlace: $myPlace)) {
                             HStack {
                                 Image(systemName: "house")
                                 Text("Mi casa")
                             }
                             EmptyView()
+                                
                             
                         }
                         .buttonStyle(CustomeButtonStyle())
+                        .shadow(color: .gray, radius: 5, x: 0, y: 2)
                         .foregroundColor(Color("ColorPrincipal"))
                     }
                     
@@ -120,8 +124,8 @@ struct ProfileView: View {
             }
         )
         .background(
-            NavigationLink(destination: Text("Login View Placeholder"), isActive: $navigateToLogIn) {
-                EmptyView()
+            NavigationLink(destination: LoginView(), isActive: $navigateToLogIn) {
+                        EmptyView()
             }
         )
     }
