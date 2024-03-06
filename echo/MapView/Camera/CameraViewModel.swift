@@ -9,10 +9,11 @@ import SwiftUI
 
 import AVFoundation
 
-class CameraViewModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDelegate {
+class CameraViewModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDelegate, AVCapturePhotoCaptureDelegate {
     @Published var session = AVCaptureSession()
     @Published var alert = false
     @Published var output = AVCaptureMovieFileOutput()
+    @Published var photoOutput = AVCapturePhotoOutput()
     @Published var preview: AVCaptureVideoPreviewLayer!
     @Published var isRecording: Bool = false
     @Published var recordedURLs: [URL] = []
@@ -52,8 +53,8 @@ class CameraViewModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingD
                 self.session.addInput(cameraInput)
                 self.session.addInput(audioInput)
             }
-            if self.session.canAddOutput(self.output){
-                self.session.addOutput(self.output)
+            if self.session.canAddOutput(self.photoOutput) {
+                self.session.addOutput(self.photoOutput)
             }
             self.session.commitConfiguration()
         }
@@ -61,7 +62,12 @@ class CameraViewModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingD
             print(error.localizedDescription)
         }
     }
-    
+    func capturePhoto() {
+        let settings = AVCapturePhotoSettings()
+        // Configura aquí los settings si necesitas (formato, flash, etc.)
+        self.photoOutput.capturePhoto(with: settings, delegate: self)
+    }
+
     func startRecording(){
         let tempURL = NSTemporaryDirectory() + "\(Date()).mov"
         output.startRecording(to: URL(fileURLWithPath: tempURL), recordingDelegate: self)

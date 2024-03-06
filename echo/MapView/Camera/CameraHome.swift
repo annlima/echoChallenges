@@ -23,30 +23,15 @@ struct CameraHome: View {
             ZStack{
                
                 Button {
-                    if cameraModel.isRecording{
-                        cameraModel.stopRecording()
-                    } else {
-                        cameraModel.startRecording()
-                    }
+                    cameraModel.capturePhoto()
                 } label: {
-                    Image(systemName: "video.circle")
+                    Image(systemName: "camera.shutter.button")
                         .resizable()
-                        .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(.white)
-                        .opacity(cameraModel.isRecording ? 0 : 1)
-                        .padding(0.5)
                         .frame(width: 60, height: 60)
-                        .background{
-                            Circle()
-                                .stroke(cameraModel.isRecording ? .clear: .white)
-                        }.background{
-                            Circle()
-                                .fill(cameraModel.isRecording ? .red : .white)
-                        }
-                    
+                        .background(Circle().fill(Color.white))
                 }
-                //Vista Previa del Video
                 Button{
                     if let _ = cameraModel.previewUrl{
                         cameraModel.showPreview.toggle()
