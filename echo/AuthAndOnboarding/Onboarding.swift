@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import UserNotifications
+import CoreLocation
 
 struct Onboarding: View {
     @State private var selectedIndex = 0
@@ -27,14 +28,15 @@ struct Onboarding: View {
                     ShareTab().tag(2)
                     ProfilePhotoTab(selectedIndex: $selectedIndex).tag(3)
                     NotificationsTab(selectedIndex: $selectedIndex).tag(4)
-                    GoTab(onboardingCompleted: $onboardingCompleted).tag(5)
+                    LocationPermissionTab().tag(5)
+                    GoTab(onboardingCompleted: $onboardingCompleted).tag(6)
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 
                 VStack {
                     Spacer()
                     HStack(spacing: 8) {
-                        ForEach(0..<6) { index in
+                        ForEach(0..<7) { index in
                             Rectangle()
                                 .frame(width: selectedIndex == index ? 20 : 8, height: 8)
                                 .foregroundColor(selectedIndex == index ? Color.white : Color.gray)
@@ -57,11 +59,73 @@ struct Onboarding_Previews: PreviewProvider {
         }
     }
 }
+// MARK: - LocationPermissionTab
+struct LocationPermissionTab: View {
+    @Environment(\.presentationMode) var presentationMode
+    var locationManager = CLLocationManager() // Para manejar la solicitud de ubicación
 
+    var body: some View {
+        VStack {
+            Spacer()
+            Image(systemName: "location.fill")
+                .font(.system(size: 190, weight: .bold))
+                .foregroundColor(.white)
+                .padding(.bottom, -20)
+            Text("Permitir acceso a ubicación")
+                .font(.system(size: 48, weight: .bold))
+                .foregroundColor(.white)
+                .padding(.horizontal, 10)
+                .padding(.top, 20)
+                .padding(.bottom, 1)
+                .multilineTextAlignment(.center)
+            Text("Necesitamos acceso a tu ubicación, para que puedas denunciar en donde te encuentras.")
+                .font(.system(size: 20))
+                .foregroundColor(.white)
+                .bold()
+                .multilineTextAlignment(.center)
+                .padding([.trailing, .leading, .bottom], 50)
+            Spacer()
+            Button("Permitir ubicación") {
+                requestLocation()
+            }
+            .frame(width: 320, height: 50)
+            .font(.system(size: 20, weight: .bold))
+            .background(Color.white)
+            .foregroundColor(Color("ColorPrincipal"))
+            .cornerRadius(10)
+            .padding(.bottom, 50)
+        }
+    }
+
+    func requestLocation() {
+        locationManager.requestWhenInUseAuthorization()
+        presentationMode.wrappedValue.dismiss()
+    }
+}
 // MARK: - WelcomeTab
 struct WelcomeTab: View {
     var body: some View {
-        tabViewTemplate(imageName: "globe.americas.fill", title: "Bienvenido a Ecommunity", description: "El lugar donde tú puedes hacer un cambio por tu comunidad")
+        VStack {
+            Image("Logo")
+                .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 350, height: 350)
+                  .shadow(color: .black, radius: 5, x: 0, y: 2)
+            Text("Bienvenido a Ecommunity")
+                .font(.system(size: 48, weight: .bold)) // Hacer el título un poco más grande
+                .foregroundColor(.white) // Color del texto
+                .padding(.horizontal, 10)
+                .padding(.top, 20) // Espacio reducido arriba del título
+                .padding(.bottom, 1)
+                .multilineTextAlignment(.center)
+            Text("El lugar donde tú puedes hacer el cambio por tu comunidad")
+                .font(.system(size: 20))
+                .foregroundColor(.white) // Color del texto
+                .bold()
+                .multilineTextAlignment(.center)
+                .padding([.trailing, .leading, .bottom], 50)
+            
+        }
     }
 }
 
@@ -217,7 +281,6 @@ struct ProfilePhotoTab: View {
     func loadImage() {
         guard let inputImage = inputImage else { return }
         DispatchQueue.main.async {
-            // Asegura que se ejecute en el hilo principal
             selectedIndex = (selectedIndex + 1) % 6
         }
     }
@@ -232,8 +295,9 @@ func tabViewTemplate(imageName: String, title: String, description: String) -> s
             .font(.system(size: 190, weight: .bold))
             .foregroundColor(.white)
             .padding(.bottom, -20)
+
         Text(title)
-            .font(.system(size: 48, weight: .bold)) // Hacer el título un poco más grande
+            .font(.system(size: 48, weight: .bold))
             .foregroundColor(.white) // Color del texto
             .padding(.horizontal, 10)
             .padding(.top, 20) // Espacio reducido arriba del título
