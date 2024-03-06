@@ -27,9 +27,10 @@ extension CLLocationCoordinate2D {
 
 extension MKCoordinateRegion {
     static var userRegion: MKCoordinateRegion {
-        return .init(center: .myPlaceLocation, latitudinalMeters: 3000, longitudinalMeters: 3000)
+        return .init(center: .myPlaceLocation, latitudinalMeters: 11000, longitudinalMeters: 11000)
     }
 }
+
 
 struct ResizableAnnotationView: View {
     var criticality: ProblemAnnotation.Criticality
@@ -50,7 +51,6 @@ struct ResizableAnnotationView: View {
                 .resizable()
                 .frame(width: sizeForZoomLevel(), height: sizeForZoomLevel())
                 .foregroundColor(color(for: criticality))
-            //Text("Title")
         }
     }
 
@@ -66,9 +66,14 @@ struct ResizableAnnotationView: View {
 
 
 struct MapView: View {
+    @Binding var tabSelection: MainTabBarItem
     @State private var cameraPosition: MKCoordinateRegion = .userRegion
     @StateObject private var locationManager = LocationManager()
-    @State private var annotations = [ProblemAnnotation]()
+    @State private var annotations: [ProblemAnnotation] = [
+           ProblemAnnotation(title: "Relleno sanitario de Cholula", description: "El relleno sanitario de San Pedro Cholula viola restricciones federales y pone en riesgo la salud de miles de pobladores, debido a que se construyó cerca de una zona poblada y sobre mantos freáticos", criticality: .alta, coordinate: CLLocationCoordinate2D(latitude: 18.008367, longitude: -98.465199), imageName: "RellenoSanitario"),
+           ProblemAnnotation(title: "Socavón de Puebla", description: "This is a description of problem 2", criticality: .alta, coordinate: CLLocationCoordinate2D(latitude: 19.125833, longitude: -98.373611), imageName: "Socavon"),
+           ProblemAnnotation(title: "Quema de pastizales en Cerro Zapotecas", description: "This is a description of problem 3", criticality: .media, coordinate: CLLocationCoordinate2D(latitude: 19.075184, longitude: -98.346169), imageName: "QuemaCerroZ")
+       ]
     @State private var annotationMode = false
     @State private var showingInputForm = false
     @State private var showingDetails = false
@@ -106,7 +111,7 @@ struct MapView: View {
                         .resizable()
                         .frame(width: 50, height: 50)
                         .padding()
-                        .tint(Color("AccentColor"))
+                        .tint(Color("ColorPrincipal"))
                 }
                 .shadow(color: .gray, radius: 5, x: 0, y: 2)
                 
@@ -129,11 +134,17 @@ struct MapView: View {
                             .resizable()
                             .frame(width: 50, height: 50, alignment: .topTrailing)
                             .padding()
-                            .tint(Color("AccentColor"))
+                            .tint(Color("ColorPrincipal"))
                     }
                     .shadow(color: .gray, radius: 5, x: 0, y: 2)
                 }
             }
+        }
+        .onChange(of: tabSelection){ newSelection in
+            if (newSelection == .map) {
+                resetMap()
+            }
+            
         }
         .sheet(isPresented: $showingInputForm, content: {
             AnnotationInputView(showingInputForm: $showingInputForm, annotations: $annotations, newAnnotationCoordinate: $newAnnotationCoordinate)
@@ -143,6 +154,10 @@ struct MapView: View {
         .sheet(isPresented: $showingDetails, content: {
             AnnotationDetailView(annotation: $selectedAnnotation)
         })
+    }
+    
+    private func resetMap(){
+        cameraPosition = .userRegion
     }
     
     private func addAnnotationAtCurrentLocation() {
@@ -166,5 +181,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView()
+    MapView(tabSelection: .constant(.map))
 }

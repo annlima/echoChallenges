@@ -16,17 +16,19 @@ struct ProblemAnnotation: Identifiable {
     var description: String
     var criticality: Criticality
     var coordinate: CLLocationCoordinate2D
+    var imageName: String
     
     enum Criticality: String {
         case alta, media, baja
     }
     
-    init(title: String, description: String, criticality: Criticality, coordinate: CLLocationCoordinate2D) {
+    init(title: String, description: String, criticality: Criticality, coordinate: CLLocationCoordinate2D, imageName: String) {
         self.id = UUID()
         self.title = title
         self.description = description
         self.criticality = criticality
         self.coordinate = coordinate
+        self.imageName = imageName
     }
     
 }

@@ -4,11 +4,11 @@ import MapKit
 struct CustomeButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 70)
             .padding(.vertical, 10)
             .background(Color("ColorPrincipal"))
             .foregroundColor(.white)
-            .font(.system(size: 14, weight: .bold))
+            .font(.system(size: 18, weight: .bold))
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(Color("ColorPrincipal"))
