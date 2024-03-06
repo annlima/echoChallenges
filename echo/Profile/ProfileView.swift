@@ -85,10 +85,12 @@ struct ProfileView: View {
                                 Image(systemName: "house")
                                 Text("Mi casa")
                             }
+                            
                             EmptyView()
                                 
                             
                         }
+                        .padding(.bottom)
                         .buttonStyle(CustomeButtonStyle())
                         .shadow(color: .gray, radius: 5, x: 0, y: 2)
                         .foregroundColor(Color("ColorPrincipal"))
@@ -98,6 +100,9 @@ struct ProfileView: View {
                     
                     // Custom Tab Bar View
                     ProfileTabBarView(currentTab: $currentTab)
+                        .frame(maxWidth: .infinity)
+                        .frame(alignment: .center)
+                        .padding()
                     
                     // Content for selected tab
                     Group {

@@ -54,6 +54,8 @@ struct MyPlaceView: View {
 
             }
             Button("No", role: .cancel) { }
+        }, message: {
+            Text("¿Deseas cambiar la locación de Mi Casa?")
         })
     }
 

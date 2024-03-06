@@ -20,18 +20,17 @@ struct ProfileTabBarView: View {
 
     var tabList: [String] = ["Estadísticas", "Mis logros"] //vistas
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 50) {
-                ForEach(Array(zip(self.tabList.indices, self.tabList)),
-                        id: \.0,
-                        content: { index, name in
-                    TabBarItem(currentTab: self.$currentTab, namespace: namespace.self, tabBarItemName: name, tab: index)
-                })
-            }
-            .padding(.horizontal)
+        
+        HStack(spacing: 50) {
+            ForEach(Array(zip(self.tabList.indices, self.tabList)),
+                    id: \.0,
+                    content: { index, name in
+                TabBarItem(currentTab: self.$currentTab, namespace: namespace.self, tabBarItemName: name, tab: index)
+                    .frame(alignment: .center)
+                    .frame(maxWidth: .infinity)
+
+            })
         }
-        .background(colorScheme == .light ? Color.white : Color.black)
-        .frame(height: 100)
-        .edgesIgnoringSafeArea(.all)
+        .padding(.horizontal)
     }
 }
