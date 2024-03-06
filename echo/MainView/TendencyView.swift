@@ -9,6 +9,9 @@ import SwiftUI
 
 struct Tendency: Hashable{
     var description: String
+    var detailedDescription: String
+    //var comments:[String]
+    //var complaint:[Complaint]
     var image: Image
     var votes: Int
     
@@ -23,58 +26,51 @@ struct Tendency: Hashable{
 struct TendencyView: View {
     var tendency: Tendency
     var body: some View {
-        ZStack{
-            Rectangle()
-                .foregroundStyle(.secondary)
-                .frame(width: 350,height: 180)
-                .opacity(0.3)
-                .cornerRadius(10)
-                .shadow(color: .gray, radius: 20, x: 0, y:2)
-            
-            HStack{
-                tendency.image
-                    .resizable()
-                    .frame(width: 110,height: 110)
-                    .padding(.leading, 20)
-                VStack
-                {
-                    Text(tendency.description)
-                        .frame(width:200,height: 80)
-                    HStack (){
-                        Image(systemName: "person.circle")
-                            .resizable()
-                            .frame(width:20,height:20)
-                            .opacity(0.6)
-                        Text("\(tendency.votes) personas han votado")
-                            .font(.custom("SanFrancisco", size: 12))
-                            .opacity(0.6)
-                           
-                        Spacer()
-                        /*Button("Contribuir")
-                        {
+        
+            ZStack{
+                Rectangle()
+                    .foregroundStyle(.invertedColorPrincipal)
+                    .frame(width: 350,height: 180)
+                    .opacity(0.3)
+                    .cornerRadius(10)
+                    
+                
+                HStack{
+                    tendency.image
+                        .resizable()
+                        .frame(width: 110,height: 110)
+                        .padding(.leading, 20)
+                    VStack
+                    {
+                        Text(tendency.description)
+                            .frame(width:200,height: 80)
+                        HStack (){
+                            Image(systemName: "person.circle")
+                                .resizable()
+                                .frame(width:20,height:20)
+                                .opacity(0.6)
+                            Text("\(tendency.votes) personas han firmado")
+                                .font(.custom("SanFrancisco", size: 12))
+                                .opacity(0.6)
+                               
+                            Spacer()
+                            
                             
                         }
-                        .frame(width: 100,height: 30)
-                        .foregroundStyle(.white)
-                        .background(Color("ColorPrincipal"))
-                        .cornerRadius(10)
-                        .shadow(color: .gray, radius: 5, x: 0, y: 2)*/
+                        .frame(width:200,height: 40)
                         
-                        
-                        
+                                    
                     }
-                    .frame(width:200,height: 40)
-                                
+                    .padding(.trailing)
+                    
                 }
-                .padding(.trailing)
-                
             }
-        }
-        .clipped()
+            .clipped()
+        
     }
 }
 
 #Preview {
     
-    TendencyView(tendency:Tendency(description: "La parada de autobús se ha convertido en basurero público", image: Image(.tendency2), votes: 60))
+    TendencyView(tendency:Tendency(description: "La parada de autobús se ha convertido en basurero público", detailedDescription: "La parada de autobúas de tu manzana de acuerdo a los vecinos se ha convertido en un basurero público.", image: Image(.tendency2),votes: 60))
 }
