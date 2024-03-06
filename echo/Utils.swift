@@ -55,6 +55,39 @@ struct MailView: UIViewControllerRepresentable {
     }
 }
 
+struct SelectButton: View {
+    
+    @Binding var isSelected: Bool
+    @State var text: String
+
+    var body: some View {
+        ZStack {
+
+            if isSelected {
+
+                Text(text)
+                    .padding(.horizontal, 10)
+                    .frame(height: 35)
+                    .background(Color.colorPrincipal)
+                    .foregroundStyle(.white)
+                    .bold()
+                    .clipShape(.capsule)
+
+            } else {
+
+                Text(text)
+                    .padding(.horizontal, 10)
+                    .frame(height: 35)
+                    .opacity(0.8)
+                    .overlay {
+                        Capsule()
+                            .stroke(Color.colorPrincipal)
+                    }
+            }
+        }
+    }
+}
+
 struct Utils: View {
     
     @State var result: Result<MFMailComposeResult, Error>? = nil
