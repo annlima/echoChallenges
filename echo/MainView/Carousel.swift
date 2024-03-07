@@ -30,26 +30,36 @@ struct Carousel: View {
             TabView(selection: $selectedImageIndex) {
                 // Step 6: Iterate Through Images
                 ForEach(0..<news.count, id: \.self) { index in
-                    ZStack() {
-                        // Step 7: Display Image
-                        news[index].image
-                            .resizable()
-                            .tag(index)
-                            .frame(width: .infinity, height: 300)
-                            .opacity(0.4)
-                        VStack{
-                            Spacer()
-                            HStack{
-                                Text(news[index].description)
-                                    .padding(.bottom,40)
-                                    .padding(.horizontal)
-                                    .fontWeight(.bold)
-                                    .font(.title)
-                                    .foregroundColor(.white)
+                    Button(action:{
+                        if let realurl = URL(string: news[index].url)
+                        {
+                            UIApplication.shared.open(realurl)
+                        }
+                        
+                    })
+                    {
+                        ZStack() {
+                            // Step 7: Display Image
+                            news[index].image
+                                .resizable()
+                                .tag(index)
+                                .frame(width: .infinity, height: 300)
+                                .opacity(0.4)
+                            VStack{
+                                Spacer()
+                                HStack{
+                                    Text(news[index].description)
+                                        .padding(.bottom,40)
+                                        .padding(.horizontal)
+                                        .fontWeight(.bold)
+                                        .font(.title)
+                                        .foregroundColor(.white)
+                                }
+                                
                             }
-                            
                         }
                     }
+                    
                 }
             }
             .frame(height: 300) // Step 10: Set Carousel Height
