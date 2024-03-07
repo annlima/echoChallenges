@@ -62,8 +62,8 @@ struct Onboarding_Previews: PreviewProvider {
 // MARK: - LocationPermissionTab
 struct LocationPermissionTab: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var locationViewModel = LocationViewModel()
-
+    @EnvironmentObject var locationManager: LocationManager
+    
     var body: some View {
         VStack {
             Spacer()
@@ -86,7 +86,7 @@ struct LocationPermissionTab: View {
                 .padding([.trailing, .leading, .bottom], 50)
             Spacer()
             Button("Permitir ubicación") {
-                locationViewModel.requestLocationAuthorization()
+                locationManager.requestLocationAuthorization()
             }
             .frame(width: 320, height: 50)
             .font(.system(size: 20, weight: .bold))
@@ -94,44 +94,6 @@ struct LocationPermissionTab: View {
             .foregroundColor(Color("ColorPrincipal"))
             .cornerRadius(10)
             .padding(.bottom, 50)
-        }
-    }
-}
-
-// MARK: - LocationViewModel
-class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private var locationManager = CLLocationManager()
-    @Published var lastLocation: CLLocation?
-
-    override init() {
-        super.init()
-        self.locationManager.delegate = self
-    }
-    
-    func requestLocationAuthorization() {
-        locationManager.requestWhenInUseAuthorization()
-    }
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .notDetermined:
-            // Permiso no determinado, no se hace nada
-            break
-        case .restricted, .denied:
-            // Permiso denegado, manejar adecuadamente
-            break
-        case .authorizedWhenInUse, .authorizedAlways:
-            // Permiso concedido
-            locationManager.startUpdatingLocation()
-        @unknown default:
-            break
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            self.lastLocation = location
-            // Aquí puedes hacer algo con la ubicación, como actualizar la UI o enviarla a un servidor
         }
     }
 }
