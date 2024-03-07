@@ -15,6 +15,7 @@ struct ProfileView: View {
     @State private var showMenu = false // For showing the action sheet
     @State private var navigateToSettings = false // To control navigation to the settings view
     @State private var navigateToLogIn = false // To control navigation to the login view
+    @State private var badgeEarned = false
     
     var body: some View {
         NavigationStack {
@@ -151,6 +152,16 @@ struct ProfileView: View {
                         }
                         
                         Spacer()
+                        
+                        Button {
+                            withAnimation {
+                                self.badgeEarned.toggle()
+                                
+                                    
+                            }
+                        } label: {
+                            Text("Test")
+                        }
                     }
                     .padding()
                 }
@@ -162,6 +173,9 @@ struct ProfileView: View {
             .navigationDestination(isPresented: $navigateToLogIn) {
                 LoginView()
             }
+            .overlay(
+                badgeEarned ? BadgeEarnedView(): nil
+            )
         }
         .navigationBarHidden(true)
     }

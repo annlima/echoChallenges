@@ -10,6 +10,7 @@ import MessageUI
 
 struct MailView: UIViewControllerRepresentable {
 
+
     @Binding var isShowing: Bool
     @Binding var result: Result<MFMailComposeResult, Error>?
 
