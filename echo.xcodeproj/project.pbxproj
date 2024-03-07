@@ -13,6 +13,7 @@
 		06C646512B9A24B8005220C9 /* SignedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C646502B9A24B8005220C9 /* SignedView.swift */; };
 		06E534232B9914FB00F0A7F4 /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E534222B9914FB00F0A7F4 /* ContributionView.swift */; };
 		1AB51AB42B8ADC5100A80A88 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */; };
+		731BF4C12B9A33B1004C949A /* BadgeEarnedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731BF4C02B9A33B1004C949A /* BadgeEarnedView.swift */; };
 		73CFAA2C2B92485F005E48A7 /* LeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA2B2B92485F005E48A7 /* LeaderView.swift */; };
 		73CFAA2E2B92653F005E48A7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA2D2B92653F005E48A7 /* Utils.swift */; };
 		73CFAA322B92A9DD005E48A7 /* PostsLeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA312B92A9DD005E48A7 /* PostsLeaderView.swift */; };
@@ -90,6 +91,7 @@
 		06C646502B9A24B8005220C9 /* SignedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedView.swift; sourceTree = "<group>"; };
 		06E534222B9914FB00F0A7F4 /* ContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionView.swift; sourceTree = "<group>"; };
 		1AB51AB32B8ADC5100A80A88 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		731BF4C02B9A33B1004C949A /* BadgeEarnedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeEarnedView.swift; sourceTree = "<group>"; };
 		73CFAA2B2B92485F005E48A7 /* LeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderView.swift; sourceTree = "<group>"; };
 		73CFAA2D2B92653F005E48A7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		73CFAA312B92A9DD005E48A7 /* PostsLeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsLeaderView.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				9B78C0B62B8BD479003B8323 /* HexagonParameters.swift */,
 				9B78C0B82B8BD4A4003B8323 /* BadgeBackground.swift */,
 				9B78C0BA2B8BD4BA003B8323 /* BadgeSymbol.swift */,
+				731BF4C02B9A33B1004C949A /* BadgeEarnedView.swift */,
 				9B78C0BC2B8BD4DB003B8323 /* RotatedBadgeSymbol.swift */,
 				9B78C0BE2B8BD4F6003B8323 /* Badge.swift */,
 				9B78C0C02B8BD512003B8323 /* BadgeProtocol.swift */,
@@ -534,6 +537,7 @@
 				06025E602B96770100CFE490 /* Carousel.swift in Sources */,
 				1AB51AB42B8ADC5100A80A88 /* Onboarding.swift in Sources */,
 				067DC5292B98C91F00D319C1 /* TendencyView.swift in Sources */,
+				731BF4C12B9A33B1004C949A /* BadgeEarnedView.swift in Sources */,
 				73CFAA362B9301F9005E48A7 /* ReunionsLeaderView.swift in Sources */,
 				9B78C0B12B8BD403003B8323 /* ProfileTabBarView.swift in Sources */,
 				73CFAA342B92A9F5005E48A7 /* ComplaintsLeaderView.swift in Sources */,
@@ -718,7 +722,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"echo/Preview Content\"";
-				DEVELOPMENT_TEAM = D99DB5VWR6;
+				DEVELOPMENT_TEAM = SAM2A296M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to provide continuous location-based services even when the app is in the background";
@@ -750,7 +754,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"echo/Preview Content\"";
-				DEVELOPMENT_TEAM = D99DB5VWR6;
+				DEVELOPMENT_TEAM = SAM2A296M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to provide continuous location-based services even when the app is in the background";
