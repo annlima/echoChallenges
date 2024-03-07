@@ -15,6 +15,7 @@ struct BadgeEarnedView: View {
     var body: some View {
         
         ZStack {
+            Color.white
             
             ForEach(0..<8) { index in
                 RotatedBadgeSymbol2(
@@ -72,45 +73,55 @@ struct BadgeEarnedView: View {
             }
             .opacity(0.5)
             
-            getBadge(type: 10, width: 500)
-                .transition(.scale)
-                .rotationEffect(.degrees(self.animationStarted ? 0 : -50))
-                .scaleEffect(self.animationStarted ? 1 : 5)
-                .animation(.default).onAppear{
-                    self.animationStarted = true
+            ZStack(alignment: .top) {
+                
+                
+                VStack(alignment: .center, spacing: 10) {
+                    
+                    Text("Felicidades")
+                        .font(.title)
+                        .bold()
+                    
+                    Text("Has hecho 10 denuncias")
+                        .font(.title2)
+                    
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-            VStack(alignment: .center, spacing: 10) {
+                .padding(.vertical, 120)
                 
-                Spacer()
+                getBadge(type: 10, width: 500)
+                    .transition(.scale)
+                    .rotationEffect(.degrees(self.animationStarted ? 0 : -50))
+                    .scaleEffect(self.animationStarted ? 1 : 5)
+                    .animation(.default).onAppear{
+                        self.animationStarted = true
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.vertical, 20)
                 
-                Text("Felicidades")
-                    .font(.title)
-                    .bold()
-                
-                Text("Has hecho 10 denuncias")
-                    .font(.title2)
-                
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Compartir")
+                VStack(alignment: .center, spacing: 10) {
+                    
+                    Spacer()
+                    
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Compartir")
+                    }
+                    .buttonStyle(CustomeButtonStyle())
+                    .shadow(color: .gray, radius: 5, x: 0, y: 2)
+                    .foregroundColor(Color("ColorPrincipal"))
+                    
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Continuar")
+                    }
+                    .buttonStyle(.plain)
+                    .padding(.vertical, 20)
                 }
-                .buttonStyle(CustomeButtonStyle())
-                .shadow(color: .gray, radius: 5, x: 0, y: 2)
-                .foregroundColor(Color("ColorPrincipal"))
-                
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Continuar")
-                }
-                .buttonStyle(.plain)
-                .padding(.vertical, 20)
             }
 
-        }
+        }.ignoresSafeArea()
         
         
     }
