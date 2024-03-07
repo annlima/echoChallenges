@@ -45,15 +45,14 @@ struct FeedView: View {
                         }
                     case options.one.rawValue:
                         ForEach(miniCommunityTendencies, id: \.self) { tendency in
-                            Button(action:{
-                            print("hola")
-                            })
-                            {
+                            NavigationLink (destination: ContributionView(tendency: tendency)){
                                 TendencyView(tendency: tendency)
                                     .padding(.bottom)
                             }
                             .buttonStyle(.plain)
                             .shadow(color: .gray, radius: 5, x: 0, y:2)
+
+                            
                                 
                         }
                     default:
