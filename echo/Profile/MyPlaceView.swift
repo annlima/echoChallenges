@@ -50,6 +50,9 @@ struct MyPlaceView: View {
                     myPlace = newLocation
                     region.center = newLocation
                     editMyPlaceLocation = false
+                    
+                    searchQuery = " "
+
                 }
 
             }

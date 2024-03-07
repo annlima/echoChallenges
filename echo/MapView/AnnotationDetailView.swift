@@ -39,8 +39,6 @@ struct AnnotationDetailView: View {
                     Text("\(annotation.title)")
                         .font(.title)
                         .padding()
-                    Text("Descripción del problema")
-                        .font(.title3)
                     Text("\(annotation.description)")
                         .padding()
                 }
