@@ -27,42 +27,15 @@ struct ContributionView: View {
 
     var body: some View {
 
-        NavigationStack{
 
             ScrollView{
 
-                    electionTabBarView(currentTab: $currentTab,tabList: tabList)
-
-                        .frame(maxWidth: .infinity)
-
-                        .frame(alignment: .center)
-
-
-                    
-
-                    switch currentTab {
-
-                    case options.zero.rawValue:
-
-                        VoteView(tendency: tendency)
-
-
-                    case options.one.rawValue:
-
-                        Text("view two")
-
-                    default:
-
-                        EmptyView()
-
-                    }
+                VoteView(tendency: tendency)
                 
                                     
 
             } //end ScrollView
-        } //end navigationStack
-        .edgesIgnoringSafeArea(.top)
-        .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline)
     }
 
 }
@@ -105,12 +78,17 @@ struct VoteView: View {
     var tendency: Tendency
     @State var comment: String = ""
     @State var voted:Bool = false
+    private let tabList:  [String] = ["Comentario","Foto"]
+    @State private var currentTab: Int = options.zero.rawValue
     var body: some View
 
     {
 
         VStack{
 
+            Text("Tendencia en tu comunidad:")
+                .font(.system(size: 30, weight: .bold))
+                .padding()
             Text(tendency.detailedDescription)
 
                 .padding(.horizontal,50)
@@ -173,18 +151,40 @@ struct VoteView: View {
 
             }
             
-            Text("Agrega un comentario a tu firma")
-                .font(.title2)
-            TextEditor(text: $comment)
-                .frame(width: 300,height: 200)
-                .border(Color(.invertedColorPrincipal))
+            electionTabBarView(currentTab: $currentTab,tabList: tabList)
 
+                .frame(maxWidth: .infinity)
+
+                .frame(alignment: .center)
+                .padding()
+            
+            switch currentTab {
+
+            case options.zero.rawValue:
+
+                TextEditor(text: $comment)
+                    .frame(width: 300,height: 200)
+                    .border(Color(.invertedColorPrincipal))
+                    .padding()
+
+
+
+            case options.one.rawValue:
+
+                CameraView()
+
+            default:
+
+                EmptyView()
+
+            }
+            
             Button("Firmar")
             {
                 voted = true
             }
             .buttonStyle(.plain)
-            .frame(width: 150,height: 50)
+            .frame(width: 200,height: 50)
             .background(Color(.colorPrincipal))
             .font(.title2)
             .foregroundStyle(.white)
@@ -205,6 +205,7 @@ struct VoteView: View {
 struct complaintSnippetView: View {
     var complaints:[Complaint]
     var index: Int
+    
     var body: some View {
         ZStack
         {
@@ -224,6 +225,7 @@ struct complaintSnippetView: View {
                 Text(complaints[index].text)
                     .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/,height: 100)
                     .font(.footnote)
+                    .multilineTextAlignment(.center)
                 Spacer()
             }
             
