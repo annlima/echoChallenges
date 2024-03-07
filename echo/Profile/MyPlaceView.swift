@@ -51,6 +51,7 @@ struct MyPlaceView: View {
                     region.center = newLocation
                     editMyPlaceLocation = false
                     
+                    //Clear textfield
                     searchQuery = " "
 
                 }

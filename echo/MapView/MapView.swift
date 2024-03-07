@@ -69,6 +69,8 @@ struct MapView: View {
     @Binding var tabSelection: MainTabBarItem
     @State private var cameraPosition: MKCoordinateRegion = .userRegion
     @StateObject private var locationManager = LocationManager()
+    
+    //Default annotations
     @State private var annotations: [ProblemAnnotation] = [
                ProblemAnnotation(title: "Relleno intermunicipal de Cholula", description: "El relleno sanitario de San Pedro Cholula viola restricciones federales y pone en riesgo la salud de miles de pobladores, debido a que se construyó cerca de una zona poblada y sobre mantos freáticos", criticality: .alta, coordinate: CLLocationCoordinate2D(latitude: 19.09288, longitude: -98.39399), imageName: "RellenoSanitario"),
                ProblemAnnotation(title: "Socavón de Puebla", description: "This is a description of problem 2", criticality: .alta, coordinate: CLLocationCoordinate2D(latitude: 19.125833, longitude: -98.373611), imageName: "Socavon"),
