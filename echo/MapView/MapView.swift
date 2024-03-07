@@ -120,8 +120,7 @@ struct MapView: View {
                     Button(action: {
                         
                         if locationManager.currentLocation != nil {
-                            newAnnotationCoordinate =
-                            locationManager.currentLocation
+                            print("location nil")
                         } else {
                             newAnnotationCoordinate = CLLocationCoordinate2D(latitude: 19.04802, longitude: -98.29617)
                         }
