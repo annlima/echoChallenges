@@ -72,6 +72,7 @@ struct SelectButton: View {
                     .foregroundStyle(.white)
                     .bold()
                     .clipShape(.capsule)
+                
 
             } else {
 
@@ -82,11 +83,31 @@ struct SelectButton: View {
                     .overlay {
                         Capsule()
                             .stroke(Color.colorPrincipal)
+                            .shadow(color: .gray, radius: 5, x: 0, y: 2)
                     }
             }
         }
     }
 }
+
+
+struct CustomeButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.horizontal, 70)
+            .padding(.vertical, 10)
+            .background(Color("ColorPrincipal"))
+            .foregroundColor(.white)
+            .font(.system(size: 18, weight: .bold))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color("ColorPrincipal"))
+            )
+            .clipShape(.capsule)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+    }
+}
+
 
 struct Utils: View {
     

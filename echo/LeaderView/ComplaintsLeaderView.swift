@@ -52,12 +52,12 @@ struct ComplaintsLeaderView: View {
                         MapCameraPosition.region(
                             MKCoordinateRegion(
                                 center: complaint.location.coordinate,
-                                span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+                                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
                             )
                         )
                     )
                 ) {
-                    Annotation("Seattle", coordinate: complaint.location.coordinate) {
+                    Annotation("", coordinate: complaint.location.coordinate) {
                                     Image(systemName: "mappin")
                                         .foregroundStyle(.red)
                                         .font(.title)
@@ -93,10 +93,20 @@ extension Complaint {
     
     static var test: Complaint {
         Complaint(title: "Basura acumulada",  
-                  text: "Hay basura acumulada en el terreno baldío",
-                  photo: Image(.leaderBackground),
+                  text: "Hay basura acumulada afuera de una casa",
+                  photo: Image(.tendency2),
                   category: "low",
-                  location: CLLocation(latitude: 37.785834, longitude: -122.406417)
+                  location: CLLocation(latitude: 19.052079853258167, longitude: -98.28510777831497)
+            
+        )
+    }
+    
+    static var test2: Complaint {
+        Complaint(title: "Basura acumulada",
+                  text: "Hay basura acumulada en la calle",
+                  photo: Image(.tendency1),
+                  category: "low",
+                  location: CLLocation(latitude: 19.058291157581635, longitude: -98.2958536187182)
             
         )
     }
