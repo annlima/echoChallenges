@@ -62,7 +62,7 @@ struct Onboarding_Previews: PreviewProvider {
 // MARK: - LocationPermissionTab
 struct LocationPermissionTab: View {
     @Environment(\.presentationMode) var presentationMode
-    var locationManager = CLLocationManager() // Para manejar la solicitud de ubicación
+    @ObservedObject var locationViewModel = LocationViewModel()
 
     var body: some View {
         VStack {
@@ -86,7 +86,7 @@ struct LocationPermissionTab: View {
                 .padding([.trailing, .leading, .bottom], 50)
             Spacer()
             Button("Permitir ubicación") {
-                requestLocation()
+                locationViewModel.requestLocationAuthorization()
             }
             .frame(width: 320, height: 50)
             .font(.system(size: 20, weight: .bold))
@@ -96,10 +96,43 @@ struct LocationPermissionTab: View {
             .padding(.bottom, 50)
         }
     }
+}
 
-    func requestLocation() {
+// MARK: - LocationViewModel
+class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+    private var locationManager = CLLocationManager()
+    @Published var lastLocation: CLLocation?
+
+    override init() {
+        super.init()
+        self.locationManager.delegate = self
+    }
+    
+    func requestLocationAuthorization() {
         locationManager.requestWhenInUseAuthorization()
-        presentationMode.wrappedValue.dismiss()
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .notDetermined:
+            // Permiso no determinado, no se hace nada
+            break
+        case .restricted, .denied:
+            // Permiso denegado, manejar adecuadamente
+            break
+        case .authorizedWhenInUse, .authorizedAlways:
+            // Permiso concedido
+            locationManager.startUpdatingLocation()
+        @unknown default:
+            break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            self.lastLocation = location
+            // Aquí puedes hacer algo con la ubicación, como actualizar la UI o enviarla a un servidor
+        }
     }
 }
 // MARK: - WelcomeTab
@@ -223,14 +256,14 @@ struct NotificationsTab: View {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             DispatchQueue.main.async {
                 if granted {
-                    alertTitle = "Notificaciones Activadas"
+                    alertTitle = "Notificaciones activadas"
                     alertMessage = "¡Gracias por activar las notificaciones! Ahora recibirás las últimas actualizaciones directamente."
                 } else {
                     alertTitle = "Notificaciones Desactivadas"
                     alertMessage = "Has desactivado las notificaciones. Puedes cambiar esto en cualquier momento desde los ajustes de tu dispositivo."
                 }
                 showingAlert = true
-                selectedIndex = (selectedIndex + 1) % 6
+                selectedIndex = (selectedIndex) % 6
             }
         }
     }
@@ -347,5 +380,3 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
     }
 }
-
-
