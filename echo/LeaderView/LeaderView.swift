@@ -52,12 +52,14 @@ struct LeaderView: View {
     
     var body: some View {
         ScrollView {
-            ZStack(alignment: .topLeading) {
+            
+            ZStack(alignment: .top) {
                 
                 profile.backgroundPhoto
                     .resizable()
-                    .frame(height: 150)
+                    .frame(height: 170)
                     .ignoresSafeArea()
+                    .padding(.bottom, 10)
                 
                 VStack(alignment: .center, spacing: 10) {
                     
@@ -69,8 +71,12 @@ struct LeaderView: View {
                         .padding(4)
                         .background {
                             Circle()
-                                .foregroundStyle(.background)
-                        }
+                                .strokeBorder(Color.gray, lineWidth: 4) // Adds a border to the profile picture
+                                .background(Circle().foregroundColor(.white))
+                                .frame(width: 100, height: 100)
+                                .shadow(radius: 10) // Adds a shadow for depth
+                                .padding(.top, 50)                        }
+                        .padding(.top, 70)
                     
                     HStack {
                         Text(profile.name)
@@ -110,6 +116,7 @@ struct LeaderView: View {
                                 .bold()
                                 .clipShape(.capsule)
                         }
+                        .shadow(color: .gray, radius: 5, x: 0, y: 2)
                         .sheet(isPresented: $isShowingMailView) {
                             MailView(isShowing: self.$isShowingMailView, result: self.$result)
                         }
@@ -125,9 +132,11 @@ struct LeaderView: View {
                                 .overlay {
                                     Capsule()
                                         .stroke(Color.colorPrincipal)
+                                        .shadow(color: .gray, radius: 5, x: 0, y: 2)
                                 }
                             
                         }
+                        
                         .buttonStyle(.plain)
                         .sheet(isPresented: $isShowingInfoView, content: {
                             LeaderMoreInfoView(profile: profile)
@@ -136,9 +145,12 @@ struct LeaderView: View {
                     }
                     .padding(.top, 20)
                     
-                    Divider()
+                    Spacer()
                     
-                    VStack(alignment: .leading) {
+                    
+                    VStack(alignment: .leading, spacing: 20) {
+                        
+                        Divider()
                         
                         Text("Insignias")
                             .font(.system(.title3, weight: .bold))
@@ -151,6 +163,7 @@ struct LeaderView: View {
                                     
                                     getBadge(type: value, width: 60)
                                         .frame(width: 60, height: 60)
+                                        .shadow(color: .gray, radius: 1, x: 0, y: 2)
                                         .alert(self.text, isPresented: $showingBadge) {
                                             Button("OK", role: .cancel) { }
                                             
@@ -163,7 +176,7 @@ struct LeaderView: View {
                                 }
                             }
                         }
-                        
+
                         Divider()
                         
                         Text("Contribuciones")
@@ -184,6 +197,7 @@ struct LeaderView: View {
                                 }
                                 
                             }
+                            .shadow(color: .gray, radius: 5, x: 0, y: 2)
                             
                             SelectButton(
                                 isSelected: $isSelectedComplaint,
@@ -196,6 +210,7 @@ struct LeaderView: View {
                                     isSelectedReunions = false
                                 }
                             }
+                            .shadow(color: .gray, radius: 5, x: 0, y: 2)
                             
                             SelectButton(
                                 isSelected: $isSelectedReunions,
@@ -208,6 +223,7 @@ struct LeaderView: View {
                                     isSelectedComplaint = false
                                 }
                             }
+                            .shadow(color: .gray, radius: 5, x: 0, y: 2)
                         }
                         
                         if isSelectedPosts {
@@ -247,8 +263,12 @@ struct LeaderView: View {
                 }
                 .padding()
                 
+                Spacer()
+                
             }
+
         }
+        .ignoresSafeArea()
         .overlay(
             Menu {
                 Button{
@@ -311,7 +331,7 @@ extension LeaderProfile {
             ],
             complaints: [
                 Complaint.test,
-                Complaint.test
+                Complaint.test2
             ],
             reunions: [
                 Reunion.test,
