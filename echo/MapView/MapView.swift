@@ -69,11 +69,17 @@ struct MapView: View {
     @Binding var tabSelection: MainTabBarItem
     @State private var cameraPosition: MKCoordinateRegion = .userRegion
     @StateObject private var locationManager = LocationManager()
+    
+    //Default annotations
     @State private var annotations: [ProblemAnnotation] = [
-           ProblemAnnotation(title: "Relleno sanitario de Cholula", description: "El relleno sanitario de San Pedro Cholula viola restricciones federales y pone en riesgo la salud de miles de pobladores, debido a que se construyó cerca de una zona poblada y sobre mantos freáticos", criticality: .alta, coordinate: CLLocationCoordinate2D(latitude: 18.008367, longitude: -98.465199), imageName: "RellenoSanitario"),
-           ProblemAnnotation(title: "Socavón de Puebla", description: "This is a description of problem 2", criticality: .alta, coordinate: CLLocationCoordinate2D(latitude: 19.125833, longitude: -98.373611), imageName: "Socavon"),
-           ProblemAnnotation(title: "Quema de pastizales en Cerro Zapotecas", description: "This is a description of problem 3", criticality: .media, coordinate: CLLocationCoordinate2D(latitude: 19.075184, longitude: -98.346169), imageName: "QuemaCerroZ")
-       ]
+               ProblemAnnotation(title: "Relleno intermunicipal de Cholula", description: "El relleno sanitario de San Pedro Cholula viola restricciones federales y pone en riesgo la salud de miles de pobladores, debido a que se construyó cerca de una zona poblada y sobre mantos freáticos", criticality: .alta, coordinate: CLLocationCoordinate2D(latitude: 19.09288, longitude: -98.39399), imageName: "RellenoSanitario"),
+               ProblemAnnotation(title: "Socavón de Puebla", description: "This is a description of problem 2", criticality: .alta, coordinate: CLLocationCoordinate2D(latitude: 19.125833, longitude: -98.373611), imageName: "Socavon"),
+               ProblemAnnotation(title: "Incendios y plagas en Cerro Zapotecas", description: "El Cerro Zapotecas está deteriorado por incendios y por el gusano descortezador, así como por el uso de agroquímicos, que, en conjunto, han generado un desequilibrio ambiental", criticality: .media, coordinate: CLLocationCoordinate2D(latitude: 19.075184, longitude: -98.346169), imageName: "QuemaCerroZ"),
+               ProblemAnnotation(title: "Tiradero clandestino de ganado", description: "Se deshacen de manera clandestina de porcinos enfermos que terminan de pudrirse en estos terrenos, lo que genera pestilencia y moscas que se meten en sus hogares", criticality: .alta, coordinate: CLLocationCoordinate2D(latitude: 19.05007, longitude: -98.30251), imageName: "TiraderoClandestino"),
+               ProblemAnnotation(title: "Dejan basura tirada de la Feria Nacional de la Michelada", description: "Se deshacen de manera clandestina de porcinos enfermos que terminan de pudrirse en estos terrenos, lo que genera pestilencia y moscas que se meten en sus hogares", criticality: .alta, coordinate: CLLocationCoordinate2D(latitude: 19.05728, longitude: -98.30537), imageName: "BasuraFeria")
+               
+               
+    ]
     @State private var annotationMode = false
     @State private var showingInputForm = false
     @State private var showingDetails = false
@@ -121,8 +127,15 @@ struct MapView: View {
                         
                         if locationManager.currentLocation != nil {
                             print("location nil")
+                            
+                            // Makew new annotation the center of the view
+                            cameraPosition.center = newAnnotationCoordinate ?? CLLocationCoordinate2D(latitude: 19.04802, longitude: -98.29617)
+                            
                         } else {
                             newAnnotationCoordinate = CLLocationCoordinate2D(latitude: 19.04802, longitude: -98.29617)
+                            
+                            // Makew new annotation the center of the view
+                            cameraPosition.center = newAnnotationCoordinate ?? CLLocationCoordinate2D(latitude: 19.04802, longitude: -98.29617)
                         }
                         
                         showingInputForm = true
