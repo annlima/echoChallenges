@@ -156,12 +156,11 @@ struct ProfileView: View {
                         Button {
                             withAnimation {
                                 self.badgeEarned.toggle()
-                                
-                                    
                             }
                         } label: {
-                            Text("Test")
+                            Text("...")
                         }
+                        
                     }
                     .padding()
                 }
@@ -175,9 +174,10 @@ struct ProfileView: View {
             }
             .overlay(
                 badgeEarned ? BadgeEarnedView(): nil
-            )
+            ).ignoresSafeArea()
         }
         .navigationBarHidden(true)
+
     }
 }
 
