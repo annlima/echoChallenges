@@ -20,7 +20,6 @@ struct electionTabBarView: View {
 
     var tabList: [String] //vistas
     var body: some View {
-        
         HStack(spacing: 50) {
             ForEach(Array(zip(self.tabList.indices, self.tabList)),
                     id: \.0,

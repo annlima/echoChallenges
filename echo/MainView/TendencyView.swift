@@ -31,7 +31,6 @@ struct TendencyView: View {
                 Rectangle()
                     .foregroundStyle(.invertedColorPrincipal)
                     .frame(width: 350,height: 180)
-                    .opacity(0.3)
                     .cornerRadius(10)
                     
                 
