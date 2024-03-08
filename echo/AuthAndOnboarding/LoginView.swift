@@ -10,7 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
-    
+    @State private var shouldNavigate = false
     var body: some View {
         NavigationView{
             VStack {
@@ -43,10 +43,10 @@ struct LoginView: View {
                             .padding(.trailing, 24)
                     }
                 }
-                
+                NavigationLink(destination: Onboarding(), isActive: $shouldNavigate) { EmptyView() }
                 Button {
                     print("Inicia sesión")
-                    // Acción de inicio de sesión comentada
+                    self.shouldNavigate = true
                 } label: {
                     Text("Inicia sesión")
                         .font(.headline)
