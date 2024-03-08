@@ -22,7 +22,11 @@ struct MainScreenView: View {
                     .mainTabBarItem(tab: .leader, selection: $tabSelection)
                 ProfileView()
                     .mainTabBarItem(tab: .profile, selection: $tabSelection)
-            } 
+                /*
+                 RankView()
+                 .mainTabBarItem(tab: .ranking, selection: $tabSelection)
+                 */
+            }
         } .navigationBarBackButtonHidden(true)
     }
 }

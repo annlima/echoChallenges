@@ -26,6 +26,12 @@ struct CustomTextFieldStyle: TextFieldStyle {
 
 
 struct AnnotationInputView: View {
+    
+    private func endEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+
+    
     @StateObject private var locationManager = LocationManager()
     @Binding var showingInputForm: Bool
     @Binding var annotations: [ProblemAnnotation]
@@ -54,6 +60,9 @@ struct AnnotationInputView: View {
                     .border(Color("ColorPrincipal"), width: 2.5)
                     .cornerRadius(14)
                     .padding()
+                    .onTapGesture {
+                        self.endEditing()
+                    }
                 
                 HStack {
                     Text("Severidad del problema")

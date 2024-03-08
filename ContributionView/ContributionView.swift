@@ -173,6 +173,8 @@ struct VoteView: View {
             Button("Firmar")
             {
                 voted = true
+                //Clear TextEditor
+                comment = ""
             }
             .buttonStyle(.plain)
             .frame(width: 200,height: 50)
