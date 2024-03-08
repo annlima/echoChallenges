@@ -37,7 +37,7 @@ enum MainTabBarItem: Hashable { //items
         case .complaints: return "Denuncias"
         case .map: return "Mapa"
         case .leader: return "Líder"
-        case . ranking: return "Ranking"
+        case . ranking: return "Top"
         }
     }
     

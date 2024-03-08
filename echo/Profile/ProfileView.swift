@@ -162,14 +162,6 @@ struct ProfileView: View {
                         
                         Spacer()
                         
-                        Button {
-                            withAnimation {
-                                self.badgeEarned.toggle()
-                            }
-                        } label: {
-                            Text("...")
-                        }
-                        
                     }
                     .padding()
                 }
@@ -181,9 +173,7 @@ struct ProfileView: View {
             .navigationDestination(isPresented: $navigateToLogIn) {
                 LoginView()
             }
-            .overlay(
-                badgeEarned ? BadgeEarnedView(): nil
-            ).ignoresSafeArea()
+            .ignoresSafeArea()
         }
         .navigationBarHidden(true)
 
