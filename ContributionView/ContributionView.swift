@@ -80,6 +80,7 @@ struct VoteView: View {
     @State var voted:Bool = false
     private let tabList:  [String] = ["Comentario","Foto"]
     @State private var currentTab: Int = options.zero.rawValue
+    @State private var image: UIImage?
     var body: some View
 
     {
@@ -171,7 +172,7 @@ struct VoteView: View {
 
             case options.one.rawValue:
 
-                CameraView()
+                CameraView(image: $image)
 
             default:
 

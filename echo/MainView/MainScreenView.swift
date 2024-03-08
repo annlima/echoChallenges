@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainScreenView: View {
-    @EnvironmentObject var cameraModel: CameraViewModel
     @State private var tabSelection: MainTabBarItem = .complaints
 
     var body: some View {
