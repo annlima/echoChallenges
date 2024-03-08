@@ -41,46 +41,50 @@ struct FeedView: View {
         
         NavigationView{
             ScrollView{
-                VStack{
-                    Carousel(news: newslist)
-                    electionTabBarView(currentTab: $currentTab,tabList: tabList)
-                        .frame(maxWidth: .infinity)
-                        .frame(alignment: .center)
-                        .padding(.top,100)
-                        .padding()
-                    switch currentTab {
-                    case options.zero.rawValue:
-                        ForEach(communityTendencies, id: \.self) { tendency in
-                            NavigationLink (destination: ContributionView(tendency: tendency)){
-                                TendencyView(tendency: tendency)
-                                    .padding(.bottom)
-                            }
-                            .buttonStyle(.plain)
-                            .shadow(color: .gray, radius: 5, x: 0, y:2)
-                            
+                ZStack{
+                    VStack{
+                        Carousel(news: newslist)
+                        electionTabBarView(currentTab: $currentTab,tabList: tabList)
+                            .frame(maxWidth: .infinity)
+                            .frame(alignment: .center)
+                            .padding(.top,100)
+                            .padding()
+                        switch currentTab {
+                        case options.zero.rawValue:
+                            ForEach(communityTendencies, id: \.self) { tendency in
+                                NavigationLink (destination: ContributionView(tendency: tendency)){
+                                    TendencyView(tendency: tendency)
+                                        .padding(.bottom)
+                                }
+                                .buttonStyle(.plain)
+                                .shadow(color: .gray, radius: 5, x: 0, y:2)
                                 
-                        }
-                    case options.one.rawValue:
-                        ForEach(miniCommunityTendencies, id: \.self) { tendency in
-                            NavigationLink (destination: ContributionView(tendency: tendency)){
-                                TendencyView(tendency: tendency)
-                                    .padding(.bottom)
+                                    
                             }
-                            .buttonStyle(.plain)
-                            .shadow(color: .gray, radius: 5, x: 0, y:2)
+                        case options.one.rawValue:
+                            ForEach(miniCommunityTendencies, id: \.self) { tendency in
+                                NavigationLink (destination: ContributionView(tendency: tendency)){
+                                    TendencyView(tendency: tendency)
+                                        .padding(.bottom)
+                                }
+                                .buttonStyle(.plain)
+                                .shadow(color: .gray, radius: 5, x: 0, y:2)
 
-                            
                                 
+                                    
+                            }
+                        default:
+                            EmptyView()
                         }
-                    default:
-                        EmptyView()
+                        
+                        
+                        Spacer()
+                        
+                        
                     }
-                    
-                    
-                    Spacer()
-                    
-                    
+                                        
                 }
+                
             }
             
             

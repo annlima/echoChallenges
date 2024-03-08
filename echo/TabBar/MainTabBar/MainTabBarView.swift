@@ -46,7 +46,7 @@ extension MainTabBarView {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 24, height: 24)
-            Text(tab.buttonText)
+            //Text(tab.buttonText)
                 
         }
         .foregroundColor(localSelection == tab ? tab.color1: Color.gray)
@@ -67,7 +67,7 @@ extension MainTabBarView {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 24, height: 24)
-            Text(tab.buttonText)
+            //Text(tab.buttonText)
         }
         .foregroundColor(localSelection == tab ? tab.color1: Color.gray)
         .padding(.vertical, 8)

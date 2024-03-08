@@ -31,6 +31,7 @@ enum MainTabBarItem: Hashable { //items
         }
     }
     
+    /*
     var buttonText: String {
         switch self {
         case .profile: return "Perfil"
@@ -40,7 +41,8 @@ enum MainTabBarItem: Hashable { //items
         case . ranking: return "Top"
         }
     }
-    
+    */
+     
     var color1: Color {
         switch self {
         case .profile: return Color.colorPrincipal
