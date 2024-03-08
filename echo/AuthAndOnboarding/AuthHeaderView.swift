@@ -16,8 +16,7 @@ struct AuthHeaderView: View {
             WaveShape()
                 .fill(LinearGradient(gradient: Gradient(colors: [Color("ColorPrincipal").opacity(0.5), Color("ColorPrincipal")]), startPoint: .topLeading, endPoint: .bottomTrailing))
                 .frame(height: 300)
-                .edgesIgnoringSafeArea(.all) // Esto hace que la forma ondulada se extienda de esquina a esquina.
-            
+                .edgesIgnoringSafeArea(.all) 
             VStack {
                 Text(title1)
                     .font(.largeTitle)
