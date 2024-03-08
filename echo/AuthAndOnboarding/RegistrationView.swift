@@ -26,7 +26,7 @@ struct RegistrationView: View {
     @State private var password = ""
     @State private var checked = false
     @Environment(\.presentationMode) var presentationMode
-    
+    @State private var shouldNavigate = false
     var body: some View {
         NavigationView{
             VStack {
@@ -65,8 +65,9 @@ struct RegistrationView: View {
                 }
                 .padding(.horizontal, 30)
                 .padding(.top, -40)
+                NavigationLink(destination: Onboarding(), isActive: $shouldNavigate) { EmptyView() }
                 Button {
-                    print("Registrado")
+                    self.shouldNavigate = true
                 } label: {
                     Text("Regístrate")
                         .font(.headline)

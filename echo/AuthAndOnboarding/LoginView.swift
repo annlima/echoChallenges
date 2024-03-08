@@ -43,7 +43,7 @@ struct LoginView: View {
                             .padding(.trailing, 24)
                     }
                 }
-                NavigationLink(destination: Onboarding(), isActive: $shouldNavigate) { EmptyView() }
+                NavigationLink(destination: MainScreenView(), isActive: $shouldNavigate) { EmptyView() }
                 Button {
                     print("Inicia sesión")
                     self.shouldNavigate = true
@@ -79,6 +79,7 @@ struct LoginView: View {
             .navigationBarBackButtonHidden(true)
             .ignoresSafeArea()
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
