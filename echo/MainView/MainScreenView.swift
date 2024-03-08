@@ -20,6 +20,8 @@ struct MainScreenView: View {
                     .mainTabBarItem(tab: .complaints, selection: $tabSelection)
                 LeaderView()
                     .mainTabBarItem(tab: .leader, selection: $tabSelection)
+                RankView()
+                    .mainTabBarItem(tab: .ranking, selection: $tabSelection)
                 ProfileView()
                     .mainTabBarItem(tab: .profile, selection: $tabSelection)
             } 

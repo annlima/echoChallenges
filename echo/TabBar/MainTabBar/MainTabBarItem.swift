@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum MainTabBarItem: Hashable { //items
-    case  map, complaints, profile, leader
+    case  map, complaints, profile, leader, ranking
     
     var imageName: String {
         switch self {
@@ -17,6 +17,7 @@ enum MainTabBarItem: Hashable { //items
         case .complaints: return "eye"
         case .map: return "map"
         case .leader: return "person.badge.shield.checkmark"
+        case .ranking: return "medal"
         }
     }
     
@@ -26,6 +27,7 @@ enum MainTabBarItem: Hashable { //items
         case .complaints: return "eye.fill"
         case .map: return "map.fill"
         case .leader: return "person.badge.shield.checkmark.fill"
+        case .ranking: return "medal.fill"
         }
     }
     
@@ -35,6 +37,7 @@ enum MainTabBarItem: Hashable { //items
         case .complaints: return "Denuncias"
         case .map: return "Mapa"
         case .leader: return "Líder"
+        case . ranking: return "Ranking"
         }
     }
     
@@ -44,6 +47,7 @@ enum MainTabBarItem: Hashable { //items
         case .complaints: return Color.colorPrincipal
         case .map: return Color.colorPrincipal
         case .leader: return Color.colorPrincipal
+        case .ranking: return Color.colorPrincipal
         }
     }
 }
