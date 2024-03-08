@@ -76,6 +76,29 @@ func getTypeBadge(type: Int) -> String{
     }
 }
 
+func getAboutBadge(type: Int) -> String{
+    
+    switch type {
+    case 0:
+        return "El vocero: eres un miembro activo de tu comunidad"
+        
+    case 1:
+        return "El periodista: tu denuncia fue elegida"
+    
+    case 2:
+        return "Has hecho 30 denuncias"
+    
+    case 3:
+        return "Has hecho 20 denuncias"
+    
+    case 4:
+        return "Has hecho 10 denuncias"
+        
+    default:
+        return ""
+    }
+}
+
 struct Badge: View {
     
     var gradientStart = Color(red: 162.0 / 255.0, green: 214.0 / 255.0, blue: 5.0 / 255.0)

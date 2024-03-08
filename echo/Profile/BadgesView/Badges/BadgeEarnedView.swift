@@ -81,9 +81,11 @@ struct BadgeEarnedView: View {
                     Text("Felicidades")
                         .font(.title)
                         .bold()
+                        .foregroundColor(.black)
                     
                     Text("Has hecho 10 denuncias")
                         .font(.title2)
+                        .foregroundColor(.black)
                     
                 }
                 .padding(.vertical, 120)
@@ -115,6 +117,7 @@ struct BadgeEarnedView: View {
                         dismiss()
                     } label: {
                         Text("Continuar")
+                            .foregroundColor(.black)
                     }
                     .buttonStyle(.plain)
                     .padding(.vertical, 20)

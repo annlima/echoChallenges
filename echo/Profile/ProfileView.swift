@@ -3,7 +3,7 @@ import MapKit
 
 struct ProfileView: View {
     
-    let profile: Profile = .test
+    let profile: Profile = .andy
     @State var text: String = ""
     @State private var isSelectedPosts = true
     @State private var isSelectedComplaint = false
@@ -63,7 +63,7 @@ struct ProfileView: View {
                         profile.profilePhoto
                             .resizable()
                             .scaledToFit()
-                            .frame(height: 150)
+                            .frame(width: 150, height: 150)
                             .clipShape(.circle)
                             .padding(4)
                             .background {
@@ -118,7 +118,7 @@ struct ProfileView: View {
                                     ForEach(0 ..< profile.badges.count, id: \.self) { value in
                                         
                                         VStack {
-                                            getBadge(type: value, width: 60)
+                                            getBadge(type: profile.badges[value], width: 60)
                                                 .frame(width: 60, height: 60)
                                                 .shadow(color: .gray, radius: 1, x: 0, y: 2)
                                                 .alert(self.text, isPresented: $showingBadge) {
@@ -126,11 +126,11 @@ struct ProfileView: View {
                                                     
                                                 }
                                                 .onTapGesture(perform: {
-                                                    self.text = getTypeBadge(type: value)
+                                                    self.text = getAboutBadge(type: profile.badges[value])
                                                     self.showingBadge.toggle()
                                                 })
                                             
-                                            Text(getTypeBadge(type: value))
+                                            Text(getTypeBadge(type: profile.badges[value]))
                                                 .font(.caption)
                                                 .bold()
                                                 .multilineTextAlignment(.center)

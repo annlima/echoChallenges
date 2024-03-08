@@ -26,47 +26,106 @@ struct Profile {
     let reunions: [Reunion]?
     let experiences: [Experience]?
     let badges: [Int]
-    
-    
 }
 
 extension Profile {
     
-    static var leader: Profile {
+    static var andy: Profile {
         Profile(
-            name: "Juan Pérez",
+            name: "Andrea Lima",
             headline: "Estudiante de Ing. Sistemas Computacionales @ UDLAP",
             about: "Me gusta comer Sushi y ayudar a mi comunidad a solucionar problemas medio ambientales",
-            backgroundPhoto: Image(.leaderBackground),
+            backgroundPhoto: Image(.userBackground),
             profilePhoto: Image(.userPhoto),
             isVerified: true,
             location: "San Andrés Cholula, Puebla, México",
-            age: 21,
-            ig: "juan.perez01",
-            tw: "juan.pp",
-            fb: "juan.p1",
+            age: 20,
+            ig: "andy.lima10",
+            tw: "andy-lima",
+            fb: "andylima",
             
             posts: [
                 Post.test,
                 Post.test
             ],
             complaints: [
-                Complaint.test,
-                Complaint.test
+                Complaint.test3
             ],
             reunions: [
-                Reunion.test,
-                Reunion.test
+                Reunion.none
             ],
             experiences: [
-                Experience.test,
-                Experience.test
+                Experience.none
             ],
-            badges: [0, 1, 2, 3, 4]
+            badges: [2, 3, 4]
             
         )
     }
-        
+    
+    static var dicka: Profile {
+        Profile(
+            name: "Dicka Lezama",
+            headline: "Estudiante de Ing. Sistemas Computacionales @ UDLAP",
+            about: "Me gusta comer Sushi y ayudar a mi comunidad a solucionar problemas medio ambientales",
+            backgroundPhoto: Image(.dickaBg),
+            profilePhoto: Image(.dickaPhoto),
+            isVerified: true,
+            location: "San Andrés Cholula, Puebla, México",
+            age: 20,
+            ig: "dicklz",
+            tw: "dickalz01",
+            fb: "dicka-lz",
+            
+            posts: [
+                Post.test,
+                Post.test
+            ],
+            complaints: [
+                Complaint.test3
+            ],
+            reunions: [
+                Reunion.none
+            ],
+            experiences: [
+                Experience.none
+            ],
+            badges: [3, 4]
+            
+        )
+    }
+    
+    static var azu: Profile {
+        Profile(
+            name: "Azuany Mila",
+            headline: "Estudiante de Ing. Sistemas Computacionales @ UDLAP",
+            about: "Me gusta ver One Piece y el desarrollo de apps",
+            backgroundPhoto: Image(.azuBg),
+            profilePhoto: Image(.azuPhoto),
+            isVerified: true,
+            location: "Puebla, Puebla, México",
+            age: 19,
+            ig: "azu.any",
+            tw: "azuany",
+            fb: "azuany.mila",
+            
+            posts: [
+                Post.test,
+                Post.test
+            ],
+            complaints: [
+                Complaint.test3
+            ],
+            reunions: [
+                Reunion.none
+            ],
+            experiences: [
+                Experience.none
+            ],
+            badges: [4]
+            
+        )
+    }
+    
     static var test: Profile {
         Profile(
             name: "Catherine",
@@ -94,8 +153,7 @@ extension Profile {
                 Reunion.test
             ],
             experiences: [
-                Experience.test,
-                Experience.test
+                Experience.none
             ],
             badges: [0, 1, 2, 3, 4]
             

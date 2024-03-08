@@ -77,10 +77,20 @@ struct LeaderMoreInfoView: View {
                     
                     Divider()
                     
-                    Text("Proyectos")
+                    Text("Projectos")
                         .font(.title)
                         .bold()
                     
+                    VStack(alignment: .leading, spacing: 5) {
+                        ForEach(profile.projects ?? [Project.none]) { project in
+                            Text(project.name)
+                                .bold()
+                            
+                            Text(project.about)
+                            
+                            Spacer()
+                        }
+                    }
                 }
             }
             .padding()
@@ -94,8 +104,12 @@ struct LeaderMoreInfoView: View {
 
 extension Experience {
     
-    static var test : Experience {
-        Experience(role: "Lider de comunidad", organization: "Echomunnity", date: "Febrero 2024 - presente")
+    static var leader : Experience {
+        Experience(role: "Lider de comunidad", organization: "Ecomunnity", date: "Febrero 2024 - presente")
+    }
+    
+    static var service : Experience {
+        Experience(role: "Servicio comunitario", organization: "UDLAP", date: "Agosto 2023 - presente")
     }
     
     static var none : Experience {
@@ -108,6 +122,11 @@ extension Project {
     
     static var test : Project {
         Project(name: "Jardín en tu casa",
+                about: "Este proyecto permite a los usuarios conocer más  ")
+    }
+    
+    static var app : Project {
+        Project(name: "Ecommunity",
                 about: "Estre proyecto se enfoca en dejar a los usuarios crear ")
     }
     
