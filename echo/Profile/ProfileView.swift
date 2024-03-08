@@ -118,18 +118,28 @@ struct ProfileView: View {
                                     
                                     ForEach(0 ..< profile.badges.count, id: \.self) { value in
                                         
-                                        getBadge(type: value, width: 60)
-                                            .frame(width: 60, height: 60)
-                                            .shadow(color: .gray, radius: 1, x: 0, y: 2)
-                                            .alert(self.text, isPresented: $showingBadge) {
-                                                Button("OK", role: .cancel) { }
-                                                
-                                            }
-                                            .onTapGesture(perform: {
-                                                self.text = getTypeBadge(type: value)
-                                                self.showingBadge.toggle()
-                                            })
-                                        
+                                        VStack {
+                                            getBadge(type: value, width: 60)
+                                                .frame(width: 60, height: 60)
+                                                .shadow(color: .gray, radius: 1, x: 0, y: 2)
+                                                .alert(self.text, isPresented: $showingBadge) {
+                                                    Button("OK", role: .cancel) { }
+                                                    
+                                                }
+                                                .onTapGesture(perform: {
+                                                    self.text = getTypeBadge(type: value)
+                                                    self.showingBadge.toggle()
+                                                })
+                                            
+                                            Text(getTypeBadge(type: value))
+                                                .font(.caption)
+                                                .bold()
+                                                .multilineTextAlignment(.center)
+                                                .fixedSize(horizontal: false, vertical: true)
+                                                .frame(width: 90)
+                                            
+                                        }
+                                        .padding(.horizontal, 4)
                                     }
                                 }
                             }
