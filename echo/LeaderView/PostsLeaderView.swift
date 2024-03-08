@@ -18,10 +18,9 @@ struct PostsLeaderView: View {
             
             Text(post.text)
                 
-            
             post.photo?
                 .resizable()
-                .frame(width: 100, height: 100)
+                .scaledToFit()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()

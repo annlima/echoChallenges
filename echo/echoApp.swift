@@ -15,6 +15,8 @@ struct echoApp: App {
     }
     var body: some Scene {
         WindowGroup {
+            
+            
             Onboarding()
                 .environmentObject(locationManager)
         }

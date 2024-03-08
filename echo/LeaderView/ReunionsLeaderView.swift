@@ -8,12 +8,7 @@
 import SwiftUI
 import Foundation
 
-struct Reunion: Identifiable {
-    let id = UUID()
-    let date: Date
-    let topic: String
-    let result: String
-}
+
 
 struct ReunionsLeaderView: View {
     
@@ -42,21 +37,4 @@ struct ReunionsLeaderView: View {
 #Preview {
     ReunionsLeaderView()
         .environment(\.locale, Locale(identifier: "es"))
-}
-
-extension Reunion {
-    
-    static var test: Reunion {
-        Reunion(
-            date: Date.now,
-            topic: "Más basureros en el parque",
-            result: "Se acordaron poner 15 basureros más en el parque.")
-    }
-    
-    static var none: Reunion {
-        Reunion(
-            date: Date.now,
-            topic: "No hay juntas",
-            result: "...")
-    }
 }

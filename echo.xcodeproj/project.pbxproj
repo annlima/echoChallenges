@@ -16,6 +16,8 @@
 		731BF4C12B9A33B1004C949A /* BadgeEarnedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731BF4C02B9A33B1004C949A /* BadgeEarnedView.swift */; };
 		731BF4C32B9AC253004C949A /* Leader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731BF4C22B9AC253004C949A /* Leader.swift */; };
 		731BF4C52B9AC53A004C949A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731BF4C42B9AC53A004C949A /* Post.swift */; };
+		731BF4C82B9AD146004C949A /* Reunion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731BF4C72B9AD146004C949A /* Reunion.swift */; };
+		731BF4CA2B9AD5D7004C949A /* Complaint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731BF4C92B9AD5D7004C949A /* Complaint.swift */; };
 		73CFAA2C2B92485F005E48A7 /* LeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA2B2B92485F005E48A7 /* LeaderView.swift */; };
 		73CFAA2E2B92653F005E48A7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA2D2B92653F005E48A7 /* Utils.swift */; };
 		73CFAA322B92A9DD005E48A7 /* PostsLeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CFAA312B92A9DD005E48A7 /* PostsLeaderView.swift */; };
@@ -94,6 +96,8 @@
 		731BF4C02B9A33B1004C949A /* BadgeEarnedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeEarnedView.swift; sourceTree = "<group>"; };
 		731BF4C22B9AC253004C949A /* Leader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leader.swift; sourceTree = "<group>"; };
 		731BF4C42B9AC53A004C949A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		731BF4C72B9AD146004C949A /* Reunion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reunion.swift; sourceTree = "<group>"; };
+		731BF4C92B9AD5D7004C949A /* Complaint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complaint.swift; sourceTree = "<group>"; };
 		73CFAA2B2B92485F005E48A7 /* LeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderView.swift; sourceTree = "<group>"; };
 		73CFAA2D2B92653F005E48A7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		73CFAA312B92A9DD005E48A7 /* PostsLeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsLeaderView.swift; sourceTree = "<group>"; };
@@ -182,14 +186,24 @@
 			path = ContributionView;
 			sourceTree = "<group>";
 		};
+		731BF4C62B9AD130004C949A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				731BF4C22B9AC253004C949A /* Leader.swift */,
+				731BF4C42B9AC53A004C949A /* Post.swift */,
+				731BF4C92B9AD5D7004C949A /* Complaint.swift */,
+				731BF4C72B9AD146004C949A /* Reunion.swift */,
+				73DC90F62B990D3700578AF9 /* PhotoPicker.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		73CFAA2A2B924808005E48A7 /* LeaderView */ = {
 			isa = PBXGroup;
 			children = (
+				731BF4C62B9AD130004C949A /* Models */,
 				73CFAA2B2B92485F005E48A7 /* LeaderView.swift */,
-				731BF4C22B9AC253004C949A /* Leader.swift */,
-				731BF4C42B9AC53A004C949A /* Post.swift */,
 				73DC91002B99680F00578AF9 /* LeaderStatistics.swift */,
-				73DC90F62B990D3700578AF9 /* PhotoPicker.swift */,
 				73DC90F82B990DB900578AF9 /* LeaderProblems.swift */,
 				73DC90FA2B990DE800578AF9 /* NewPostView.swift */,
 				73DC90FC2B990E0000578AF9 /* NewReunionView.swift */,
@@ -528,6 +542,7 @@
 				9B44711B2B97BA60009CD897 /* MyPlaceView.swift in Sources */,
 				9BB126E32B94A708007E5E86 /* LocationManager.swift in Sources */,
 				9B78C0BB2B8BD4BA003B8323 /* BadgeSymbol.swift in Sources */,
+				731BF4CA2B9AD5D7004C949A /* Complaint.swift in Sources */,
 				9BD6945A2B8BDC580014AD5C /* MainTabBarItemPreferenceKey.swift in Sources */,
 				A1346F742B9A828300CEBE97 /* CameraView.swift in Sources */,
 				9B78C0C32B8BD53C003B8323 /* BadgesView.swift in Sources */,
@@ -552,6 +567,7 @@
 				73DC90FF2B993DD700578AF9 /* Profile.swift in Sources */,
 				9BB126E72B94A75B007E5E86 /* MapView.swift in Sources */,
 				73DC90F72B990D3700578AF9 /* PhotoPicker.swift in Sources */,
+				731BF4C82B9AD146004C949A /* Reunion.swift in Sources */,
 				A19F943C2B87A18F001A31B6 /* LoginView.swift in Sources */,
 				A19F943A2B87A14E001A31B6 /* LaunchScreen.swift in Sources */,
 				9B78C0B92B8BD4A4003B8323 /* BadgeBackground.swift in Sources */,
@@ -739,7 +755,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Andy.echo.v;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Andy.echo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -772,7 +788,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Andy.echo.v;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Andy.echo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

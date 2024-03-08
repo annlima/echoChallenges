@@ -25,6 +25,7 @@ struct LeaderProfile {
     let complaints: [Complaint]?
     let reunions: [Reunion]?
     let experiences: [Experience]?
+    let projects: [Project]?
     let badges: [Int]
 }
 
@@ -56,8 +57,12 @@ extension LeaderProfile {
                 Reunion.test
             ],
             experiences: [
-                Experience.test,
-                Experience.test
+                Experience.leader,
+                Experience.service
+            ],
+            projects: [
+                Project.test,
+                Project.app
             ],
             badges: [0, 1, 2, 3, 4]
             
@@ -68,7 +73,7 @@ extension LeaderProfile {
     static var fer: LeaderProfile {
         LeaderProfile(
             name: "Fer Ahuatzin",
-            headline: "Estudiante de Ing. Sistemas Computacionales @ UDLAP",
+            headline: "Estudiante de Ing. Sistemas Computacionales y de Ecología",
             about: "Me gusta comer Sushi y ayudar a mi comunidad a solucionar problemas medio ambientales",
             backgroundPhoto: Image(.leaderBackground),
             profilePhoto: Image(.leaderPhoto),
@@ -89,11 +94,15 @@ extension LeaderProfile {
             ],
             reunions: [
                 Reunion.test,
-                Reunion.test
+                Reunion.test2
             ],
             experiences: [
-                Experience.test,
-                Experience.test
+                Experience.leader,
+                Experience.service
+            ],
+            projects: [
+                Project.test,
+                Project.app
             ],
             badges: [0, 1, 2, 3, 4]
             
