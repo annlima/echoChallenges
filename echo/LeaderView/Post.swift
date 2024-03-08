@@ -29,6 +29,7 @@ extension Post {
         )
     }
     
+    
     static var leader1: Post {
         
         Post(
@@ -36,6 +37,7 @@ extension Post {
             photo: Image(.capibara)
         )
     }
+    
     
     static var leader2: Post {
         

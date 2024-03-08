@@ -30,7 +30,7 @@ extension CLLocationCoordinate2D {
     static func getUserLocation(locationManager: LocationManager) -> CLLocationCoordinate2D {
             guard let location = locationManager.currentLocation else {
                 // Return a default location if current location is nil
-                return .init(latitude: 19.04802, longitude: -98.29617)
+                return .init(latitude: 19.0543, longitude: -98.2837)
             }
         return .init(latitude: location.latitude, longitude: location.longitude)
     }
@@ -109,7 +109,7 @@ struct MapView: View {
     var body: some View {
         ZStack {
 
-            Map(coordinateRegion: $cameraPosition, annotationItems: annotations) { annotation in
+            Map(coordinateRegion: $cameraPosition, interactionModes: .all, annotationItems: annotations) { annotation in
                 MapAnnotation(coordinate: annotation.coordinate) {
                     Image(systemName: "pin.fill")
                         .foregroundColor(color(for: annotation.criticality))

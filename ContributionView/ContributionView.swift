@@ -173,6 +173,7 @@ struct VoteView: View {
             Button("Firmar")
             {
                 voted = true
+                comment = ""
             }
             .buttonStyle(.plain)
             .frame(width: 200,height: 50)
