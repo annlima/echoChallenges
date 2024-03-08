@@ -8,11 +8,14 @@ import SwiftUI
 import MapKit
 import AVFoundation
 
+
 struct CustomTextFieldStyle: TextFieldStyle {
+    @Environment(\.colorScheme) var colorScheme
+    
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .padding()
-            .background(Color.white)
+            .background(colorScheme == .dark ? Color(UIColor.systemBackground) : Color.white)
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(Color("ColorPrincipal"), lineWidth: 2.5)
@@ -20,6 +23,7 @@ struct CustomTextFieldStyle: TextFieldStyle {
             .padding()
     }
 }
+
 
 struct AnnotationInputView: View {
     @StateObject private var locationManager = LocationManager()
@@ -66,7 +70,7 @@ struct AnnotationInputView: View {
                     Spacer()
                     
                     NavigationLink(destination: CameraView(image: $image)) {
-                        Text("Agregar imagen") 
+                        Text("Agregar imagen")
                     }
                     .buttonStyle(.bordered)
                     .foregroundColor(Color("ColorPrincipal"))
@@ -92,7 +96,7 @@ struct AnnotationInputView: View {
                         annotations.append(newAnnotation)
                         showingInputForm = false
                         
-                        // Clear the text fields
+                        // Clear the textfields
                         title = ""
                         description = ""
                     }
@@ -108,6 +112,3 @@ struct AnnotationInputView: View {
         }
     }
 }
-
-
-
