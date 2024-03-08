@@ -9,13 +9,22 @@ import SwiftUI
 import MapKit
 
 
-struct Complaint: Identifiable {
+struct Complaint: Identifiable, Equatable {
     let id = UUID()
     let title: String
     let text: String
     let photo: Image
     let category: String
     let location: CLLocation
+    
+    // Implementación del protocolo Equatable
+    static func ==(lhs: Complaint, rhs: Complaint) -> Bool {
+        return lhs.id == rhs.id &&
+               lhs.title == rhs.title &&
+               lhs.text == rhs.text &&
+               lhs.category == rhs.category &&
+               lhs.location == rhs.location
+    }
 }
 
 
