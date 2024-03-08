@@ -78,7 +78,7 @@ struct LocationPermissionTab: View {
                 .padding(.top, 20)
                 .padding(.bottom, 1)
                 .multilineTextAlignment(.center)
-            Text("Necesitamos acceso a tu ubicación, para que puedas denunciar en donde te encuentras.")
+            Text("Necesitamos acceso a tu ubicación para que puedas denunciar en el lugar que te encuentras.")
                 .font(.system(size: 20))
                 .foregroundColor(.white)
                 .bold()
@@ -113,7 +113,7 @@ struct WelcomeTab: View {
                 .padding(.top, 20) // Espacio reducido arriba del título
                 .padding(.bottom, 1)
                 .multilineTextAlignment(.center)
-            Text("El lugar donde tú puedes hacer el cambio por tu comunidad")
+            Text("El lugar donde tú puedes hacer el cambio por tu comunidad.")
                 .font(.system(size: 20))
                 .foregroundColor(.white) // Color del texto
                 .bold()
@@ -134,7 +134,7 @@ struct ChallengesTab: View {
 // MARK: - ShareTab
 struct ShareTab: View {
     var body: some View {
-        tabViewTemplate(imageName: "person.3.fill", title: "Elige un líder", description: "Sé o vota por una personas que llevará todos los casos relevantes al Ayuntamiento")
+        tabViewTemplate(imageName: "person.3.fill", title: "Elige un líder", description: "Sé o vota por una persona que llevará todos los casos relevantes al Ayuntamiento.")
     }
 }
 
