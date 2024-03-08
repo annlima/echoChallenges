@@ -22,8 +22,8 @@ struct MainScreenView: View {
                     .mainTabBarItem(tab: .leader, selection: $tabSelection)
                 ProfileView()
                     .mainTabBarItem(tab: .profile, selection: $tabSelection)
-            }
-        }
+            } 
+        } .navigationBarBackButtonHidden(true)
     }
 }
 
