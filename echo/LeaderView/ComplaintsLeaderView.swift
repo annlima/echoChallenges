@@ -9,13 +9,24 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-struct Complaint: Identifiable {
+struct Complaint: Identifiable, Equatable {
     let id = UUID()
     let title: String
     let text: String
     let photo: Image
     let category: String
     let location: CLLocation
+
+    // Implementación del protocolo Equatable
+    static func ==(lhs: Complaint, rhs: Complaint) -> Bool {
+        return lhs.id == rhs.id &&
+               lhs.title == rhs.title &&
+               lhs.text == rhs.text &&
+               lhs.category == rhs.category &&
+               lhs.location == rhs.location
+        // Aquí asumo que Image y CLLocation son equatables
+        // Si no lo son, deberías implementar Equatable para esas estructuras también.
+    }
 }
 
 struct ComplaintsLeaderView: View {
