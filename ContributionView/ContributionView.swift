@@ -44,7 +44,15 @@ struct ContributionView: View {
 
 #Preview {
 
-    ContributionView(tendency: Tendency(description: "Esquina 7Nte y 22Pte con exceso de basura", detailedDescription: "En las últimas semanas los vecinos de las calles 7Nte y 22Pte han observado que el camión de la basura no ha pasado generando un exceso de basura.", image: Image(.tendency1), votes: 104))
+    ContributionView(tendency: Tendency(description: "Esquina 7Nte y 22Pte con exceso de basura", detailedDescription: "En las últimas semanas los vecinos de las calles 7Nte y 22Pte han observado que el camión de la basura no ha pasado generando un exceso de basura.", complaint: [ Complaint(title: "Basura acumulada",
+                                                                                                                                                                                                                                                                                                               text: "Hay basura acumulada afuera de una casa",
+                                                                                                                                                                                                                                                                                                               photo: Image(.tendency2),
+                                                                                                                                                                                                                                                                                                               category: "low",
+                                                                                                                                                                                                                                                                                                               location: CLLocation(latitude: 19.052079853258167, longitude: -98.28510777831497)), Complaint(title: "Basura acumulada",
+                                                                                                                                                                                                                                                                                                                                                                                                             text: "Hay basura acumulada afuera de una casa",
+                                                                                                                                                                                                                                                                                                                                                                                                             photo: Image(.tendency2),
+                                                                                                                                                                                                                                                                                                                                                                                                             category: "low",
+                                                                                                                                                                                                                                                                                                                                                                                                             location: CLLocation(latitude: 19.052079853258167, longitude: -98.28510777831497))],image: Image(.tendency1), votes: 104))
 
 }
 
@@ -54,30 +62,10 @@ struct ContributionView: View {
 
 struct VoteView: View {
 
-    var complaints:[Complaint] = [ Complaint(title: "Basura acumulada",
-                                             text: "Hay basura acumulada afuera de una casa",
-                                             photo: Image(.tendency2),
-                                             category: "low",
-                                             location: CLLocation(latitude: 19.052079853258167, longitude: -98.28510777831497)),Complaint(title: "Basura acumulada",
-                                                                                                                                          text: "Hay basura acumulada afuera de una casa",
-                                                                                                                                          photo: Image(.tendency2),
-                                                                                                                                          category: "low",
-                                                                                                                                          location: CLLocation(latitude: 19.052079853258167, longitude: -98.28510777831497)),Complaint(title: "Basura acumulada",
-                                                                                                                                                                                                                                       text: "Hay basura acumulada afuera de una casa",
-                                                                                                                                                                                                                                       photo: Image(.tendency2),
-                                                                                                                                                                                                                                       category: "low",
-                                                                                                                                                                                                                                       location: CLLocation(latitude: 19.052079853258167, longitude: -98.28510777831497)),Complaint(title: "Basura acumulada",
-                                                                                                                                                                                                                                                                                                                                    text: "Hay basura acumulada afuera de una casa",
-                                                                                                                                                                                                                                                                                                                                    photo: Image(.tendency2),
-                                                                                                                                                                                                                                                                                                                                    category: "low",
-                                                                                                                                                                                                                                                                                                                                    location: CLLocation(latitude: 19.052079853258167, longitude: -98.28510777831497)),Complaint(title: "Basura acumulada",
-                                                                                                                                                                                                                                                                                                                                                                                                                                 text: "Hay basura acumulada afuera de una casa",
-                                                                                                                                                                                                                                                                                                                                                                                                                                 photo: Image(.tendency2),
-                                                                                                                                                                                                                                                                                                                                                                                                                                 category: "low",
-                                                                                                                                                                                                                                                                                                                                                                                                                                 location: CLLocation(latitude: 19.052079853258167, longitude: -98.28510777831497))]
     var tendency: Tendency
     @State var comment: String = ""
     @State var voted:Bool = false
+    @State var photo:Bool = false
     private let tabList:  [String] = ["Comentario","Foto"]
     @State private var currentTab: Int = options.zero.rawValue
     @State private var image: UIImage?
@@ -135,20 +123,22 @@ struct VoteView: View {
 
             
 
-            ScrollView(.horizontal){
-
-                HStack{
-
-                    ForEach(0 ..< complaints.count, id: \.self) { value in
-
-                        complaintSnippetView(complaints: complaints, index: value)
+            HStack{
+                Spacer()
+                    ScrollView(.horizontal){
                         
+                        HStack {
+                            Spacer()
+                            ForEach(0 ..< tendency.complaint.count, id: \.self) { value in
 
-                            
+                                complaintSnippetView(complaints: tendency.complaint, index: value)   
+                                    .padding(.horizontal,10)
+                            }
+                            Spacer()
+                        }
+         
                     }
-
-                }
-                
+                Spacer()
 
             }
             
@@ -171,9 +161,9 @@ struct VoteView: View {
 
 
             case options.one.rawValue:
-
                 CameraView(image: $image)
 
+                
             default:
 
                 EmptyView()
