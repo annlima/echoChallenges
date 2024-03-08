@@ -67,6 +67,7 @@
 		A19F942D2B87A140001A31B6 /* echoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F942C2B87A140001A31B6 /* echoUITestsLaunchTests.swift */; };
 		A19F943A2B87A14E001A31B6 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F94392B87A14E001A31B6 /* LaunchScreen.swift */; };
 		A19F943C2B87A18F001A31B6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F943B2B87A18F001A31B6 /* LoginView.swift */; };
+		A1F713822B9B8976009F681A /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F713812B9B8976009F681A /* RankView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,7 @@
 		A19F942C2B87A140001A31B6 /* echoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = echoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A19F94392B87A14E001A31B6 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		A19F943B2B87A18F001A31B6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A1F713812B9B8976009F681A /* RankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,7 +331,6 @@
 		A19F94032B87A13D001A31B6 = {
 			isa = PBXGroup;
 			children = (
-				06E534212B99144D00F0A7F4 /* ContributionView */,
 				A19F940E2B87A13D001A31B6 /* echo */,
 				A19F941F2B87A140001A31B6 /* echoTests */,
 				A19F94292B87A140001A31B6 /* echoUITests */,
@@ -350,6 +351,8 @@
 		A19F940E2B87A13D001A31B6 /* echo */ = {
 			isa = PBXGroup;
 			children = (
+				A1F713802B9B8928009F681A /* RankView */,
+				06E534212B99144D00F0A7F4 /* ContributionView */,
 				9BB126E12B94A6E8007E5E86 /* MapView */,
 				73CFAA2D2B92653F005E48A7 /* Utils.swift */,
 				A17FCD732B8BEF3500B3D7CA /* AuthAndOnboarding */,
@@ -388,6 +391,14 @@
 				A19F942C2B87A140001A31B6 /* echoUITestsLaunchTests.swift */,
 			);
 			path = echoUITests;
+			sourceTree = "<group>";
+		};
+		A1F713802B9B8928009F681A /* RankView */ = {
+			isa = PBXGroup;
+			children = (
+				A1F713812B9B8976009F681A /* RankView.swift */,
+			);
+			path = RankView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -520,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F713822B9B8976009F681A /* RankView.swift in Sources */,
 				73DC91012B99680F00578AF9 /* LeaderStatistics.swift in Sources */,
 				9B78C0B72B8BD479003B8323 /* HexagonParameters.swift in Sources */,
 				9B78C0C12B8BD512003B8323 /* BadgeProtocol.swift in Sources */,
@@ -738,7 +750,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"echo/Preview Content\"";
-				DEVELOPMENT_TEAM = SAM2A296M4;
+				DEVELOPMENT_TEAM = D99DB5VWR6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -755,7 +767,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Andy.echo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Andy.echo.v;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -771,7 +783,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"echo/Preview Content\"";
-				DEVELOPMENT_TEAM = SAM2A296M4;
+				DEVELOPMENT_TEAM = D99DB5VWR6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -788,7 +800,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Andy.echo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Andy.echo.v;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
