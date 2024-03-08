@@ -4,9 +4,9 @@
 //
 //  Created by Dicka J. Lezama on 04/03/24.
 //
-
 import SwiftUI
 import MapKit
+import AVFoundation
 
 struct CustomTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
@@ -30,8 +30,7 @@ struct AnnotationInputView: View {
     @State private var description: String = ""
     @State private var criticality: ProblemAnnotation.Criticality = .baja
     let criticalityLevels: [ProblemAnnotation.Criticality] = [.baja, .media, .alta]
-    
-    
+    @State private var image: UIImage? // Estado para la imagen
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20){
@@ -66,14 +65,15 @@ struct AnnotationInputView: View {
                 HStack {
                     Spacer()
                     
-                    NavigationLink(destination: CameraHome()) {
-                        Text("Agregar imagen") //acceso a camara
+                    NavigationLink(destination: CameraView(image: $image)) {
+                        Text("Agregar imagen") 
                     }
-                     .buttonStyle(.bordered)
-                     .foregroundColor(Color("ColorPrincipal"))
-                     .padding()
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color("ColorPrincipal"))
+                    .padding()
                     
                     Spacer()
+                    
                 }
                
                 HStack {
