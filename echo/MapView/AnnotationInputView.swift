@@ -96,7 +96,7 @@ struct AnnotationInputView: View {
                         annotations.append(newAnnotation)
                         showingInputForm = false
                         
-                        // Clear the text fields
+                        // Clear the textfields
                         title = ""
                         description = ""
                     }
