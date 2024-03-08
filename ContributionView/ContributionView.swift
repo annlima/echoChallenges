@@ -149,33 +149,26 @@ struct VoteView: View {
                 .frame(alignment: .center)
                 .padding()
             
+            switch currentTab {
 
-            if photo {
-                NavigationLink(destination: CameraView(image: $image)) {
-                    EmptyView()
-                }
-                .frame(width: 0, height: 0)
-                .opacity(0)
-                .buttonStyle(PlainButtonStyle())
-                .simultaneousGesture(TapGesture().onEnded {
-                    photo = false
-                })
-            }
+            case options.zero.rawValue:
 
-            switch tabList.index(of: "Foto") {
-            case let index? where index == 1:
-                CameraView(image: $image)
-                    .onChange(of: image) { _ in
-                        photo = true
-                    }
-            default:
                 TextEditor(text: $comment)
-                    .frame(width: 300, height: 200)
+                    .frame(width: 300,height: 200)
                     .border(Color(.invertedColorPrincipal))
                     .padding()
-            }
+
+
+
+            case options.one.rawValue:
+                CameraView(image: $image)
 
                 
+            default:
+
+                EmptyView()
+
+            }
             
             Button("Firmar")
             {
