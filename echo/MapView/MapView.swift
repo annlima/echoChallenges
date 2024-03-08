@@ -108,7 +108,6 @@ struct MapView: View {
     
     var body: some View {
         ZStack {
-
             Map(coordinateRegion: $cameraPosition, interactionModes: .all, annotationItems: annotations) { annotation in
                 MapAnnotation(coordinate: annotation.coordinate) {
                     Image(systemName: "pin.fill")

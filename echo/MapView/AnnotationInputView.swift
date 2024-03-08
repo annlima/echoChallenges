@@ -70,7 +70,7 @@ struct AnnotationInputView: View {
                     Spacer()
                     
                     NavigationLink(destination: CameraView(image: $image)) {
-                        Text("Agregar imagen") 
+                        Text("Agregar imagen")
                     }
                     .buttonStyle(.bordered)
                     .foregroundColor(Color("ColorPrincipal"))

@@ -92,3 +92,4 @@ struct MyPlaceView_Previews: PreviewProvider {
         MyPlaceView(myPlace: .constant(CLLocationCoordinate2D(latitude: 19.04802, longitude: -98.29617)))
     }
 }
+
