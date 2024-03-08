@@ -70,9 +70,8 @@ struct ProfileView: View {
                                 Circle()
                                     .strokeBorder(Color.gray, lineWidth: 4) // Adds a border to the profile picture
                                     .background(Circle().foregroundColor(.white))
-                                    .frame(width: 100, height: 100)
+                                    .frame(width: 150, height: 150)
                                     .shadow(radius: 10) // Adds a shadow for depth
-                                    .padding(.top, 50)
                             }
                             .padding(.top, 70)
                         

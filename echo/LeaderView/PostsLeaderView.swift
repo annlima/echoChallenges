@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-struct Post: Identifiable {
-    let id = UUID()
-    let text: String
-    let photo: Image?
-}
-
 struct PostsLeaderView: View {
     
     var post: Post = .test
@@ -39,19 +33,3 @@ struct PostsLeaderView: View {
     PostsLeaderView()
 }
 
-extension Post {
-    static var test: Post {
-        
-        Post(
-            text: "Mi primera vez recolectando basura",
-            photo: Image(.leaderBackground)
-        )
-    }
-    
-    static var none: Post {
-        Post(
-            text: "Aún no hay posts",
-            photo: Image(systemName: "questionmark.app.dashed")
-        )
-    }
-}

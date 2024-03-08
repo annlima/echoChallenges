@@ -10,33 +10,9 @@ import MapKit
 import MessageUI
 
 
-// Leader definition
-struct LeaderProfile {
-    let name: String
-    let headline: String
-    let about: String
-    let backgroundPhoto: Image
-    let profilePhoto: Image
-    let isVerified: Bool
-    let location: String
-    let age: Int
-    let ig: String
-    let tw: String
-    let fb: String
-    
-    let posts: [Post]?
-    let complaints: [Complaint]?
-    let reunions: [Reunion]?
-    let experiences: [Experience]?
-    let badges: [Int]
-    
-    
-}
-
-
 struct LeaderView: View {
     
-    let profile: LeaderProfile = .test
+    let profile: LeaderProfile = .fer
     @State var text: String = ""
     
     @State var result: Result<MFMailComposeResult, Error>? = nil
@@ -73,9 +49,9 @@ struct LeaderView: View {
                             Circle()
                                 .strokeBorder(Color.gray, lineWidth: 4) // Adds a border to the profile picture
                                 .background(Circle().foregroundColor(.white))
-                                .frame(width: 100, height: 100)
+                                .frame(width: 150, height: 150)
                                 .shadow(radius: 10) // Adds a shadow for depth
-                                .padding(.top, 50)                        }
+                        }
                         .padding(.top, 70)
                     
                     HStack {
@@ -189,7 +165,7 @@ struct LeaderView: View {
                                 isSelected: $isSelectedPosts,
                                 text: "Posts")
                             .onTapGesture {
-                                isSelectedPosts.toggle()
+                                isSelectedPosts = true
                                 
                                 if isSelectedPosts {
                                     isSelectedComplaint = false
@@ -203,7 +179,7 @@ struct LeaderView: View {
                                 isSelected: $isSelectedComplaint,
                                 text: "Denuncias")
                             .onTapGesture {
-                                isSelectedComplaint.toggle()
+                                isSelectedComplaint = true
                                 
                                 if isSelectedComplaint {
                                     isSelectedPosts = false
@@ -216,7 +192,7 @@ struct LeaderView: View {
                                 isSelected: $isSelectedReunions,
                                 text: "Juntas")
                             .onTapGesture {
-                                isSelectedReunions.toggle()
+                                isSelectedReunions = true
                                 
                                 if isSelectedReunions {
                                     isSelectedPosts = false
@@ -309,42 +285,4 @@ struct LeaderView: View {
 
 #Preview {
     LeaderView()
-}
-
-extension LeaderProfile {
-    static var test: LeaderProfile {
-        LeaderProfile(
-            name: "Juan Pérez",
-            headline: "Estudiante de Ing. Sistemas Computacionales @ UDLAP",
-            about: "Me gusta comer Sushi y ayudar a mi comunidad a solucionar problemas medio ambientales",
-            backgroundPhoto: Image(.leaderBackground),
-            profilePhoto: Image(.leaderPhoto),
-            isVerified: true,
-            location: "San Andrés Cholula, Puebla, México",
-            age: 21,
-            ig: "juan.perez01",
-            tw: "juan.pp",
-            fb: "juan.p1",
-        
-            posts: [
-                Post.test,
-                Post.test
-            ],
-            complaints: [
-                Complaint.test,
-                Complaint.test2
-            ],
-            reunions: [
-                Reunion.test,
-                Reunion.test
-            ],
-            experiences: [
-                Experience.test,
-                Experience.test
-            ],
-            badges: [0, 1, 2, 3, 4]
-            
-        )
-    }
-    
 }
