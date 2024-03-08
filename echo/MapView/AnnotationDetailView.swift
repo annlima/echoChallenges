@@ -38,10 +38,14 @@ struct AnnotationDetailView: View {
                 VStack (spacing: 0){
                     Text("\(annotation.title)")
                         .font(.title)
+                        .fontWeight(.bold)
                         .padding()
                     Text("\(annotation.description)")
                         .padding()
+                    Text(annotation.address ?? "No se encontró dirección")
+                        .opacity(0.8)
                 }
+                .padding(.bottom)
                
             }
             
